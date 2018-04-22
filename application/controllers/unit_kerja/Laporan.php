@@ -28,7 +28,7 @@ class Laporan extends CI_Controller{
 
     $data['dataSOP'] = $this->m_kegiatanproses->showSOP($where)->result();
     $this->load->view('unit_kerja/include/v_laporan');
-    $this->load->view('unit_kerja/laporan/v_daftarResiko', $data);
+    $this->load->view('unit_kerja/laporan/v_laporanall', $data);
     $this->load->view('unit_kerja/include/footer');
   }
 

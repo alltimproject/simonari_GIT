@@ -72,160 +72,166 @@
 
     <div class="contentRISK">
        <legend>Daftar Risiko</legend>
-        <table class="table table-bordered table-hover">
-          <tr class="bg-blue">
-            <th>No</th>
-            <th>Kegiatan</th>
-            <th>Proses Bisnis</th>
-            <th>Risiko</th>
-            <th>Penyebab</th>
-            <th>Penanganan Yang Sudah Ada</th>
-            <th>Sisa Risiko</th>
-            <th>Kemungkinan</th>
-            <th>Dampak</th>
-            <th>Tingkat Risiko</th>
-            <th>Keterangan</th>
-          </tr>
+       <div class="table-responsive">
+         <table class="table table-bordered table-hover">
+           <tr class="bg-blue">
+             <th>No</th>
+             <th>Kegiatan</th>
+             <th>Proses Bisnis</th>
+             <th>Risiko</th>
+             <th>Penyebab</th>
+             <th>Penanganan Yang Sudah Ada</th>
+             <th>Sisa Risiko</th>
+             <th>Kemungkinan</th>
+             <th>Dampak</th>
+             <th>Tingkat Risiko</th>
+             <th>Keterangan</th>
+           </tr>
 
-      <?php foreach ($data as $risk) { ?>
-          <tr>
-            <?php
+       <?php foreach ($data as $risk) { ?>
+           <tr>
+             <?php
 
-              if($jum1 <= 1)
-              {
-                $jmlsop = $risk->rowskp;
-                if ($jmlsop == 0) {
-                  $jmlsop = 1;
-                }
-            ?>
-              <td rowspan="<?= $jmlsop ?>"><?= $nosop ?></td>
-              <td rowspan="<?= $jmlsop ?>"><?= $risk->nama_skp ?></td>
-            <?php
-                $jum1 = $risk->rowskp;
-                $nosop++;
-              } else {
-                $jum1 = $jum1 - 1;
-              }
+               if($jum1 <= 1)
+               {
+                 $jmlsop = $risk->rowskp;
+                 if ($jmlsop == 0) {
+                   $jmlsop = 1;
+                 }
              ?>
+               <td rowspan="<?= $jmlsop ?>"><?= $nosop ?></td>
+               <td rowspan="<?= $jmlsop ?>"><?= $risk->nama_skp ?></td>
+             <?php
+                 $jum1 = $risk->rowskp;
+                 $nosop++;
+               } else {
+                 $jum1 = $jum1 - 1;
+               }
+              ?>
 
-             <td><?= $risk->nama_sop ?></td>
-             <td><?= $risk->nama_risk ?></td>
-             <td><?= $risk->deskripsi_cause ?></td>
-             <td><?= $risk->deskripsi_pengendalian ?></td>
-             <td><?= $risk->sisa_risk ?></td>
-             <td><?= $risk->frekuensi ?></td>
-             <td><?= $risk->dampak ?></td>
-             <td><?= $risk->hitung ?></td>
-             <td>
-                <?php
+              <td><?= $risk->nama_sop ?></td>
+              <td><?= $risk->nama_risk ?></td>
+              <td><?= $risk->deskripsi_cause ?></td>
+              <td><?= $risk->deskripsi_pengendalian ?></td>
+              <td><?= $risk->sisa_risk ?></td>
+              <td><?= $risk->frekuensi ?></td>
+              <td><?= $risk->dampak ?></td>
+              <td><?= $risk->hitung ?></td>
+              <td>
+                 <?php
 
-                    if($risk->hitung == 0)
-                    {
-                      echo "<small>NULL</small>";
-                    }elseif($risk->hitung >= 1 && $risk->hitung <= 5 && $risk->dampak != 5)
-                    {
-                      echo "<small class='label pull-right bg-blue'>Sangat Rendah</small>";
-                    } elseif ($risk->hitung >= 6 && $risk->hitung <= 11 && $risk->dampak != 5)
-                    {
-                      echo "<small class='label pull-right bg-green'>Rendah</small>";
-                    } elseif ($risk->hitung >= 12 && $risk->hitung <= 15 && $risk->dampak != 5)
-                    {
-                      echo "<small class='label pull-right bg-yellow'>Sedang</small>";
-                    } elseif ($risk->hitung >= 16 && $risk->hitung <= 19 && $risk->dampak != 5) {
-                      echo "<small class='label pull-right bg-green'>Tinggi</small>";
-                    } else
-                    {
-                      echo "<small class='label pull-right bg-red'>Sangat Tinggi</small>";
-                    }
-                ?>
-             </td>
-          </tr>
-      <?php  } ?>
-        </table>
+                     if($risk->hitung == 0)
+                     {
+                       echo "<small>NULL</small>";
+                     }elseif($risk->hitung >= 1 && $risk->hitung <= 5 && $risk->dampak != 5)
+                     {
+                       echo "<small class='label pull-right bg-blue'>Sangat Rendah</small>";
+                     } elseif ($risk->hitung >= 6 && $risk->hitung <= 11 && $risk->dampak != 5)
+                     {
+                       echo "<small class='label pull-right bg-green'>Rendah</small>";
+                     } elseif ($risk->hitung >= 12 && $risk->hitung <= 15 && $risk->dampak != 5)
+                     {
+                       echo "<small class='label pull-right bg-yellow'>Sedang</small>";
+                     } elseif ($risk->hitung >= 16 && $risk->hitung <= 19 && $risk->dampak != 5) {
+                       echo "<small class='label pull-right bg-green'>Tinggi</small>";
+                     } else
+                     {
+                       echo "<small class='label pull-right bg-red'>Sangat Tinggi</small>";
+                     }
+                 ?>
+              </td>
+           </tr>
+       <?php  } ?>
+         </table>
+       </div>
     </div>
 
     <div class="contentRealisasi">
       <legend>Realisasi Penanganan Risiko</legend>
-       <table class="table table-bordered table-hover">
-         <tr class="bg-blue">
-           <th>No</th>
-           <th>Risiko</th>
-           <th>Penyebab</th>
-           <th>Kemungkinan</th>
-           <th>Dampak</th>
-           <th>Tingkat Risiko</th>
-           <th>Pengendalian Yang Sudah Ada</th>
-           <th>Rencana Penanganan</th>
-           <th>Mulai</th>
-           <th>Selesai</th>
-           <th>Output</th>
-           <th>PIC</th>
-           <th>Anggaran</th>
-           <th>Aksi</th>
-         </tr>
-    <?php $noreal = 1; ?>
-     <?php foreach ($realisasi as $real): ?>
-           <tr>
-             <td><?= $noreal++ ?></td>
-             <td><?= $real->nama_risk ?></td>
-             <td><?= $real->deskripsi_cause ?></td>
-             <td><?= $real->frekuensi ?></td>
-             <td><?= $real->dampak ?></td>
-             <td><?= $real->hitung ?></td>
-             <td><?= $real->deskripsi_pengendalian ?></td>
-             <td><?= $real->deskripsi_rtp ?></td>
-             <td><?= $real->plan_mulai ?></td>
-             <td><?= $real->plan_selesai ?></td>
-             <td><?= $real->indikator_output ?></td>
-             <td><?= $real->pic ?></td>
-             <td><?= $real->anggaran ?></td>
-             <td><a class="btn btn-info btn-md" id="buatRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>"> Realisasi </a></td>
-         </tr>
-     <?php  endforeach ?>
-       </table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <tr class="bg-blue">
+            <th>No</th>
+            <th>Risiko</th>
+            <th>Penyebab</th>
+            <th>Kemungkinan</th>
+            <th>Dampak</th>
+            <th>Tingkat Risiko</th>
+            <th>Pengendalian Yang Sudah Ada</th>
+            <th>Rencana Penanganan</th>
+            <th>Mulai</th>
+            <th>Selesai</th>
+            <th>Output</th>
+            <th>PIC</th>
+            <th>Anggaran</th>
+            <th>Aksi</th>
+          </tr>
+     <?php $noreal = 1; ?>
+      <?php foreach ($realisasi as $real): ?>
+            <tr>
+              <td><?= $noreal++ ?></td>
+              <td><?= $real->nama_risk ?></td>
+              <td><?= $real->deskripsi_cause ?></td>
+              <td><?= $real->frekuensi ?></td>
+              <td><?= $real->dampak ?></td>
+              <td><?= $real->hitung ?></td>
+              <td><?= $real->deskripsi_pengendalian ?></td>
+              <td><?= $real->deskripsi_rtp ?></td>
+              <td><?= $real->plan_mulai ?></td>
+              <td><?= $real->plan_selesai ?></td>
+              <td><?= $real->indikator_output ?></td>
+              <td><?= $real->pic ?></td>
+              <td><?= $real->anggaran ?></td>
+              <td><a class="btn btn-info btn-md" id="buatRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>"> Realisasi </a></td>
+          </tr>
+      <?php  endforeach ?>
+        </table>
+      </div>
     </div>
 
     <div class="contentRTP">
       <legend>Rencana Penanganan Risiko </legend>
-      <table class="table table-bordered table-hover">
-        <tr class="bg-blue">
-          <th>No</th>
-           <th>Risiko</th>
-           <th>Penyebab</th>
-           <th>Tingkat Risiko</th>
-           <th>Penanganan Yang Sudah Ada</th>
-           <th>Rencana Penanganan</th>
-           <th>Mulai</th>
-           <th>Selesai</th>
-           <th>Indikator Output</th>
-           <th>PIC</th>
-           <th>Anggaran</th>
-           <th>Aksi</th>
-        </tr>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <tr class="bg-blue">
+            <th>No</th>
+             <th>Risiko</th>
+             <th>Penyebab</th>
+             <th>Tingkat Risiko</th>
+             <th>Penanganan Yang Sudah Ada</th>
+             <th>Rencana Penanganan</th>
+             <th>Mulai</th>
+             <th>Selesai</th>
+             <th>Indikator Output</th>
+             <th>PIC</th>
+             <th>Anggaran</th>
+             <th>Aksi</th>
+          </tr>
 
-      <?php $nortp = 1; ?>
-     <?php foreach ($rencana as $rtp): ?>
-           <tr>
-             <td><?= $nortp++ ?></td>
-             <td><?= $rtp->nama_risk ?></td>
-             <td><?= $rtp->deskripsi_cause ?></td>
-             <td><?= $rtp->hitung ?></td>
-             <td><?= $rtp->deskripsi_pengendalian ?></td>
-             <td><?= $rtp->deskripsi_rtp ?></td>
-             <td><?= $rtp->plan_mulai ?></td>
-             <td><?= $rtp->plan_selesai ?></td>
-             <td><?= $rtp->indikator_output ?></td>
-             <td><?= $rtp->pic ?></td>
-             <td><?= $rtp->anggaran ?></td>
-             <td><?php if(!isset($rtp->deskripsi_rtp)){ ?>
-                   <button id="buatRTP" class="btn btn-sm btn-info" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>">Buat RTP</button>
-                 <?php } else { ?>
-                   <button id="editRTP" class="btn btn-sm btn-success" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>" data-rencana="<?= $rtp->deskripsi_rtp ?>" data-plan_mulai="<?= $rtp->plan_mulai ?>" data-plan_selesai="<?= $rtp->plan_selesai ?>" data-output="<?= $rtp->indikator_output ?>" data-pic="<?= $rtp->pic ?>">Edit RTP</button>
-                 <?php } ?>
-             </td>
-         </tr>
-     <?php  endforeach ?>
-       </table>
+        <?php $nortp = 1; ?>
+       <?php foreach ($rencana as $rtp): ?>
+             <tr>
+               <td><?= $nortp++ ?></td>
+               <td><?= $rtp->nama_risk ?></td>
+               <td><?= $rtp->deskripsi_cause ?></td>
+               <td><?= $rtp->hitung ?></td>
+               <td><?= $rtp->deskripsi_pengendalian ?></td>
+               <td><?= $rtp->deskripsi_rtp ?></td>
+               <td><?= $rtp->plan_mulai ?></td>
+               <td><?= $rtp->plan_selesai ?></td>
+               <td><?= $rtp->indikator_output ?></td>
+               <td><?= $rtp->pic ?></td>
+               <td><?= $rtp->anggaran ?></td>
+               <td><?php if(!isset($rtp->deskripsi_rtp)){ ?>
+                     <button id="buatRTP" class="btn btn-sm btn-info" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>">Buat RTP</button>
+                   <?php } else { ?>
+                     <button id="editRTP" class="btn btn-sm btn-success" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>" data-rencana="<?= $rtp->deskripsi_rtp ?>" data-plan_mulai="<?= $rtp->plan_mulai ?>" data-plan_selesai="<?= $rtp->plan_selesai ?>" data-output="<?= $rtp->indikator_output ?>" data-pic="<?= $rtp->pic ?>">Edit RTP</button>
+                   <?php } ?>
+               </td>
+           </tr>
+       <?php  endforeach ?>
+         </table>
+      </div>
     </div>
 
 

@@ -115,12 +115,12 @@ class KegiatanProses extends CI_Controller{
 
     $cek = $this->m_core->saveData($table, $result);
     if($cek) {
-      $this->session->set_flashdata('notif', 'Berhasil Menambahkan Indikator Kinerja');
+      $this->session->set_flashdata('notif', 'Berhasil Menambahkan Perjanjian Kinerja');
       $this->session->set_flashdata('halaman', 'okpk');
       $this->session->set_flashdata('class', 'success');
       redirect('unit_kerja/kegiatanproses');
     } else {
-      $this->session->set_flashdata('notif', 'Tidak Berhasil Menambahkan Indikator Kinerja');
+      $this->session->set_flashdata('notif', 'Tidak Berhasil Menambahkan Perjanjian Kinerja');
       $this->session->set_flashdata('class', 'danger');
       $this->session->set_flashdata('halaman', 'okpk');
       redirect('unit_kerja/kegiatanproses');
@@ -246,13 +246,13 @@ class KegiatanProses extends CI_Controller{
 
     if($cek)
     {
-      $this->session->set_flashdata('notif', 'Berhasil Mengedit Indikator Kinerja');
+      $this->session->set_flashdata('notif', 'Berhasil Mengedit Perjanjian Kinerja');
       $this->session->set_flashdata('class', 'success');
       $this->session->set_flashdata('halaman', 'okpk');
       redirect('unit_kerja/kegiatanproses');
     } else
     {
-      $this->session->set_flashdata('notif', 'Tidak Berhasil Mengedit Indikator Kinerja');
+      $this->session->set_flashdata('notif', 'Tidak Berhasil Mengedit Perjanjian Kinerja');
       $this->session->set_flashdata('class', 'danger');
       $this->session->set_flashdata('halaman', 'okpk');
       redirect('unit_kerja/kegiatanproses');

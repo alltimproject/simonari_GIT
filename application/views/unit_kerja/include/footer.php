@@ -76,7 +76,7 @@
 <script src="<?= base_url().'assets1/js/bootstrap.min.js' ?>"></script>
 <script src="<?= base_url().'assets1/js/adminlte.min.js' ?>"></script>
 <script src="<?= base_url().'assets1/chart.js/Chart.js' ?>"></script>
-<script src="<?= base_url().'assets1/datatables.net/js/jquery.dataTables.min.js' ?>"></script>
+<script src="<?= base_url().'assets1/datatables.net/js/jquery.dataTables.js' ?>"></script>
 <script src="<?= base_url().'assets1/datatables.net-bs/js/dataTables.bootstrap.min.js' ?>"></script>
 
 <script type="text/javascript">

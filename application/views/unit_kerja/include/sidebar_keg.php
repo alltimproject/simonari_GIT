@@ -25,9 +25,36 @@
         <div class="box-footer no-padding">
           <ul class="nav nav-stacked">
             <br/><br/><br/>
-            <li class="active"><a><?= $this->session->userdata('nama_jabatan') ?></a></li>
-            <li class="active"><a><?= $this->session->userdata('nama_unit') ?></a></li>
-            <li class="active"><a><?= $this->session->userdata('nama_unor') ?></a></li>
+            <li class="active"><a>
+              <table border="1">
+                <tr>
+                  <th class="w3-center w3-teal">Jabatan</th>
+                </tr>
+                <tr>
+                  <td style="padding-left:5px"><?= $this->session->userdata('ket_jabatan') ?></td>
+                </tr>
+              </table>
+            </a></li>
+            <li class="active"><a>
+              <table border="1">
+                <tr>
+                  <th class="w3-center w3-teal">Unit Kerja</th>
+                </tr>
+                <tr>
+                  <td style="padding-left:5px"><?= $this->session->userdata('nama_unit') ?></td>
+                </tr>
+              </table>
+            </a></li>
+            <li class="active"><a>
+              <table border="1">
+                <tr>
+                  <th class="w3-center w3-teal">Organisasi</th>
+                </tr>
+                <tr>
+                  <td style="padding-left:5px"><?= $this->session->userdata('nama_unor') ?></td>
+                </tr>
+              </table>
+            </a></li>
           </ul>
         </div>
       </div>

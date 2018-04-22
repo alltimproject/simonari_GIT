@@ -32,7 +32,7 @@
                   <th class="w3-center w3-teal">Jabatan</th>
                 </tr>
                 <tr>
-                  <td><?= $this->session->userdata('ket_jabatan') ?></td>
+                  <td style="padding-left:5px"><?= $this->session->userdata('ket_jabatan') ?></td>
                 </tr>
               </table>
             </a></li>
@@ -42,7 +42,7 @@
                   <th class="w3-center w3-teal">Unit Kerja</th>
                 </tr>
                 <tr>
-                  <td><?= $this->session->userdata('nama_unit') ?></td>
+                  <td style="padding-left:5px"><?= $this->session->userdata('nama_unit') ?></td>
                 </tr>
               </table>
             </a></li>
@@ -52,7 +52,7 @@
                   <th class="w3-center w3-teal">Organisasi</th>
                 </tr>
                 <tr>
-                  <td><?= $this->session->userdata('nama_unor') ?></td>
+                  <td style="padding-left:5px"><?= $this->session->userdata('nama_unor') ?></td>
                 </tr>
               </table>
             </a></li>

@@ -106,6 +106,7 @@ class Organisasi extends CI_Controller{
       $cek1 = $this->m_organisasi->updatepassword(md5($pass_baru), $nip);
       if($cek1){
         $this->session->set_flashdata('notif', 'Berhasil Merubah Password. Silahkan Login kembali');
+        $this->session->set_flashdata('class', 'success');
         redirect('login');
       }else{
         $this->session->set_flashdata('notif', 'Gagal Merubah Password. Silahkan Coba Lagi');

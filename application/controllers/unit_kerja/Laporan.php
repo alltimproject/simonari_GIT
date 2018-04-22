@@ -120,9 +120,9 @@ class Laporan extends CI_Controller{
 
     if(empty($tahun_pk))
     {
-      $real = $this->m_dashboard->showPenangananRisk($where)->result();
+      $data['data'] = $this->m_dashboard->showPenangananRisk($where)->result();
     } else {
-      $data['rencana'] = $this->m_laporan->showReal($where, $where2)->result();
+      $data['data'] = $this->m_laporan->showReal($where, $where2)->result();
     }
 
     if(null !== $this->input->post('REALexcel'))

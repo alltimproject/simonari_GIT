@@ -105,6 +105,133 @@ $(document).ready(function(){
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#tbDR').each(function(){
+    var tahun_pk = $('#selectTahunDR').val();
+    var link = "<?= base_url('unit_kerja/laporan/getDR') ?>"
+
+    $.ajax({
+      url: link,
+      type: "POST",
+      data: {'tahun_pk': tahun_pk},
+      dataType: 'JSON',
+      success: function(data){
+        $('#tb_lapDR').html(data);
+        //alert('Berhasil');
+      },
+      error: function(){
+        alert("Tidak ada data");
+      }
+    });
+  });
+
+  $('#selectTahunDR').on('change', function(){
+    var tahun_pk = $('#selectTahunDR').val();
+    var link = "<?= base_url('unit_kerja/laporan/getDR') ?>"
+
+
+      $.ajax({
+        url: link,
+        type: "POST",
+        data: {'tahun_pk': tahun_pk},
+        dataType: 'JSON',
+        success: function(data){
+          $('#tb_lapDR').html(data);
+          //alert('Berhasil');
+        },
+        error: function(){
+          alert("Tidak ada data");
+        }
+      });
+    });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#tbRencana').each(function(){
+    var tahun_pk = $('#selectTahunRcn').val();
+    var link = "<?= base_url('unit_kerja/laporan/getRencana') ?>"
+
+    $.ajax({
+      url: link,
+      type: "POST",
+      data: {'tahun_pk': tahun_pk},
+      dataType: 'JSON',
+      success: function(data){
+        $('#tb_lapRcn').html(data);
+        //alert('Berhasil');
+      },
+      error: function(){
+        alert("Tidak ada data");
+      }
+    });
+  });
+
+  $('#selectTahunRcn').on('change', function(){
+    var tahun_pk = $('#selectTahunRcn').val();
+    var link = "<?= base_url('unit_kerja/laporan/getRencana') ?>"
+
+      $.ajax({
+        url: link,
+        type: "POST",
+        data: {'tahun_pk': tahun_pk},
+        dataType: 'JSON',
+        success: function(data){
+          $('#tb_lapRcn').html(data);
+          //alert('Berhasil');
+        },
+        error: function(){
+          alert("Tidak ada data");
+        }
+      });
+    });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#tbReal').each(function(){
+    var tahun_pk = $('#selectTahunReal').val();
+    var link = "<?= base_url('unit_kerja/laporan/getReal') ?>"
+
+    $.ajax({
+      url: link,
+      type: "POST",
+      data: {'tahun_pk': tahun_pk},
+      dataType: 'JSON',
+      success: function(data){
+        $('#tb_lapReal').html(data);
+        //alert('Berhasil');
+      },
+      error: function(){
+        alert("Tidak ada data");
+      }
+    });
+  });
+
+  $('#selectTahunReal').on('change', function(){
+    var tahun_pk = $('#selectTahunReal').val();
+    var link = "<?= base_url('unit_kerja/laporan/getReal') ?>"
+
+      $.ajax({
+        url: link,
+        type: "POST",
+        data: {'tahun_pk': tahun_pk},
+        dataType: 'JSON',
+        success: function(data){
+          $('#tb_lapReal').html(data);
+          //alert('Berhasil');
+        },
+        error: function(){
+          alert("Tidak ada data");
+        }
+      });
+    });
+});
+</script>
+
 <script>
   $('#notifications').slideDown('slow').delay(4000).slideUp('slow');
 </script>

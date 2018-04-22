@@ -99,6 +99,7 @@ $(function(){
     document.getElementById("deskripsi_cause").value = $(this).attr('data-cause');
     document.getElementById("deskripsi_pengendalian").value = $(this).attr('data-pengendalian');
     document.getElementById("id_sop").value = $(this).attr('data-id_sop');
+    document.getElementById("status").value = "Open";
     document.getElementById("action").value = "tambah";
     $('#deskripsi_rtp').val('');
     $('#plan_mulai').val('');
@@ -134,6 +135,7 @@ $(function(){
     document.getElementById("plan_mulai").value = $(this).attr('data-plan_mulai');
     document.getElementById("plan_selesai").value = $(this).attr('data-plan_selesai');
     document.getElementById("indikator_output").value = $(this).attr('data-output');
+    document.getElementById("status").value = $(this).attr('data-status');
     document.getElementById("pic").value = $(this).attr('data-pic');
   });
 

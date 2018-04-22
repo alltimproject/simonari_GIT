@@ -56,6 +56,7 @@ class ManajemenRisk extends CI_Controller{
     $plan_selesai = $this->input->post('plan_selesai');
     $indikator = $this->input->post('indikator_output');
     $pic = $this->input->post('pic');
+    $status = $this->input->post('status');
 
     $data = array(
       'id_sop' => $id_sop,
@@ -64,7 +65,7 @@ class ManajemenRisk extends CI_Controller{
       'plan_selesai' => $plan_selesai,
       'indikator_output' => $indikator,
       'pic' => $pic,
-      'status' => 'Open'
+      'status' => $status
     );
 
     $where = array(

@@ -11,6 +11,7 @@ class Laporan extends CI_Controller{
     $this->load->model('unit/m_kegiatanproses');
     $this->load->model('unit/m_manajemenrisiko');
     $this->load->model('unit/m_dashboard');
+    $this->load->model('unit/m_laporan');
 
     error_reporting(0);
     //Codeigniter : Write Less Do More
@@ -26,132 +27,294 @@ class Laporan extends CI_Controller{
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['dataSOP'] = $this->m_kegiatanproses->showSOP($where)->result();
+    $data['select'] = $this->m_laporan->selectTahunPK($where)->result();
+
     $this->load->view('unit_kerja/include/v_laporan');
     $this->load->view('unit_kerja/laporan/v_laporanall', $data);
     $this->load->view('unit_kerja/include/footer');
   }
 
-  function printdaftarresiko()
+  function exportdaftarrisiko()
   {
+    $tahun_pk = $this->input->post('tahun_pk');
     $sess_unit = $this->session->userdata('id_unit');
+
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['dataSOP'] = $this->m_kegiatanproses->showSOP($where)->result();
-    $this->load->view('unit_kerja/laporan/v_daftarResikoExcel', $data);
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    if(empty($tahun_pk))
+    {
+      $data['dataSOP'] = $this->m_kegiatanproses->showSOP($where)->result();
+    } else {
+      $data['dataSOP'] = $this->m_laporan->showDR($where, $where2)->result();
+    }
+
+    if(null !== $this->input->post('DRexcel'))
+    {
+      $this->load->view('unit_kerja/laporan/v_daftarResikoExcel', $data);
+    } elseif (null !== $this->input->post('DRpdf'))
+    {
+      $html = $this->load->view('unit_kerja/laporan/v_daftarResikoPDF', $data, true);
+
+      $this->load->library('pdf');
+      $pdf = $this->pdf->load();
+      $pdf->WriteHTML(utf8_encode($html));
+      $pdf->WriteHTML($html,1);
+      $pdf->Output("Daftar_Risiko.pdf" ,'I');
+    }
   }
 
-  function printdaftarresikopdf()
+  function exportrencana()
   {
-
+    $tahun_pk = $this->input->post('tahun_pk');
     $sess_unit = $this->session->userdata('id_unit');
+
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['dataSOP'] = $this->m_kegiatanproses->showSOP($where)->result();
-    $html = $this->load->view('unit_kerja/laporan/v_daftarResikoPDF', $data, true);
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
 
-    $this->load->library('pdf');
-    $pdf = $this->pdf->load();
-    $pdf->WriteHTML(utf8_encode($html));
-    $pdf->WriteHTML($html,1);
-    $pdf->Output("Daftar_Risiko.pdf" ,'I');
+    if(empty($tahun_pk))
+    {
+      $data['rencana'] = $this->m_manajemenrisiko->showRencana($where)->result();
+    } else {
+      $data['rencana'] = $this->m_laporan->showRencana($where, $where2)->result();
+    }
 
+    if(null !== $this->input->post('RCNexcel'))
+    {
+
+      $this->load->view('unit_kerja/laporan/v_reportrencanaExcel', $data);
+    } elseif (null !== $this->input->post('RCNpdf'))
+    {
+      $html = $this->load->view('unit_kerja/laporan/v_reportRencanaPDF', $data, true);
+
+      $this->load->library('pdf');
+      $pdf = $this->pdf->load();
+      $pdf->WriteHTML(utf8_encode($html));
+      $pdf->WriteHTML($html,1);
+      $pdf->Output("Rencana_Penanganan.pdf" ,'I');
+    }
   }
 
-
-  function reportrencana()
+  function exportrealisasi()
   {
-    $data['title'] = 'Report Daftar Risiko | Simonari';
-    $this->load->view('unit_kerja/include/header', $data);
-
+    $tahun_pk = $this->input->post('tahun_pk');
     $sess_unit = $this->session->userdata('id_unit');
+
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['rencana'] = $this->m_manajemenrisiko->showRencana($where)->result();
-    $this->load->view('unit_kerja/include/v_laporan');
-    $this->load->view('unit_kerja/laporan/v_reportRencana', $data);
-    $this->load->view('unit_kerja/include/footer');
-  }
-
-
-  function printrencanaExcel()
-  {
-    $session = $this->session->userdata('id_unit');
-
-    $where = array(
-      'tbl_unit_kerja.id_unit' => $session
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
     );
-    $data['rencana'] = $this->m_manajemenrisiko->showRencana($where)->result();
-    $this->load->view('unit_kerja/laporan/v_reportrencanaExcel', $data);
+
+    if(empty($tahun_pk))
+    {
+      $real = $this->m_dashboard->showPenangananRisk($where)->result();
+    } else {
+      $data['rencana'] = $this->m_laporan->showReal($where, $where2)->result();
+    }
+
+    if(null !== $this->input->post('REALexcel'))
+    {
+
+      $this->load->view('unit_kerja/laporan/v_reportRealisasiExcel', $data);
+    } elseif (null !== $this->input->post('REALpdf'))
+    {
+      $html = $this->load->view('unit_kerja/laporan/v_reportRealisasiPDF', $data, true);
+
+      $this->load->library('pdf');
+      $pdf = $this->pdf->load();
+      $pdf->WriteHTML(utf8_encode($html));
+      $pdf->WriteHTML($html,1);
+      $pdf->Output("Rencana_Penanganan.pdf" ,'I');
+    }
   }
 
-  function printrencanapdf()
-  {
 
+  function getDR()
+  {
+    $tahun_pk = $this->input->post('tahun_pk');
     $sess_unit = $this->session->userdata('id_unit');
+
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['rencana'] = $this->m_manajemenrisiko->showRencana($where)->result();
-    $html = $this->load->view('unit_kerja/laporan/v_reportRencanaPDF', $data, true);
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
 
-    $this->load->library('pdf');
-    $pdf = $this->pdf->load();
-    $pdf->WriteHTML(utf8_encode($html));
-    $pdf->WriteHTML($html,1);
-    $pdf->Output("Rencana_Penanganan.pdf" ,'I');
+    if($tahun_pk == '')
+    {
+      $dr = $this->m_kegiatanproses->showSOP($where)->result();
+    } else {
+      $dr = $this->m_laporan->showDR($where, $where2)->result();
+    }
+
+
+    if(count($dr) > 0)
+    {
+      $no_sop = 1;
+      $jum1 = 1;
+      $jum2 = 1;
+      $tbDr = '';
+
+      foreach ($dr as $key)
+      {
+
+        $tbDr .= '<tr>';
+
+        //  if($jum2 <= 1)
+        //  {
+        //    $jmlpk = $key->rowpk;
+        //    if ($jmlpk == 0)
+        //    {
+        //      $jmlpk = 1;
+        //    }
+        //
+        //    $tbDr .= '<td rowspan="'.$jml_pk.'">'.$no_sop++.'</td>';
+        //    $tbDr .= '<td>'.$key->nama_ik.'</td>';
+        //    $jum2 = $key->rowpk;
+        //    $nosop++;
+        // } else {
+        //   $jum2 = $jum2 - 1;
+        // }
+        //
+        // if($jum1 <= 1)
+        // {
+        //   $jmlsop = $key->rowskp;
+        //   if ($jmlsop == 0)
+        //   {
+        //     $jmlsop = 1;
+        //   }
+        //
+        //   $tbDr .= '<td rowspan="'.$jml_sop.'">'.$key->nama_skp.'</td>';
+        //   $jum1 = $key->rowskp;
+        // } else {
+        //   $jum1 = $jum1 - 1;
+        // }
+         $tbDr .= '<td>'.$no_sop++.'</td>';
+         $tbDr .= '<td>'.$key->nama_ik.'</td>';
+         $tbDr .= '<td>'.$key->nama_skp.'</td>';
+         $tbDr .= '<td>'.$key->nama_sop.'</td>';
+         $tbDr .= '<td>'.$key->nama_risk.'</td>';
+         $tbDr .= '<td>'.$key->deskripsi_cause.'</td>';
+         $tbDr .= '<td>'.$key->deskripsi_pengendalian.'</td>';
+         $tbDr .= '<td>'.$key->sisa_risk.'</td>';
+         $tbDr .= '<td>'.$key->frekuensi.'</td>';
+         $tbDr .= '<td>'.$key->dampak.'</td>';
+         $tbDr .= '</tr>';
+      }
+
+      echo json_encode($tbDr);
+    }
 
   }
 
-  function reportRealisasi()
+  function getRencana()
   {
-    $data['title'] = 'Report Realisasi Penanganan | Simonari';
-    $this->load->view('unit_kerja/include/header', $data);
-
+    $tahun_pk = $this->input->post('tahun_pk');
     $sess_unit = $this->session->userdata('id_unit');
+
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['data'] = $this->m_dashboard->showPenangananRisk($where)->result();
-    $this->load->view('unit_kerja/include/v_laporan');
-    $this->load->view('unit_kerja/laporan/v_reportRealisasi', $data);
-    $this->load->view('unit_kerja/include/footer');
-  }
-
-  function reportRealisasiExcel()
-  {
-    $session = $this->session->userdata('id_unit');
-
-    $where = array(
-      'tbl_unit_kerja.id_unit' => $session
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
     );
-    $data['data'] = $this->m_dashboard->showPenangananRisk($where)->result();
-    $this->load->view('unit_kerja/laporan/v_reportRealisasiExcel', $data);
+
+    if($tahun_pk == '')
+    {
+      $rcn = $this->m_manajemenrisiko->showRencana($where)->result();
+    } else {
+      $rcn = $this->m_laporan->showRencana($where, $where2)->result();
+    }
+
+    if(count($rcn) > 0)
+    {
+      $no_rcn = 1;
+
+
+      foreach ($rcn as $key)
+      {
+
+         $tbRcn .= '<tr>';
+         $tbRcn .= '<td>'.$no_rcn++.'</td>';
+         $tbRcn .= '<td>'.$key->nama_risk.'</td>';
+         $tbRcn .= '<td>'.$key->deskripsi_cause.'</td>';
+         $tbRcn .= '<td>'.$key->frekuensi.'</td>';
+         $tbRcn .= '<td>'.$key->dampak.'</td>';
+         $tbRcn .= '<td>'.$key->hitung.'</td>';
+         $tbRcn .= '<td>'.$key->deskripsi_penanganan.'</td>';
+         $tbRcn .= '<td>'.$key->deskripsi_rtp.'</td>';
+         $tbRcn .= '<td>'.$key->plan_mulai.'</td>';
+         $tbRcn .= '<td>'.$key->plan_selesai.'</td>';
+         $tbRcn .= '<td>'.$key->indikator_output.'</td>';
+         $tbRcn .= '<td>'.$key->pic.'</td>';
+         $tbRcn .= '<td>'.$key->anggaran.'</td>';
+         $tbRcn .= '</tr>';
+      }
+
+      echo json_encode($tbRcn);
+    }
   }
 
-  function reportRealisasiPDF()
+  function getReal()
   {
-
+    $tahun_pk = $this->input->post('tahun_pk');
     $sess_unit = $this->session->userdata('id_unit');
+
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['data'] = $this->m_dashboard->showPenangananRisk($where)->result();
-    $html = $this->load->view('unit_kerja/laporan/v_reportRealisasiPDF', $data, true);
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
 
-    $this->load->library('pdf');
-    $pdf = $this->pdf->load();
-    $pdf->WriteHTML(utf8_encode($html));
-    $pdf->WriteHTML($html,1);
-    $pdf->Output("Rencana_Penanganan.pdf" ,'I');
+    if($tahun_pk == '')
+    {
+      $real = $this->m_dashboard->showPenangananRisk($where)->result();
+    } else {
+      $real = $this->m_laporan->showReal($where, $where2)->result();
+    }
+
+    if(count($real) > 0)
+    {
+      $no_real = 1;
+
+      foreach ($real as $key)
+      {
+
+         $tbReal .= '<tr>';
+         $tbReal .= '<td>'.$no_real++.'</td>';
+         $tbReal .= '<td>'.$key->nama_risk.'</td>';
+         $tbReal .= '<td>'.$key->deskripsi_cause.'</td>';
+         $tbReal .= '<td>'.$key->frekuensi.'</td>';
+         $tbReal .= '<td>'.$key->dampak.'</td>';
+         $tbReal .= '<td>'.$key->hitung.'</td>';
+         $tbReal .= '<td>'.$key->deskripsi_penanganan.'</td>';
+         $tbReal .= '<td>'.$key->deskripsi_rtp.'</td>';
+         $tbReal .= '<td>'.$key->plan_mulai.'</td>';
+         $tbReal .= '<td>'.$key->plan_selesai.'</td>';
+         $tbReal .= '<td>'.$key->indikator_output.'</td>';
+         $tbReal .= '</tr>';
+      }
+
+      echo json_encode($tbReal);
+    }
   }
+
 }

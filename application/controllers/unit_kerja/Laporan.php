@@ -19,7 +19,7 @@ class Laporan extends CI_Controller{
 
   function index()
   {
-    $data['title'] = 'Report Daftar Risiko | Simonari';
+    $data['title'] = 'Laporan | Simonari';
     $this->load->view('unit_kerja/include/header', $data);
 
     $sess_unit = $this->session->userdata('id_unit');

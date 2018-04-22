@@ -53,8 +53,12 @@
           </div>
 
           <div class="form-group has-feedback">
-            <input type="password" name="password" class="form-control" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+
+          <div class="form-group has-feedback">
+            <input type="checkbox" id="show"> <small> Show Password</small>
           </div>
 
           <center>
@@ -73,7 +77,7 @@
 
 
     <?php if($this->session->flashdata('notif') ){ ?>
-                  <div class="callout callout-success" id="notifications">
+                  <div class="callout callout-<?= $this->session->flashdata('class') ?>" id="notifications">
                   <?= $this->session->flashdata('notif'); ?>
                   </div>
                   <?php } ?>
@@ -102,3 +106,20 @@
 </script>
 </body>
 </html>
+
+<script>
+  $('#notifications').slideDown('slow').delay(4000).slideUp('slow');
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $('#show').click(function(){
+      if($(this).is(':checked'))
+      {
+        $('#password').attr('type', 'text');
+      } else {
+        $('#password').attr('type', 'password');
+      }
+    });
+  });
+</script>

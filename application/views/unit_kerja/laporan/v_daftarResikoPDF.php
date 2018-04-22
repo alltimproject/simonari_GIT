@@ -2,25 +2,36 @@
 <html>
 <head>
 	<title>Daftar Resiko</title>
-
+   <link rel="stylesheet" href="<?= base_url().'assets1/css/bootstrap.min.css' ?>">
+    <style type="text/css">
+    body {font-size: 15px;}
+    td {padding-left: 3px;}
+    </style>
 </head>
 <body>
 
-<div id="wrapper">
-	<h1>DAFTAR RISIKO</h1>
-	<h2>Nama Unit : <?php echo $this->session->userdata('nama_unit') ?></h2>
-	<table border="1" style="border: 1px solid black; border-top: 1px solid black">
+<div align="center">
+    <img class="img img-responsive" src="<?= base_url().'images/setwapres.png' ?>" height="60" width="60">
+  </div>
+  <h5 align="center">SISTEM INFORMASI MONITORING MANAJEMEN RISIKO</h5>
+  <h5 align="center">SEKRETARIAT WAKIL PRESIDEN</h5>
+  <hr style="margin-top: 2px;">
+
+  <h4>DAFTAR RISIKO</h4>
+  <h5>Nama Unit : <?php echo $this->session->userdata('nama_unit') ?></h5>
+
+	<table class="table table-bordered">
           <tr style="background-color: rgb(162, 216, 250);">
-            <th width="5%">No</th>
+            <th>No</th>
             <th width="15%">Indikator Kinerja</th>
             <th width="15%">Kegiatan</th>
-            <th width="10%">Proses Bisnis</th>
+            <th width="15%">Proses Bisnis</th>
             <th width="15%">Risiko</th>
-            <th width="10%">Penyebab</th>
+            <th width="15%">Penyebab</th>
             <th width="10%">Pengendalian Yang Sudah Ada</th>
             <th width="10%">Sisa Risiko</th>
-            <th width="5%">Kemungkinan Kejadian</th>
-            <th width="5%">Dampak</th>
+            <th>Kemungkinan Kejadian</th>
+            <th>Dampak</th>
 
           </tr>
 
@@ -69,7 +80,7 @@
              <td valign="top"><?= $sop->deskripsi_pengendalian ?></td>
              <td valign="top"><?= $sop->sisa_risk ?></td>
              <td valign="top" align="center"><?= $sop->frekuensi ?></td>
-             <td valign="top" align="center"><?= $sop->dampak ?></td>
+             <td valign="top" align="center" height="80"><?= $sop->dampak ?></td>
 
 
           </tr>

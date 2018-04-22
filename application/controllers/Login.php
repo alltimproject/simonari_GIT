@@ -106,6 +106,8 @@ class Login extends CI_Controller
 
 
     } else {
+      $this->session->set_flashdata('notif', 'Password atau Username Salah. Silahkan Coba lagi');
+      $this->session->set_flashdata('class', 'danger');
       redirect('login');
     }
   }

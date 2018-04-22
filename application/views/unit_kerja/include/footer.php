@@ -22,6 +22,9 @@
                  <input type="password" class="form-control" name="kon_pass" id="kon_pass" id="kon_pass">
                  <input type="hidden" value="<?= current_url(); ?>" name="redirect">
                </div>
+               <div class="form-group">
+                 <input type="checkbox" id="show"><small>Show Password</small>
+               </div>
 
             <div class="modal-footer">
               <button type="submit" class="btn btn-info">Ganti Password</button>
@@ -151,6 +154,23 @@ $(document).ready(function(){
         return false;
       } else {
         return true;
+      }
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $('#show').click(function(){
+      if($(this).is(':checked'))
+      {
+        $('#pass_lama').attr('type', 'text');
+        $('#pass_baru').attr('type', 'text');
+        $('#kon_pass').attr('type', 'text');
+      } else {
+        $('#pass_lama').attr('type', 'password');
+        $('#pass_baru').attr('type', 'password');
+        $('#kon_pass').attr('type', 'password');
       }
     });
   });

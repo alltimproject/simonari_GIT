@@ -36,35 +36,37 @@ class Login extends CI_Controller
       foreach($cek->result() as $key)
       {
         //tbl pegawai
-        $nip = $key->nip;
+        $nip          = $key->nip;
         $nama_pegawai = $key->nama_pegawai;
-        $id_jabatan = $key->id_jabatan;
+        $id_jabatan   = $key->id_jabatan;
         $nama_jabatan = $key->nama_jabatan;
+        $ket_jabatan  = $key->ket_jabatan;
         //
         // //unor
-        $id_unor = $key->id_unor;
-        $nama_unor = $key->nama_unor;
+        $id_unor      = $key->id_unor;
+        $nama_unor    = $key->nama_unor;
         //
         //unit kerja
-        $id_unit = $key->id_unit;
-        $nama_unit = $key->nama_unit;
-        $sasaran = $key->sasaran;
-        $iku = $key->iku;
+        $id_unit      = $key->id_unit;
+        $nama_unit    = $key->nama_unit;
+        $sasaran      = $key->sasaran;
+        $iku          = $key->iku;
       }
 
       $session = array(
-        'nip' => $nip,
+        'nip'          => $nip,
         'nama_pegawai' => $nama_pegawai,
-        'id_jabatan' => $id_jabatan,
+        'id_jabatan'   => $id_jabatan,
         'nama_jabatan' => $nama_jabatan,
+        'ket_jabatan'  => $ket_jabatan,
 
-        'id_unit' => $id_unit,
-        'nama_unit' => $nama_unit,
+        'id_unit'      => $id_unit,
+        'nama_unit'    => $nama_unit,
 
-        'id_unor' => $id_unor,
-        'nama_unor' => $nama_unor,
-        'sasaran' => $sasaran,
-        'iku' => $iku,
+        'id_unor'      => $id_unor,
+        'nama_unor'    => $nama_unor,
+        'sasaran'      => $sasaran,
+        'iku'          => $iku,
 
         'login' => 'ok'
       );

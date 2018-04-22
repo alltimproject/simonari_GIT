@@ -11,10 +11,7 @@ foreach($showpeg as $keyedit){?>
       <div class="w3-panel" style="width:100%">
         <a href="<?= base_url('admin/organisasi/hapuspeg/'.$keyedit->nip)?>" onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ? ')"  class="w3-button w3-block w3-red">Hapus Pegawai</a>
       </div>
-
-
     </div>
-
   </div>
   <div class="rightcolumn">
     <div class="card">
@@ -36,7 +33,7 @@ foreach($showpeg as $keyedit){?>
                        <input type="text" class="form-control" name="nm_pegawai" value="<?= $keyedit->nama_pegawai ?>" placeholder="Nama Pegawai">
                      </div>
                      <div class="col-xs-4">
-                       <label>Jabatan</label>
+                       <label>Keterangan Eselon</label>
                        <select class="form-control" name="jabatan">
                          <?php
                          foreach ($showjabatan as $keyjabatan ) {
@@ -48,6 +45,10 @@ foreach($showpeg as $keyedit){?>
                          }
                           ?>
                        </select>
+                     </div>
+                     <div class="col-xs-3">
+                       <label>Jabatan</label>
+                       <input type="text" class="form-control" name="ket_jabatan" value="<?= $keyedit->ket_jabatan ?>" placeholder="Jabatan">
                      </div>
                      <div class="col-xs-5">
                        <label>Unit</label>

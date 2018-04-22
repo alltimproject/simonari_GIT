@@ -76,15 +76,17 @@ class Organisasi extends CI_Controller{
 
   function updatePegawai()
   {
-    $nip     = $this->input->post('nip');
-    $nama    = $this->input->post('nm_pegawai');
-    $jabatan = $this->input->post('jabatan');
-    $unit    = $this->input->post('unit');
-    $org     = $this->input->post('organisasi');
+    $nip          = $this->input->post('nip');
+    $nama         = $this->input->post('nm_pegawai');
+    $jabatan      = $this->input->post('jabatan');
+    $ket_jabatan  = $this->input->post('ket_jabatan');
+    $unit         = $this->input->post('unit');
+    $org          = $this->input->post('organisasi');
 
     $data = array(
       'nama_pegawai' => $nama,
       'id_jabatan'   => $jabatan,
+      'ket_jabatan'  => $ket_jabatan,
       'id_unit'      => $unit,
       'id_unor'      => $org
     );

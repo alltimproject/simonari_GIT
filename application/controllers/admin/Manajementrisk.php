@@ -59,10 +59,10 @@ class Manajementrisk extends CI_Controller{
       'tbl_unit_kerja.id_unit' => $id
     );
 
-    $data['realisasi'] = $this->m_manajement->showRealisasi($where)->result();
-    $data['showunitID'] = $this->m_manajement->getUnitid($where)->result();
-    $data['rencana']  = $this->m_manajement->showRencana($where)->result();
-    $data['pegawai'] = $this->m_organisasi->showPegUnit($where)->result();
+    $data['realisasi']    = $this->m_manajement->showRealisasi($where)->result();
+    $data['showunitID']   = $this->m_manajement->getUnitid($where)->result();
+    $data['rencana']      = $this->m_manajement->showRencana($where)->result();
+    $data['pegawai']      = $this->m_organisasi->showPegUnit($where)->result();
     $this->load->view('admin/v_lihatrencana', $data);
 
     $this->load->view('admin/include/footer');
@@ -130,7 +130,7 @@ class Manajementrisk extends CI_Controller{
     $data['realisasi'] = $this->m_manajement->showRealisasi($where)->result();
     $data['showunitID'] = $this->m_manajement->getUnitid($where)->result();
     $data['pegawai'] = $this->m_organisasi->showPegUnit($where)->result();
-  
+
     $this->load->view('admin/v_realisasi', $data);
 
     $this->load->view('admin/include/footer');

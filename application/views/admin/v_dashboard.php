@@ -21,7 +21,7 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-4">
-                <button type="button" class="btn btn-lg bg-blue"></button><small>Sangat Rendah</small><br/>
+                <button type="button" class="btn btn-lg bg-blue"></button><small> Sangat Rendah</small><br/>
                 <button type="button" class="btn btn-lg" style="background-color: green"></button><small> Rendah</small><br/>
               </div>
               <div class="col-sm-4">
@@ -179,7 +179,6 @@ var katRisk = [
     }
   ];
 
-
     var pRisk = [
         {
           value: <?= $jmlopen ?>,
@@ -191,10 +190,8 @@ var katRisk = [
           value: <?= $jmlclose ?>,
           color:"red",
           highlight: "#616774",
-          label: "Closed "
+          label: "Closed"
         }
-
-
       ];
 
       var kRisk = [
@@ -230,8 +227,6 @@ var katRisk = [
         }
 
       ];
-
-
 
       window.onload = function(){
         var chart2 = document.getElementById("chartK_Risk").getContext("2d");

@@ -29,6 +29,26 @@ class M_organisasi extends CI_Model{
     return $this->db->get_where('tbl_unit_org', $where);
   }
 
+  function hitungJumlahOrg()
+  {
+    $query = $this->db->query("SELECT * FROM tbl_unit_org");
+    $total = $query->num_rows();
+    return $total;
+  }
+
+  function hitungJumlahUnit()
+  {
+    $query = $this->db->query("SELECT * FROM tbl_unit_kerja");
+    $total = $query->num_rows();
+    return $total;
+  }
+  function hitungJumlahPegawai()
+  {
+    $query = $this->db->query("SELECT * FROM tbl_pegawai");
+    $total = $query->num_rows();
+    return $total;
+  }
+
 
 
 }

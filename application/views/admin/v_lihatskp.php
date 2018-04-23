@@ -5,6 +5,7 @@
 	$jum = 1;
   $jum1 = 1;
 	$no = 1;
+	$numberskp = 1;
 ?>
 <div class="row">
   <div class="leftcolumn w3-animate-top">
@@ -34,7 +35,18 @@
 
   <div class="rightcolumn">
     <div class="card">
-      <legend><h3>Sasaran Kerja Pegawai
+      <legend><h3>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><?= $jumlahSKPunit ?></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text"><h4>Sasaran Kerja Pegawai</h4></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
        <div class="pull-right"><a href="<?= base_url('admin/kegiatanprosesbisnis/addSKP') ?>" class="btn btn-md btn-info">Tambah</a></div>
        </h3></legend>
 			 <?php if($this->session->flashdata('notif') ){ ?>

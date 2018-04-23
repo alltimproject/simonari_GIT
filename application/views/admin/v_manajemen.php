@@ -1,5 +1,4 @@
 <div class="row">
-<h1 class="w3-center w3-blue" >Manajemen Risiko</h1>
   <div class="leftcolumn w3-animate-top">
 
   </div>
@@ -21,7 +20,7 @@
                     <th>No</th>
                     <th>Unit</th>
                     <th>Unit Organisasi</th>
-                    <th>Lihat PK</th>
+                    <th>Lihat Risiko</th>
                   </tr>
               </thead>
               <tbody>

@@ -10,7 +10,8 @@
   <div class="leftcolumn w3-animate-top">
     <div class="card">
       <div class="w3-panel" style="width:100%">
-        <a href="<?= base_url('admin/kegiatanprosesbisnis/lihatpk/'. $this->session->userdata('session_unit'))  ?>"  class="w3-button w3-block w3-teal">Perjanjian Kinerja</a>
+        <a href="<?= base_url('admin/kegiatanprosesbisnis/lihatpk/'. $this->session->userdata('session_unit'))  ?>"  class="w3-button w3-block w3-teal">
+					Perjanjian Kinerja</a>
       </div>
       <div class="w3-panel" style="width:100%">
         <a href="<?= base_url('admin/kegiatanprosesbisnis/lihatskp/'.$this->session->userdata('session_unit'))  ?>"  class="w3-button w3-block w3-teal">Sasaran Kerja Pegawai</a>
@@ -34,7 +35,18 @@
 
   <div class="rightcolumn">
     <div class="card">
-      <legend><h3>Perjanjian Kinerja
+      <legend><h3>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><?= $jumlahPKunit ?></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text"><h4>Perjanjian Kinerja</h4></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
       <div class="pull-right"><a href="<?= base_url('admin/kegiatanprosesbisnis/addPK') ?>" class="btn btn-md btn-info">Tambah</a></div></h3></legend>
     </div>
 		<?php if($this->session->flashdata('notif') ){ ?>

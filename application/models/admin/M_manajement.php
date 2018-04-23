@@ -67,4 +67,22 @@ class M_manajement extends CI_Model{
         return $this->db->get();
   }
 
+  function hitungStatusOpen_unit()
+  {
+    $this->db->select('*');
+    //$where = 'tbl_monitor_rtp.status = "Open"';
+    $this->db->from('tbl_monitor_rtp');
+    $this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_sop = tbl_monitor_rtp.id_sop', 'right');
+    $this->db->join('tbl_skp', 'tbl_skp.id_skp = tbl_sop_risk.id_skp', 'right');
+    $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'right');
+    $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit','right');
+    $this->db->join('tbl_unit_org', 'tbl_unit_org.id_unor = tbl_unit_kerja.id_unor', 'right');
+
+
+    //$this->db->where($where);
+    //$this->db->where('tbl_unit_kerja.id_unit', $id);
+    return $this->db->get();
+
+  }
+
 }

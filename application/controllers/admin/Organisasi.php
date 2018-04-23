@@ -26,6 +26,9 @@ class Organisasi extends CI_Controller{
     $data['showjabatan']    = $this->m_pegawai->getJabatan()->result();
     $data['showorganisasi'] = $this->m_organisasi->getallOrganisasi()->result();
     $data['showpegawai']    = $this->m_pegawai->getallPegawai()->result();
+    $data['jumlahOrg']      = $this->m_organisasi->hitungJumlahOrg();
+    $data['jumlahUnit']     = $this->m_organisasi->hitungJumlahUnit();
+    $data['jumlahPegawai']  = $this->m_organisasi->hitungJumlahPegawai();
     $this->load->view('admin/v_organisasi', $data);
     $this->load->view('admin/include/footer');
   }

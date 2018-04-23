@@ -56,6 +56,37 @@ class M_prosesbisnis extends CI_Model{
 
     return $this->db->get();
   }
+  function hitungJumlahPKunit($id)
+  {
+    $query = $this->db->query("SELECT * FROM tbl_pk WHERE id_unit='$id'");
+    $total = $query->num_rows();
+    return $total;
+  }
+  function hitungJumlahSKPunit($id)
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_pk');
+    $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
+    $this->db->join('tbl_skp', 'tbl_skp.id_pk = tbl_pk.id_pk');
+    $this->db->where('tbl_unit_kerja.id_unit', $id);
+
+    return $this->db->get()->num_rows();
+
+    // $query = $this->db->query("SELECT * FROM tbl_pk, tbl_unit_kerja, tbl_skp WHERE tbl_pk.id_unit = tbl_unit_kerja.id_unit AND tbl_pk.id_pk = tbl_skp.id_pk AND tbl_unit_kerja.id_unit = '$id' ");
+    // $total = $query->num_rows();
+    // return $total;
+  }
+  function hitungJumlahSOPunit($id)
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_skp');
+    $this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_skp = tbl_skp.id_skp', 'left');
+    $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_skp', 'left');
+    $this->db->join('tbl_unit_kerja','tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
+    $this->db->where('tbl_unit_kerja.id_unit', $id);
+
+    return $this->db->get()->num_rows();
+  }
 
 
 }

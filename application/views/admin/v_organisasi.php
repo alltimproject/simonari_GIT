@@ -2,13 +2,26 @@
   <div class="leftcolumn">
     <div class="card">
       <div class="w3-panel" style="width:100%">
-        <a href="<?= base_url('admin/organisasi?organisasi') ?>" class="w3-button w3-block w3-teal">Unit Organisasi</a>
+
+        <a href="<?= base_url('admin/organisasi?organisasi') ?>" class="w3-button w3-block w3-teal">
+          <span class="pull-right-container">
+               <span class="label label-danger pull-right"> <?= $jumlahOrg ?> </span>
+          </span>
+          Unit Organisasi</a>
       </div>
       <div class="w3-panel" style="width:100%">
-        <a href="<?= base_url('admin/organisasi?unit') ?>" class="w3-button w3-block w3-teal"> Unit Kerja</a>
+        <a href="<?= base_url('admin/organisasi?unit') ?>" class="w3-button w3-block w3-teal">
+          <span class="pull-right-container">
+               <span class="label label-danger pull-right"> <?= $jumlahUnit ?> </span>
+          </span>
+           Unit Kerja</a>
       </div>
       <div class="w3-panel" style="width:100%">
-        <a href="<?= base_url('admin/organisasi?pegawai')  ?>" class="w3-button w3-block w3-teal">Daftar Pegawai</a>
+        <a href="<?= base_url('admin/organisasi?pegawai')  ?>" class="w3-button w3-block w3-teal">
+          <span class="pull-right-container">
+               <span class="label label-danger pull-right"> <?= $jumlahPegawai ?> </span>
+          </span>
+          Daftar Pegawai</a>
       </div>
   </div>
   </div>

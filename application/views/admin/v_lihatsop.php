@@ -34,7 +34,18 @@
 
   <div class="rightcolumn">
     <div class="card">
-      <legend><h3>Data SOP
+      <legend><h3>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"> <?= $jumlahSOPunit ?> </span>
+
+            <div class="info-box-content">
+              <span class="info-box-text"><h4>Standar Operasional Prosedur</h4></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
       <div class="pull-right"><a href="<?= base_url('admin/kegiatanprosesbisnis/addsop') ?>" class="btn btn-md btn-info" align="right">Tambah SOP</a></div>
       </h3></legend>
 			<?php if($this->session->flashdata('notif') ){ ?>

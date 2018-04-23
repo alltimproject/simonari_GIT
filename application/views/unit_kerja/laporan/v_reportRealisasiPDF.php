@@ -53,7 +53,7 @@
                 <td valign="top"><?= $key->plan_selesai ?></td>
                 <td valign="top"><?= $key->indikator_output ?></td>
                 <td valign="top"><?= $key->pic ?></td>
-                <td align="center"><?= $key->anggaran ?></td>
+                <td valign="top" align="center"><?= $key->anggaran ?></td>
                 <td valign="top"><?= $key->deskripsi_rtp ?></td>
                 <td valign="top"><?= $key->real_mulai ?></td>
                 <td valign="top"><?= $key->real_selesai ?></td>

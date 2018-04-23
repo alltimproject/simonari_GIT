@@ -95,7 +95,9 @@ class Laporan extends CI_Controller{
       $this->load->view('unit_kerja/laporan/v_reportrencanaExcel', $data);
     } elseif (null !== $this->input->post('RCNpdf'))
     {
+      ob_start();
       $html = $this->load->view('unit_kerja/laporan/v_reportRencanaPDF', $data, true);
+      ob_end_clean();
 
       $this->load->library('pdf');
       $pdf = $this->pdf->load();
@@ -165,15 +167,15 @@ class Laporan extends CI_Controller{
 
     if(count($dr) > 0)
     {
-      $no_sop = 1;
-      $jum1 = 1;
-      $jum2 = 1;
-      $tbDr = '';
+      // $no_sop = 1;
+      // $jum1 = 1;
+      // $jum2 = 1;
+      // $tbDr = '';
 
       foreach ($dr as $key)
       {
 
-        $tbDr .= '<tr>';
+        $tbDr[] = $key;
 
         //  if($jum2 <= 1)
         //  {
@@ -204,17 +206,17 @@ class Laporan extends CI_Controller{
         // } else {
         //   $jum1 = $jum1 - 1;
         // }
-         $tbDr .= '<td>'.$no_sop++.'</td>';
-         $tbDr .= '<td>'.$key->nama_ik.'</td>';
-         $tbDr .= '<td>'.$key->nama_skp.'</td>';
-         $tbDr .= '<td>'.$key->nama_sop.'</td>';
-         $tbDr .= '<td>'.$key->nama_risk.'</td>';
-         $tbDr .= '<td>'.$key->deskripsi_cause.'</td>';
-         $tbDr .= '<td>'.$key->deskripsi_pengendalian.'</td>';
-         $tbDr .= '<td>'.$key->sisa_risk.'</td>';
-         $tbDr .= '<td>'.$key->frekuensi.'</td>';
-         $tbDr .= '<td>'.$key->dampak.'</td>';
-         $tbDr .= '</tr>';
+        //  $tbDr .= '<td>'.$no_sop++.'</td>';
+        //  $tbDr .= '<td>'.$key->nama_ik.'</td>';
+        //  $tbDr .= '<td>'.$key->nama_skp.'</td>';
+        //  $tbDr .= '<td>'.$key->nama_sop.'</td>';
+        //  $tbDr .= '<td>'.$key->nama_risk.'</td>';
+        //  $tbDr .= '<td>'.$key->deskripsi_cause.'</td>';
+        //  $tbDr .= '<td>'.$key->deskripsi_pengendalian.'</td>';
+        //  $tbDr .= '<td>'.$key->sisa_risk.'</td>';
+        //  $tbDr .= '<td>'.$key->frekuensi.'</td>';
+        //  $tbDr .= '<td>'.$key->dampak.'</td>';
+        //  $tbDr .= '</tr>';
       }
 
       echo json_encode($tbDr);
@@ -301,15 +303,16 @@ class Laporan extends CI_Controller{
          $tbReal .= '<tr>';
          $tbReal .= '<td>'.$no_real++.'</td>';
          $tbReal .= '<td>'.$key->nama_risk.'</td>';
-         $tbReal .= '<td>'.$key->deskripsi_cause.'</td>';
-         $tbReal .= '<td>'.$key->frekuensi.'</td>';
-         $tbReal .= '<td>'.$key->dampak.'</td>';
-         $tbReal .= '<td>'.$key->hitung.'</td>';
-         $tbReal .= '<td>'.$key->deskripsi_penanganan.'</td>';
          $tbReal .= '<td>'.$key->deskripsi_rtp.'</td>';
          $tbReal .= '<td>'.$key->plan_mulai.'</td>';
          $tbReal .= '<td>'.$key->plan_selesai.'</td>';
          $tbReal .= '<td>'.$key->indikator_output.'</td>';
+         $tbReal .= '<td>'.$key->pic.'</td>';
+         $tbReal .= '<td>'.$key->anggaran.'</td>';
+         $tbReal .= '<td>'.$key->real_mulai.'</td>';
+         $tbReal .= '<td>'.$key->real_selesai.'</td>';
+         $tbReal .= '<td>'.$key->hambatan.'</td>';
+         $tbReal .= '<td>'.$key->keterangan.'</td>';
          $tbReal .= '</tr>';
       }
 

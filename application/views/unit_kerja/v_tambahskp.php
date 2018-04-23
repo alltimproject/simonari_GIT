@@ -8,7 +8,7 @@
 		<div class="table-responsive">
 					<form class="form-skp" action="<?= base_url('unit_kerja/kegiatanproses/saveSKP') ?>" method="post">
 						<table class="table table-bordered" id="tb-skp">
-						  <tr>
+						  <tr style="background-color: grey; color: white;">
 						    <th width="27%">Indikator Kinerja</th>
 						    <th width="25%">Kegiatan</th>
 						    <th width="10%">Volume</th>

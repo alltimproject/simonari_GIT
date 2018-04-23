@@ -4,7 +4,7 @@
 	<title>Daftar Resiko</title>
    <link rel="stylesheet" href="<?= base_url().'assets1/css/bootstrap.min.css' ?>">
     <style type="text/css">
-    body {font-size: 15px;}
+    body {font-size: 10px;}
     td {padding-left: 3px;}
     </style>
 </head>
@@ -20,18 +20,18 @@
   <h4>DAFTAR RISIKO</h4>
   <h5>Nama Unit : <?php echo $this->session->userdata('nama_unit') ?></h5>
 
-	<table class="table table-bordered">
+	<table class="table table-bordered table-responsive" autosize="1" style="overflow: wrap">
           <tr style="background-color: rgb(162, 216, 250);">
-            <th>No</th>
-            <th width="15%">Indikator Kinerja</th>
-            <th width="15%">Kegiatan</th>
-            <th width="15%">Proses Bisnis</th>
-            <th width="15%">Risiko</th>
-            <th width="15%">Penyebab</th>
-            <th width="10%">Pengendalian Yang Sudah Ada</th>
-            <th width="10%">Sisa Risiko</th>
-            <th>Kemungkinan Kejadian</th>
-            <th>Dampak</th>
+            <th align="center" width="30">No</th>
+            <th align="center" width="120">Indikator Kinerja</th>
+            <th align="center" width="120">Kegiatan</th>
+            <th align="center" width="130">Proses Bisnis</th>
+            <th align="center" width="130">Risiko</th>
+            <th align="center" width="130">Penyebab</th>
+            <th align="center" width="120">Pengendalian Yang Sudah Ada</th>
+            <th align="center" width="120">Sisa Risiko</th>
+            <th align="center" width="50">Kemungkinan Kejadian</th>
+            <th align="center" width="50">Dampak</th>
 
           </tr>
 
@@ -80,7 +80,7 @@
              <td valign="top"><?= $sop->deskripsi_pengendalian ?></td>
              <td valign="top"><?= $sop->sisa_risk ?></td>
              <td valign="top" align="center"><?= $sop->frekuensi ?></td>
-             <td valign="top" align="center" height="80"><?= $sop->dampak ?></td>
+             <td valign="top" align="center"><?= $sop->dampak ?></td>
 
 
           </tr>

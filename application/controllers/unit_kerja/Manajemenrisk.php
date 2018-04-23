@@ -103,8 +103,9 @@ class ManajemenRisk extends CI_Controller{
   {
     $id_sop = $this->input->post('id_sop');
     $hambatan = $this->input->post('hambatan');
-    $realm_mulai = $this->input->post('real_mulai');
+    $real_mulai = $this->input->post('real_mulai');
     $real_selesai = $this->input->post('real_selesai');
+    $keterangan = $this->input->post('keterangan');
 
     $where = array(
       'id_sop' => $id_sop
@@ -115,6 +116,7 @@ class ManajemenRisk extends CI_Controller{
       'hambatan' => $hambatan,
       'real_mulai' => $real_mulai,
       'real_selesai' => $real_selesai,
+      'keterangan' => $keterangan,
       'status' => 'Close'
     );
 

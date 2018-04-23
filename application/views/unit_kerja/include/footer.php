@@ -52,7 +52,6 @@
                  <input type="hidden" value="<?= current_url(); ?>" name="redirect">
                </div>
 
-
             <div class="modal-footer">
               <button type="submit" name="submit" class="btn btn-info">Ganti Foto</button>
             </div>
@@ -61,8 +60,6 @@
         </div>
       </div>
     </div>
-
-
 
 </div>
 </div>
@@ -117,8 +114,54 @@ $(document).ready(function(){
       data: {'tahun_pk': tahun_pk},
       dataType: 'JSON',
       success: function(data){
-        $('#tb_lapDR').html(data);
-        //alert('Berhasil');
+        //alert(data.length);
+        // $('#tb_lapDR').html(data);
+        var no = 1;
+        var jum1 = 1;
+        var jum2 = 1;
+        var i;
+        var html = '';
+
+        for(i=0, no=1;i<data.length;i++)
+        {
+          if(jum2 <= 1)
+          {
+            var jmlpk = data[i].rowpk;
+            if (jmlpk == 0)
+               {
+                  jmlpk = 1;
+                }
+            html += '<tr><td rowspan="'+jmlpk+'">'+ no++ +'</td>';
+            html += '<td rowspan="'+jmlpk+'">'+ data[i].nama_ik +'</td>';
+            jum2 = data[i].rowpk;
+          } else {
+            jum2 = jum2 - 1;
+          }
+
+          if(jum1 <= 1)
+          {
+            var jmlskp = data[i].rowskp;
+            if (jmlskp == 0)
+               {
+                  jmlskp = 1;
+                }
+            html += '<td rowspan="'+jmlskp+'">'+ data[i].nama_skp +'</td>';
+            jum1 = data[i].rowskp;
+          } else {
+            jum1 = jum1 - 1;
+          }
+
+          html += '<td>'+ data[i].nama_sop +'</td>';
+          html += '<td>'+ data[i].nama_risk +'</td>';
+          html += '<td>'+ data[i].deskripsi_cause +'</td>';
+          html += '<td>'+ data[i].deskripsi_pengendalian +'</td>';
+          html += '<td>'+ data[i].sisa_risk +'</td>';
+          html += '<td>'+ data[i].frekuensi +'</td>';
+          html += '<td>'+ data[i].dampak +'</td></tr>';
+        }
+
+        $('#tb_lapDR').html(html);
+
       },
       error: function(){
         alert("Tidak ada data");
@@ -137,8 +180,54 @@ $(document).ready(function(){
         data: {'tahun_pk': tahun_pk},
         dataType: 'JSON',
         success: function(data){
-          $('#tb_lapDR').html(data);
+          // $('#tb_lapDR').html(data);
           //alert('Berhasil');
+          var no = 1;
+          var jum1 = 1;
+          var jum2 = 1;
+          var i;
+          var html = '';
+
+          for(i=0, no=1;i<data.length;i++)
+          {
+            if(jum2 <= 1)
+            {
+              var jmlpk = data[i].rowpk;
+              if (jmlpk == 0)
+                 {
+                    jmlpk = 1;
+                  }
+              html += '<tr><td rowspan="'+jmlpk+'">'+ no++ +'</td>';
+              html += '<td rowspan="'+jmlpk+'">'+ data[i].nama_ik +'</td>';
+              jum2 = data[i].rowpk;
+            } else {
+              jum2 = jum2 - 1;
+            }
+
+            if(jum1 <= 1)
+            {
+              var jmlskp = data[i].rowskp;
+              if (jmlskp == 0)
+                 {
+                    jmlskp = 1;
+                  }
+              html += '<td rowspan="'+jmlskp+'">'+ data[i].nama_skp +'</td>';
+              jum1 = data[i].rowskp;
+            } else {
+              jum1 = jum1 - 1;
+            }
+
+            html += '<td>'+ data[i].nama_sop +'</td>';
+            html += '<td>'+ data[i].nama_risk +'</td>';
+            html += '<td>'+ data[i].deskripsi_cause +'</td>';
+            html += '<td>'+ data[i].deskripsi_pengendalian +'</td>';
+            html += '<td>'+ data[i].sisa_risk +'</td>';
+            html += '<td>'+ data[i].frekuensi +'</td>';
+            html += '<td>'+ data[i].dampak +'</td></tr>';
+          }
+
+          $('#tb_lapDR').html(html);
+
         },
         error: function(){
           alert("Tidak ada data");

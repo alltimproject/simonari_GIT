@@ -4,7 +4,6 @@
   <div class="row">
 
 
-
     <div class="col-md-4">
       <div class="box">
         <div class="box-header">
@@ -135,6 +134,42 @@
         </div>
       </div>
     </div>
+
+    <?php if($this->session->flashdata('modal') ){ ?>
+      <div class="modal fade" id="modalWelcome" role="dialog">
+        <div class="modal-dialog" style="width: 600px; margin-top: 200px">
+          <div class="modal-content">
+             <div class="modal-header bg-blue">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h1 class="modal-title w3-center">Selamat datang di SIMONARI</h1>
+             </div>
+             <div class="modal-body">
+                   <div class="box box-primary" style="border-top: 2px solid rgb(55, 84, 210)">
+                     <div class="box-body box-profile" style="border-bottom: 2px solid rgb(55, 84, 210);">
+                       <img src="<?= base_url('upload/'.$this->session->userdata('foto'))  ?>" alt="User Image" class="profile-user-img img-responsive img-circle">
+                       <h3 class="profile-username text-center"><?= $this->session->userdata('nama_pegawai') ?></h3>
+                       <p class="text-muted text-center"><?= $this->session->userdata('nip') ?></p>
+                     </div>
+                     <div class="box-footer">
+
+                       <strong><i class="fa  fa-black-tie margin-r-5"></i> Jabatan</strong>
+                       <p class="text-muted"><?= $this->session->userdata('ket_jabatan') ?></p>
+                       <hr>
+
+                       <strong><i class="fa fa-user margin-r-5"></i> Unit Kerja</strong>
+                       <p class="text-muted"><?= $this->session->userdata('nama_unit') ?></p>
+                       <hr>
+
+                       <strong><i class="fa fa-users margin-r-5"></i> Organisasi</strong>
+                       <p class="text-muted"><?= $this->session->userdata('nama_unor') ?></p>
+                     </div>
+                   </div>
+                   <h4 class="w3-center">Silahkan klik <a href="#" style="color: rgb(65, 70, 186)" target="__blank"><b>disini</b></a> untuk Tutorial Aplikasi ini.</h4>
+             </div>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
 
 <script type="text/javascript">
 

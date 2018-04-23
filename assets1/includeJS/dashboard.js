@@ -8,3 +8,8 @@ $(function(){
     'autoWidth'   : false
   });
 });
+
+$(document).ready(function(){
+    //alert(modal);
+    $('#modalWelcome').modal('show');
+});

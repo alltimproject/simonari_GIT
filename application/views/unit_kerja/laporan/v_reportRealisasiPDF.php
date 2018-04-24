@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="<?= base_url().'assets1/css/bootstrap.min.css' ?>">
     <style type="text/css">
     body {font-size: 10px;}
-    td {padding-left: 3px;}
+		th {border: 1px solid black;}
+    td {padding-left: 3px; border: 1px solid black;}
     </style>
 </head>
 <body>
@@ -21,7 +22,7 @@
 	<h4>DAFTAR REALISASI</h4>
 	<h5>Nama Unit : <?php echo $this->session->userdata('nama_unit') ?></h5>
 
-	 <table class="table table-bordered table-responsive">
+	 <table class="table table-responsive">
             <tr>
               <th rowspan="2" align="center" width="5%" style="background-color: aqua;">No</th>
               <th rowspan="2" align="center" style="background-color: aqua;">Risiko</th>

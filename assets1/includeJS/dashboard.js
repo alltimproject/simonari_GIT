@@ -7,8 +7,8 @@ $(function(){
     'info'        : true,
     'autoWidth'   : false
   });
+  $('#modalWelcome').modal('show');
 });
-
 
 
 var recReq = getXmlHttpRequestObject();

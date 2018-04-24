@@ -20,15 +20,15 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-4">
-                <button type="button" class="btn btn-lg bg-blue"></button><small>Sangat Rendah</small><br/>
-                <button type="button" class="btn btn-lg" style="background-color: green"></button><small> Rendah</small><br/>
+                <button type="button" onclick="loadSangatRendah(); return false;" class="btn btn-lg bg-blue"></button><small>Sangat Rendah</small><br/>
+                <button type="button" onclick="loadrendah(); return false;" class="btn btn-lg" style="background-color: green"></button><small> Rendah</small><br/>
               </div>
               <div class="col-sm-4">
-                <button type="button" class="btn btn-lg" style="background-color: yellow"></button><small> Sedang</small><br/>
-                <button type="button" class="btn btn-lg bg-yellow"></button><small> Tinggi</small><br/>
+                <button type="button" onclick="loadSedang(); return false;" class="btn btn-lg" style="background-color: yellow"></button><small> Sedang</small><br/>
+                <button type="button" onclick="loadTinggi(); return false;" class="btn btn-lg bg-yellow"></button><small> Tinggi</small><br/>
               </div>
               <div class="col-sm-4">
-                <button type="button" class="btn btn-lg bg-red"></button><small> Sangat Tinggi</small><br/>
+                <button type="button" onclick="loadSangatTinggi(); return false;" class="btn btn-lg bg-red"></button><small> Sangat Tinggi</small><br/>
               </div>
             </div>
           </div>
@@ -85,6 +85,20 @@
       </div>
     </div>
   </div>
+
+<!-- -->
+<div id="contentShow">
+
+ </div>
+
+
+
+
+<!-- -->
+
+
+
+
 
     <div class="box">
       <div class="box-header">
@@ -276,5 +290,6 @@ var katRisk = [
 
       };
   </script>
+
 
   <script type="text/javascript" src="<?= base_url().'assets1/includeJS/dashboard.js' ?>"></script>

@@ -391,6 +391,9 @@ $(document).ready(function(){
     });
   });
 </script>
+<script type="text/javascript">
+  $('.hideform').fadeIn();
+</script>
 
 </body>
 </html>

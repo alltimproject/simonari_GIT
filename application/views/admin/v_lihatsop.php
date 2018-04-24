@@ -35,7 +35,7 @@
   <div class="rightcolumn">
     <div class="card">
       <legend><h3>
-				<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="col-md-6 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-aqua"> <?= $jumlahSOPunit ?> </span>
 
@@ -98,6 +98,7 @@
 
            <td>
             <a href="" class="btn btn-default btn-sm">Edit SOP</a>
+						<a href="<?= base_url('admin/kegiatanprosesbisnis/hapusSOP/'.$sop->id_sop) ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mengahapus Data ini ?')" class="btn btn-danger btn-sm" >Hapus</a>
            </td>
         </tr>
     <?php  } ?>

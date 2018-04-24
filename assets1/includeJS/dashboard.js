@@ -9,6 +9,7 @@ $(function(){
   });
 });
 
+<<<<<<< HEAD
 
 
 var recReq = getXmlHttpRequestObject();
@@ -85,3 +86,9 @@ function loadTinggi(){
       recReq.send(null);
         }
 }
+=======
+$(document).ready(function(){
+    //alert(modal);
+    $('#modalWelcome').modal('show');
+});
+>>>>>>> a1876adb7ea2d2dfe23df0eb445f3158d6c878c5

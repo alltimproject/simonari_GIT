@@ -146,6 +146,7 @@
                 <th>Real Mulai</th>
                 <th>Real Selesai</th>
                 <th>Hambatan</th>
+                <th>Keterangan</th>
               </tr>
             </thead>
             <tbody id="tb_lapReal"></tbody>

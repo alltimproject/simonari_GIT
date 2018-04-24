@@ -25,7 +25,7 @@
                 				</td>
                 				<td></td>
 							</tr>
-						  	<tr>
+						  	<tr style="background-color: grey; color: white;">
 								<th width="15%">Proses Bisnis</th>
 						    <th width="15%">Risiko</th>
 						    <th width="5%">Kemungkinan</th>

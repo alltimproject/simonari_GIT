@@ -41,6 +41,7 @@ class Login extends CI_Controller
         $id_jabatan   = $key->id_jabatan;
         $nama_jabatan = $key->nama_jabatan;
         $ket_jabatan  = $key->ket_jabatan;
+        $foto         = $key->foto;
         //
         // //unor
         $id_unor      = $key->id_unor;
@@ -59,6 +60,7 @@ class Login extends CI_Controller
         'id_jabatan'   => $id_jabatan,
         'nama_jabatan' => $nama_jabatan,
         'ket_jabatan'  => $ket_jabatan,
+        'foto'         => $foto,
 
         'id_unit'      => $id_unit,
         'nama_unit'    => $nama_unit,
@@ -72,6 +74,7 @@ class Login extends CI_Controller
       );
 
       $this->session->set_userdata($session);
+      $this->session->set_flashdata('modal', 'oklogin');
       redirect('unit_kerja/Dashboard');
 
     } elseif($cek2->num_rows() > 0)
@@ -83,6 +86,8 @@ class Login extends CI_Controller
         $nama_pegawai = $key->nama_pegawai;
         $id_jabatan = $key->id_jabatan;
         $nama_jabatan = $key->nama_jabatan;
+        $ket_jabatan  = $key->ket_jabatan;
+        $foto = $key->foto;
         //
         // //unor
         $id_unor = $key->id_unor;
@@ -93,8 +98,10 @@ class Login extends CI_Controller
       $session = array(
         'nip' => $nip,
         'nama_pegawai' => $nama_pegawai,
-        'id_jabatan' => $id_jabatan,
+        'id_jabatan'   => $id_jabatan,
         'nama_jabatan' => $nama_jabatan,
+        'ket_jabatan'  => $ket_jabatan,
+        'foto'         => $foto,
 
         'id_unor' => $id_unor,
         'nama_unor' => $nama_unor,
@@ -103,7 +110,7 @@ class Login extends CI_Controller
       );
 
       $this->session->set_userdata($session);
-
+      $this->session->set_flashdata('modal', 'oklogin');
       redirect('unit_organisasi/Dashboard');
 
 

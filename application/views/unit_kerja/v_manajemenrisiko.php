@@ -308,6 +308,10 @@
             <label>Hambatan</label>
             <textarea class="form-control" name="hambatan" id="hambatan"></textarea>
           </div>
+          <div class="form-group">
+            <label>Keterangan</label>
+            <textarea class="form-control" name="keterangan" id="keterangan"></textarea>
+          </div>
         </div>
         <div class="pull-right">
           <button type="submit" name="submit" class="btn btn-md btn-info">Simpan</button>

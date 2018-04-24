@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title><?php echo $title; ?></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url().'assets1/css/bootstrap.min.css'?> ">
   <link rel="stylesheet" href="<?= base_url().'assets1/css/font-awesome.min.css'?>">
@@ -15,7 +16,7 @@
   <link rel="icon" type="image/png" href="<?= base_url('images/setwapres.png') ?>">
 
   <script src="<?= base_url().'assets1/js/jquery.min.js' ?>"></script>
-  
+
 
 <style>
 * {

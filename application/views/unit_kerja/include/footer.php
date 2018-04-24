@@ -62,8 +62,6 @@
       </div>
     </div>
 
-
-
 </div>
 </div>
 <div class="footer">
@@ -301,6 +299,9 @@ $(document).ready(function(){
       }
     });
   });
+</script>
+<script type="text/javascript">
+  $('.hideform').fadeIn();
 </script>
 
 </body>

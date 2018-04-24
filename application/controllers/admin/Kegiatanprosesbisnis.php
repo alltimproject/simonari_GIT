@@ -241,7 +241,15 @@ class Kegiatanprosesbisnis extends CI_Controller{
     $this->session->set_flashdata('notif', 'Berhasil Menghapus Data PK ');
     redirect('admin/lihatpk/'.$this->session->userdata('session_unit'));
 
-
+  }
+  function hapusSOP($id)
+  {
+    $where = array(
+      'id_sop'  => $id
+    );
+    $this->m_core->delete($where, 'tbl_sop_risk');
+    $this->session->set_flashdata('notif', 'Berhasil Mengahapus Data SOP');
+    redirect('admin/kegiatanprosesbisnis/lihatsop/'.$this->session->userdata('session_unit') );
   }
 
 

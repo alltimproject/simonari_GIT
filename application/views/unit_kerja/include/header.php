@@ -166,6 +166,7 @@ body {
     <a href="<?= base_url('unit_kerja/kegiatanproses') ?> " class="navigasi">KEGIATAN DAN PROSES BISNIS</a>
     <a href="<?= base_url('unit_kerja/manajemenrisk') ?>" class="navigasi">MANAJEMEN RISIKO</a>
     <a href="<?= base_url('unit_kerja/laporan') ?>" class="navigasi">LAPORAN</a>
+    <a href="<?= base_url('unit_kerja/tentang') ?>" class="navigasi">TENTANG SI-MONARI</a>
     <a onclick="return confirm('Apakah Anda Yakin Ingin Keluar')" href="<?= base_url('login/logOut') ?>" style="float:right">LOGOUT</a>
   </div>
 

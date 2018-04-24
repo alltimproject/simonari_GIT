@@ -52,10 +52,22 @@ class M_prosesbisnis extends CI_Model{
     $this->db->select('*');
     $this->db->from('tbl_unit_kerja');
     $this->db->join('tbl_unit_org', 'tbl_unit_org.id_unor = tbl_unit_kerja.id_unor');
+    //$this->db->join('tbl_pegawai', 'tbl_pegawai.id_unit = tbl_unit_kerja.id_unit');
     $this->db->where($session);
 
     return $this->db->get();
   }
+  function getPegUnit($where)
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_pegawai');
+    $this->db->join('tbl_unit_kerja','tbl_unit_kerja.id_unit = tbl_pegawai.id_unit');
+    $this->db->join('tbl_unit_org', 'tbl_unit_org.id_unor = tbl_pegawai.id_unor');
+    $this->db->where($where);
+
+    return $this->db->get();
+  }
+
   function hitungJumlahPKunit($id)
   {
     $query = $this->db->query("SELECT * FROM tbl_pk WHERE id_unit='$id'");

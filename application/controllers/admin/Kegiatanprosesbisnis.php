@@ -38,6 +38,8 @@ class Kegiatanprosesbisnis extends CI_Controller{
     );
 
     $this->session->set_userdata($session);
+
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
     $data['showunitID'] = $this->m_prosesbisnis->getUnit($where)->result();
     $data['showPK']  = $this->m_prosesbisnis->getPK($where)->result();
     $data['showSKP'] = $this->m_prosesbisnis->getSKP($where)->result();
@@ -151,6 +153,8 @@ class Kegiatanprosesbisnis extends CI_Controller{
       'tbl_unit_kerja.id_unit' => $id
     );
 
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
+
     $data['jumlahSKPunit'] = $this->m_prosesbisnis->hitungJumlahSKPunit($id);
     $data['showunitID'] = $this->m_prosesbisnis->getUnit($where)->result();
     $data['showSKP'] = $this->m_prosesbisnis->getSKP($where)->result();
@@ -188,6 +192,8 @@ class Kegiatanprosesbisnis extends CI_Controller{
       'tbl_unit_kerja.id_unit' => $id
     );
 
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
+  
     $data['jumlahSOPunit'] = $this->m_prosesbisnis->hitungJumlahSOPunit($id);
     $data['showunitID'] = $this->m_prosesbisnis->getUnit($where)->result();
     $data['showSOP'] = $this->m_prosesbisnis->getSOP($where)->result();

@@ -15,6 +15,12 @@ class Laporan extends CI_Controller{
 
     error_reporting(0);
     //Codeigniter : Write Less Do More
+
+
+        if($this->session->userdata('login') != "ok")
+        {
+          redirect('login');
+        }
   }
 
   function index()

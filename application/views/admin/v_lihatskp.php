@@ -8,30 +8,8 @@
 	$numberskp = 1;
 ?>
 <div class="row">
-  <div class="leftcolumn w3-animate-top">
-    <div class="card">
-      <div class="w3-panel" style="width:100%">
-        <a href="<?= base_url('admin/kegiatanprosesbisnis/lihatpk/'. $this->session->userdata('session_unit'))  ?>"  class="w3-button w3-block w3-teal">Perjanjian Kinerja</a>
-      </div>
-      <div class="w3-panel" style="width:100%">
-        <a href="<?= base_url('admin/kegiatanprosesbisnis/lihatskp/'. $this->session->userdata('session_unit'))  ?>"  class="w3-button w3-block w3-teal">Sasaran Kinerja Pegawai</a>
-      </div>
-      <div class="w3-panel" style="width:100%">
-        <a href="<?= base_url('admin/kegiatanprosesbisnis/lihatsop/'.$this->session->userdata('session_unit'))  ?>"  class="w3-button w3-block w3-teal">Standar Operasionak Prosedur</a>
-      </div>
-    </div>
-		<div class="card">
-			<legend class="w3-center w3-black">Unit</legend>
-			<?php
-			foreach ($showunitID as $key):?>
-			<p class="w3-center"><?= $key->nama_unit ?></p>
-			<legend class="w3-center w3-black">Organisasi</legend>
-			<p class="w3-center"><?= $key->nama_unor ?></p>
-		  <?php endforeach; ?>
-
-		</div>
-
-  </div>
+	<?php $this->load->view('admin/include/sidebar_kegProses'); ?>
+</div>
 
   <div class="rightcolumn">
     <div class="card">

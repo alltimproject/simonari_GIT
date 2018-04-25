@@ -13,7 +13,7 @@ class Laporan extends CI_Controller{
     $this->load->model('unit/m_dashboard');
     $this->load->model('unit/m_laporan');
 
-    error_reporting(0);
+    
     //Codeigniter : Write Less Do More
 
 
@@ -69,6 +69,7 @@ class Laporan extends CI_Controller{
 
       $this->load->library('pdf');
       $pdf = $this->pdf->load();
+      $pdf->useSubstitutions = false;
       $pdf->WriteHTML(utf8_encode($html));
       $pdf->WriteHTML($html,1);
       $pdf->Output("Daftar_Risiko.pdf" ,'I');
@@ -107,6 +108,7 @@ class Laporan extends CI_Controller{
 
       $this->load->library('pdf');
       $pdf = $this->pdf->load();
+      $pdf->useSubstitutions = false;
       $pdf->WriteHTML(utf8_encode($html));
       $pdf->WriteHTML($html,1);
       $pdf->Output("Rencana_Penanganan.pdf" ,'I');
@@ -143,6 +145,7 @@ class Laporan extends CI_Controller{
 
       $this->load->library('pdf');
       $pdf = $this->pdf->load();
+      $pdf->useSubstitutions = false;
       $pdf->WriteHTML(utf8_encode($html));
       $pdf->WriteHTML($html,1);
       $pdf->Output("Rencana_Penanganan.pdf" ,'I');

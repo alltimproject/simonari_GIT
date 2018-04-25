@@ -13,6 +13,7 @@
     function load()
     {
       include_once APPPATH.'/third_party/mpdf60/mpdf.php';
+      ini_set('memory_limit','1024M');
 
       return new mPDF('utf-8', 'A4-L','','Arial');
     }

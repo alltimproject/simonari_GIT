@@ -7,7 +7,6 @@
 
 <div class="rightcolumn">
   <div class="card">
-
     <div class="contentTambahRTP">
       <legend class="judulForm">Tambah Rencana</legend>
       <div class="alert alert-danger" id="alertRTP"></div>

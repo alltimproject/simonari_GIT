@@ -162,9 +162,6 @@ $(document).ready(function(){
 
         $('#tb_lapDR').html(html);
 
-      },
-      error: function(){
-        alert("Tidak ada data");
       }
     });
   });
@@ -251,9 +248,6 @@ $(document).ready(function(){
       success: function(data){
         $('#tb_lapRcn').html(data);
         //alert('Berhasil');
-      },
-      error: function(){
-        alert("Tidak ada data");
       }
     });
   });
@@ -293,9 +287,6 @@ $(document).ready(function(){
       success: function(data){
         $('#tb_lapReal').html(data);
         //alert('Berhasil');
-      },
-      error: function(){
-        alert("Tidak ada data");
       }
     });
   });

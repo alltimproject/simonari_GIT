@@ -73,7 +73,7 @@
         </div>
       </form>
     </div>
-    
+
     <div class="AddRealisasi">
     <legend class="judulForm2">Tambah Realisasi</legend>
       <div class="alert alert-danger" id="alertReal"></div>
@@ -156,8 +156,8 @@
 
     </form>
     </div>
-    
-    
+
+
 
     <div class="contentRISK">
        <legend>Daftar Risiko</legend>
@@ -270,15 +270,15 @@
               <td><?= $real->hambatan ?></td>
               <td><?= $real->keterangan ?></td>
               <td>
-               
+
                 <?php if($real->status == "Open"){ ?>
                   <a class="btn btn-info btn-md" id="buatRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>"> Buat Realisasi </a>
-                  
+
                 <?php } else { ?>
                   <a class="btn btn-success btn-md" id="editRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>" real-mulai="<?= $real->real_mulai ?>" real-selesai="<?= $real->real_selesai ?>" real-hambatan="<?= $real->hambatan ?>" real-keterangan="<?= $real->keterangan ?>"> Edit Realisasi </a>
-                  
+
                 <?php } ?>
-                
+
              </td>
           </tr>
       <?php  endforeach ?>
@@ -322,7 +322,7 @@
                <td><?php if(!isset($rtp->deskripsi_rtp)){ ?>
                      <button id="buatRTP" class="btn btn-sm btn-info" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>">Buat Rencana</button>
                    <?php } else { ?>
-                     <button id="editRTP" <?php /* if($rtp->status == "Close"){ echo "disabled"; } */  ?> class="btn btn-sm btn-success" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>" data-rencana="<?= $rtp->deskripsi_rtp ?>" data-plan_mulai="<?= $rtp->plan_mulai ?>" data-plan_selesai="<?= $rtp->plan_selesai ?>" data-output="<?= $rtp->indikator_output ?>" data-pic="<?= $rtp->pic ?>" data-status="<?= $rtp->status ?>">Edit Rencana</button>
+                     <button id="editRTP" class="btn btn-sm btn-success" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>" data-rencana="<?= $rtp->deskripsi_rtp ?>" data-plan_mulai="<?= $rtp->plan_mulai ?>" data-plan_selesai="<?= $rtp->plan_selesai ?>" data-output="<?= $rtp->indikator_output ?>" data-pic="<?= $rtp->pic ?>" data-status="<?= $rtp->status ?>">Edit Rencana</button>
                    <?php } ?>
                </td>
            </tr>
@@ -331,8 +331,8 @@
       </div>
     </div>
 
-    
-    
+
+
 
     <!-- End Table -->
 

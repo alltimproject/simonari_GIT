@@ -248,6 +248,10 @@
             <th>Output</th>
             <th>PIC</th>
             <th>Anggaran</th>
+            <th>Real Mulai</th>
+            <th>Real Selesai</th>
+            <th>Hambatan</th>
+            <th>Keterangan</th>
             <th>Aksi</th>
           </tr>
      <?php $noreal = 1; ?>
@@ -261,6 +265,10 @@
               <td><?= $real->indikator_output ?></td>
               <td><?= $real->pic ?></td>
               <td><?= $real->anggaran ?></td>
+              <td><?= $real->real_mulai ?></td>
+              <td><?= $real->real_selesai ?></td>
+              <td><?= $real->hambatan ?></td>
+              <td><?= $real->keterangan ?></td>
               <td>
                
                 <?php if($real->status == "Open"){ ?>
@@ -314,7 +322,7 @@
                <td><?php if(!isset($rtp->deskripsi_rtp)){ ?>
                      <button id="buatRTP" class="btn btn-sm btn-info" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>">Buat Rencana</button>
                    <?php } else { ?>
-                     <button id="editRTP" <?php if($rtp->status == "Close"){ echo "disabled"; }  ?> class="btn btn-sm btn-success" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>" data-rencana="<?= $rtp->deskripsi_rtp ?>" data-plan_mulai="<?= $rtp->plan_mulai ?>" data-plan_selesai="<?= $rtp->plan_selesai ?>" data-output="<?= $rtp->indikator_output ?>" data-pic="<?= $rtp->pic ?>" data-status="<?= $rtp->status ?>">Edit Rencana</button>
+                     <button id="editRTP" <?php /* if($rtp->status == "Close"){ echo "disabled"; } */  ?> class="btn btn-sm btn-success" data-id_sop="<?= $rtp->id_sop ?>" data-nama_sop="<?= $rtp->nama_sop ?>" data-nama_risk="<?= $rtp->nama_risk ?>" data-cause="<?= $rtp->deskripsi_cause ?>" data-pengendalian="<?= $rtp->deskripsi_pengendalian ?>" data-rencana="<?= $rtp->deskripsi_rtp ?>" data-plan_mulai="<?= $rtp->plan_mulai ?>" data-plan_selesai="<?= $rtp->plan_selesai ?>" data-output="<?= $rtp->indikator_output ?>" data-pic="<?= $rtp->pic ?>" data-status="<?= $rtp->status ?>">Edit Rencana</button>
                    <?php } ?>
                </td>
            </tr>

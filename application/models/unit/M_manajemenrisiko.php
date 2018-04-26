@@ -25,8 +25,6 @@
 		{
 				$this->db->select('*');
 
-					//$where2 = "tbl_monitor_rtp.status != 'Close'";
-
 					$this->db->from('tbl_monitor_rtp');
 					$this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_sop = tbl_monitor_rtp.id_sop', 'right');
        		$this->db->join('tbl_skp', 'tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
@@ -34,7 +32,6 @@
        		$this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
 
        		$this->db->where($where);
-					//$this->db->where($where2);
 					$this->db->order_by('tbl_monitor_rtp.plan_mulai ASC');
        		return $this->db->get();
 		}

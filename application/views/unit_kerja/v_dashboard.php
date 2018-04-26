@@ -51,15 +51,15 @@
         <div class="box-footer">
           <div class="row">
             <div class="col-sm-4">
-              <button type="button" class="btn btn-lg" style="background-color: #F7464A"></button><small> Man</small> <br/>
-              <button type="button" class="btn btn-lg" style="background-color: #46BFBD"></button><small> Money</small>  <br/>
+              <button type="button" onclick="loadMan(); return false;" class="btn btn-lg" style="background-color: #F7464A"></button><small> Man</small> <br/>
+              <button type="button" onclick="loadMoney(); return false;"class="btn btn-lg" style="background-color: #46BFBD"></button><small> Money</small>  <br/>
             </div>
             <div class="col-sm-4">
-              <button type="button" class="btn btn-lg" style="background-color: #FDB45C"></button><small> Method</small> <br/>
-              <button type="button" class="btn btn-lg" style="background-color: #949FB1"></button><small> Machine</small>  <br/>
+              <button type="button" onclick="loadMethod(); return false;" class="btn btn-lg" style="background-color: #FDB45C"></button><small> Method</small> <br/>
+              <button type="button" onclick="loadMachine(); return false;" class="btn btn-lg" style="background-color: #949FB1"></button><small> Machine</small>  <br/>
             </div>
             <div class="col-sm-4">
-              <button type="button" class="btn btn-lg" style="background-color: #4D5360"></button><small> Material</small>  <br/>
+              <button type="button" onclick="loadMaterial(); return false;" class="btn btn-lg" style="background-color: #4D5360"></button><small> Material</small>  <br/>
             </div>
           </div>
         </div>
@@ -79,8 +79,8 @@
             </center>
         </div>
         <div class="box-footer">
-            <button type="button" class="btn btn-lg btn-success"></button><small> Open</small><br/>
-            <button type="button" class="btn btn-lg btn-danger"></button><small> Close</small>
+            <button type="button" onclick="loadOpen(); return false; " class="btn btn-lg btn-success"></button><small> Open</small><br/>
+            <button type="button" onclick="loadClose(); return false; " class="btn btn-lg btn-danger"></button><small> Close</small>
         </div>
       </div>
     </div>

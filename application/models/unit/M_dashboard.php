@@ -59,7 +59,7 @@
 
 			$this->db->select('*');
 			$this->db->from('tbl_monitor_rtp');
-			
+
 			$this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_sop = tbl_monitor_rtp.id_sop', 'left');
         	$this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
           	$this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
@@ -173,6 +173,8 @@
 
 			$this->db->select('*');
 			$this->db->from('tbl_sop_risk');
+			$this->db->join('tbl_monitor_rtp', 'tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop');
+
         	$this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
           	$this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
         	$this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -191,6 +193,8 @@
 
 			$this->db->select('*');
 			$this->db->from('tbl_sop_risk');
+			$this->db->join('tbl_monitor_rtp', 'tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop');
+
         	$this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
           	$this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
         	$this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -209,6 +213,8 @@
 
 			$this->db->select('*');
 			$this->db->from('tbl_sop_risk');
+			$this->db->join('tbl_monitor_rtp', 'tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop');
+
         	$this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
           	$this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
         	$this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -227,6 +233,8 @@
 
 			$this->db->select('*');
 			$this->db->from('tbl_sop_risk');
+			$this->db->join('tbl_monitor_rtp', 'tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop');
+
         	$this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
           	$this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
         	$this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -245,6 +253,8 @@
 
 			$this->db->select('*');
 			$this->db->from('tbl_sop_risk');
+			$this->db->join('tbl_monitor_rtp', 'tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop');
+		
         	$this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
           	$this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
         	$this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');

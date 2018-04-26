@@ -35,6 +35,7 @@ function loadSangatTinggi(){
       }
       recReq.send(null);
         }
+        $('.hideform').hide();
 }
 
 function loadSangatRendah(){
@@ -73,10 +74,98 @@ function loadSedang(){
       recReq.send(null);
         }
 }
+
 function loadTinggi(){
       document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
       if (recReq.readyState == 4 || recReq.readyState == 0) {
           recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getTinggi' , true);
+          recReq.onreadystatechange = function() {
+      if (recReq.readyState == 4 && recReq.status == 200) {
+          document.getElementById(_documentid).innerHTML = recReq.responseText;
+        }
+      }
+      recReq.send(null);
+        }
+}
+
+function loadOpen(){
+      document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
+      if (recReq.readyState == 4 || recReq.readyState == 0) {
+          recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getOpen' , true);
+          recReq.onreadystatechange = function() {
+      if (recReq.readyState == 4 && recReq.status == 200) {
+          document.getElementById(_documentid).innerHTML = recReq.responseText;
+        }
+      }
+      recReq.send(null);
+        }
+}
+
+function loadClose(){
+      document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
+      if (recReq.readyState == 4 || recReq.readyState == 0) {
+          recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getClose' , true);
+          recReq.onreadystatechange = function() {
+      if (recReq.readyState == 4 && recReq.status == 200) {
+          document.getElementById(_documentid).innerHTML = recReq.responseText;
+        }
+      }
+      recReq.send(null);
+        }
+}
+//------------------ penyebab risiko ----------------
+function loadMan(){
+      document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
+      if (recReq.readyState == 4 || recReq.readyState == 0) {
+          recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getMan' , true);
+          recReq.onreadystatechange = function() {
+      if (recReq.readyState == 4 && recReq.status == 200) {
+          document.getElementById(_documentid).innerHTML = recReq.responseText;
+        }
+      }
+      recReq.send(null);
+        }
+}
+function loadMoney(){
+      document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
+      if (recReq.readyState == 4 || recReq.readyState == 0) {
+          recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getMoney' , true);
+          recReq.onreadystatechange = function() {
+      if (recReq.readyState == 4 && recReq.status == 200) {
+          document.getElementById(_documentid).innerHTML = recReq.responseText;
+        }
+      }
+      recReq.send(null);
+        }
+}
+function loadMethod(){
+      document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
+      if (recReq.readyState == 4 || recReq.readyState == 0) {
+          recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getMethod' , true);
+          recReq.onreadystatechange = function() {
+      if (recReq.readyState == 4 && recReq.status == 200) {
+          document.getElementById(_documentid).innerHTML = recReq.responseText;
+        }
+      }
+      recReq.send(null);
+        }
+}
+function loadMachine(){
+      document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
+      if (recReq.readyState == 4 || recReq.readyState == 0) {
+          recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getMachine' , true);
+          recReq.onreadystatechange = function() {
+      if (recReq.readyState == 4 && recReq.status == 200) {
+          document.getElementById(_documentid).innerHTML = recReq.responseText;
+        }
+      }
+      recReq.send(null);
+        }
+}
+function loadMaterial(){
+      document.getElementById(_documentid).innerHTML = 'Loading.... Tunggu Sebentar';
+      if (recReq.readyState == 4 || recReq.readyState == 0) {
+          recReq.open("GET", 'http://localhost/simonari_GIT/unit_kerja/dashboard/getMaterial' , true);
           recReq.onreadystatechange = function() {
       if (recReq.readyState == 4 && recReq.status == 200) {
           document.getElementById(_documentid).innerHTML = recReq.responseText;

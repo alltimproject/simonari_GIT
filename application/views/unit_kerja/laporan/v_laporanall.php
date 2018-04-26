@@ -13,7 +13,7 @@
         <div class="box-body">
           <form class="" action="<?= base_url('unit_kerja/laporan/exportdaftarrisiko')  ?>" target="__blank" method="post">
             <div class="col-md-4">
-              <label for="">Pilih Tahun</label>
+              <label for="">Pilih Tahun  </label>
               <div class="input-group input-group-md">
                 <select class="form-control" name="tahun_pk" id="selectTahunDR">
                   <option value="">-- Semua -- </option>

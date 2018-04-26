@@ -159,6 +159,7 @@
         </div>
       </form>
     </div>
+
     
     <div class="contentRTP">
       <legend>Rencana Penanganan Risiko </legend>
@@ -209,6 +210,7 @@
     
     <!-- Conten Realisasi Penanganan -->
     
+
     <div class="AddRealisasi">
     <legend class="judulForm2">Tambah Realisasi</legend>
       <div class="alert alert-danger" id="alertReal"></div>
@@ -282,6 +284,10 @@
             <label>Keterangan</label>
             <textarea class="form-control" name="keterangan" id="keterangan"></textarea>
           </div>
+          <div class="form-group">
+            <label>Upload Evidence</label>
+            <input type="file" class="w3-input" name="file" value="">
+          </div>
         </div>
         <div class="pull-right">
           <button type="submit" name="submit" class="btn btn-md btn-info" id="submitRealisasi">Simpan</button>
@@ -292,6 +298,7 @@
     </form>
     </div>
 
+   
     <div class="contentRealisasi">
       <legend>Realisasi Penanganan Risiko</legend>
       <div class="table-responsive">
@@ -327,15 +334,15 @@
               <td><?= $real->hambatan ?></td>
               <td><?= $real->keterangan ?></td>
               <td>
-               
+
                 <?php if($real->status == "Open"){ ?>
-                  <a class="btn btn-info btn-md" id="buatRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>"> Buat Realisasi </a>
-                  
+                  <a class="btn btn-info btn-sm" id="buatRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>"> Buat Realisasi </a>
+
                 <?php } else { ?>
-                  <a class="btn btn-success btn-md" id="editRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>" real-mulai="<?= $real->real_mulai ?>" real-selesai="<?= $real->real_selesai ?>" real-hambatan="<?= $real->hambatan ?>" real-keterangan="<?= $real->keterangan ?>"> Edit Realisasi </a>
-                  
+                  <a class="btn btn-success btn-sm" id="editRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?>" real-mulai="<?= $real->real_mulai ?>" real-selesai="<?= $real->real_selesai ?>" real-hambatan="<?= $real->hambatan ?>" real-keterangan="<?= $real->keterangan ?>"> Edit Realisasi </a>
+
                 <?php } ?>
-                
+
              </td>
           </tr>
       <?php  endforeach ?>
@@ -344,7 +351,6 @@
     </div>
  
 
-    <!-- End Content Realisasi Penanganan -->
 
   </div>
 </div>

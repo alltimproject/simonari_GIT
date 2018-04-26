@@ -1,3 +1,4 @@
+<input type="button" value="Scroll Top" id="tombolScrollTop" onclick="scrolltotop()">
 <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -69,6 +70,24 @@
   <h5>Sistem Informasi Monitoring Manajemen Risiko</h5>
   <h5 class="w3-text-white" >Copyright © 2018 Tim Satgas SPIP Sekretariat Wakil Presiden. All rights reserved. </h5>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(window).scroll(function(){
+		if ($(window).scrollTop() > 100) {
+			$('#tombolScrollTop').fadeIn();
+		} else {
+			$('#tombolScrollTop').fadeOut();
+		}
+	});
+});
+
+function scrolltotop()
+{
+	$('html, body').animate({scrollTop : 0},500);
+}
+</script>
+
+
 
 <script src="<?= base_url().'assets1/js/bootstrap.min.js' ?>"></script>
 <script src="<?= base_url().'assets1/js/adminlte.min.js' ?>"></script>

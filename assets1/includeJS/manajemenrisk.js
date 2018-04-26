@@ -163,15 +163,17 @@ $(function(){
     $('.contentRTP').hide();
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').slideDown();
+    $('.judulForm2').text('Buat Realisasi');
+    $('#submitRealisasi').removeClass().addClass('btn btn-info btn-md').text('Simpan');
+      
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
     $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
-      $('.judulForm2').text('Buat Realisasi');
-    $('#submitRealisasi').removeClass().addClass('btn btn-info btn-md').text('Simpan');
+    
 
-//    $('html, body').animate({
-//      scrollTop: $('.addRealisasi').offset().top;
-//    });
+    $('html, body').animate({
+      scrollTop: $('.AddRealisasi').offset().top
+    });
 
     document.getElementById("real_nama_sop").value = $(this).attr('real-nama_sop');
     document.getElementById("real_nama_risk").value = $(this).attr('real-nama_risk');
@@ -201,9 +203,9 @@ $(function(){
     $('.judulForm2').text('Edit Realisasi');
     $('#submitRealisasi').removeClass().addClass('btn btn-success btn-md').text('Edit');
 
-//    $('html, body').animate({
-//      scrollTop: $('.addRealisasi').offset().top
-//    });
+    $('html, body').animate({
+      scrollTop: $('.AddRealisasi').offset().top
+    });
 
     document.getElementById("real_nama_sop").value = $(this).attr('real-nama_sop');
     document.getElementById("real_nama_risk").value = $(this).attr('real-nama_risk');

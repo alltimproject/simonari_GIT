@@ -147,6 +147,10 @@
             <label>Keterangan</label>
             <textarea class="form-control" name="keterangan" id="keterangan"></textarea>
           </div>
+          <div class="form-group">
+            <label>Upload Evidence</label>
+            <input type="file" class="w3-input" name="file" value="">
+          </div>
         </div>
         <div class="pull-right">
           <button type="submit" name="submit" class="btn btn-md btn-info" id="submitRealisasi">Simpan</button>

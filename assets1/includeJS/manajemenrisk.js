@@ -12,7 +12,6 @@ $(function(){
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
     $('#alertReal').hide();
     $('#alertRTP').hide();
-    $('.contentUploadzip').show();
   } else if(halaman == 'okrtp')
   {
     $('.contentRISK').hide();
@@ -75,19 +74,6 @@ $(function(){
     // $('.editPK').hide();
     // $('.editSKP').hide();
     // $('.editSOP').hide();
-  });
-
-  $('#uploadZip').click(function(){
-    $('.contentUploadzip').slideDown();
-    $('.contentRISK').slideUp();
-    $('.contentRealisasi').slideUp();
-    $('.contentRTP').slideUp();
-    $('.contentTambahRTP').hide();
-    $('.AddRealisasi').hide();
-    $('#uploadZip').removeClass('w3-teal').addClass('activenav');
-    $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
-    $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
-
   });
 
 });
@@ -180,10 +166,12 @@ $(function(){
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
     $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
+      $('.judulForm2').text('Buat Realisasi');
+    $('#submitRealisasi').removeClass().addClass('btn btn-info btn-md').text('Simpan');
 
-    $('html, body').animate({
-      scrollTop: $('.contentTambahRTP').offset().top
-    });
+//    $('html, body').animate({
+//      scrollTop: $('.addRealisasi').offset().top;
+//    });
 
     document.getElementById("real_nama_sop").value = $(this).attr('real-nama_sop');
     document.getElementById("real_nama_risk").value = $(this).attr('real-nama_risk');
@@ -195,6 +183,43 @@ $(function(){
     document.getElementById("real_plan_selesai").value = $(this).attr('real-plan_selesai');
     document.getElementById("real_indikator_output").value = $(this).attr('real-output');
     document.getElementById("real_pic").value = $(this).attr('real-pic');
+    $('#real_mulai').val('');
+    $('#real_selesai').val('');
+    $('#hambatan').val('');
+    $('#keterangan').val('');
+    
+  });
+  
+ $(document).on('click', '#editRealisasi', function(e) {
+    $('.contentRISK').hide();
+    $('.contentRTP').hide();
+    $('.contentTambahRTP').hide();
+    $('.AddRealisasi').slideDown();
+    $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
+    $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
+    $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
+    $('.judulForm2').text('Edit Realisasi');
+    $('#submitRealisasi').removeClass().addClass('btn btn-success btn-md').text('Edit');
+
+//    $('html, body').animate({
+//      scrollTop: $('.addRealisasi').offset().top
+//    });
+
+    document.getElementById("real_nama_sop").value = $(this).attr('real-nama_sop');
+    document.getElementById("real_nama_risk").value = $(this).attr('real-nama_risk');
+    document.getElementById("real_deskripsi_cause").value = $(this).attr('real-cause');
+    document.getElementById("real_deskripsi_pengendalian").value = $(this).attr('real-pengendalian');
+    document.getElementById("real_id_sop").value = $(this).attr('real-id_sop');
+    document.getElementById("real_deskripsi_rtp").value = $(this).attr('real-rencana');
+    document.getElementById("real_plan_mulai").value = $(this).attr('real-plan_mulai');
+    document.getElementById("real_plan_selesai").value = $(this).attr('real-plan_selesai');
+    document.getElementById("real_indikator_output").value = $(this).attr('real-output');
+    document.getElementById("real_pic").value = $(this).attr('real-pic');
+     
+    document.getElementById("real_mulai").value = $(this).attr('real-mulai');
+    document.getElementById("real_selesai").value = $(this).attr('real-selesai');
+    document.getElementById("hambatan").value = $(this).attr('real-hambatan');
+    document.getElementById("keterangan").value = $(this).attr('real-keterangan');
   });
 
   $('#cancelReal').click(function(){

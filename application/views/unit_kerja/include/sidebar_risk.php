@@ -2,6 +2,9 @@
   <div class="leftcolumn w3-animate-top">
     <div class="card">
       <div class="w3-panel" style="width:100%">
+        <a class="w3-button w3-block w3-teal" id="idenRisk">Identifikasi Risiko</a>
+      </div>
+      <div class="w3-panel" style="width:100%">
         <a class="w3-button w3-block w3-teal" id="daftarRisk">Daftar Risiko</a>
       </div>
       <div class="w3-panel" style="width:100%">

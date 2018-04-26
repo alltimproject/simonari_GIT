@@ -177,29 +177,11 @@
             <table class="table table-bordered" id="tb-sop">
                 <tr>
                   <th width="25%">Proses Bisnis</th>
-                  <th width="25%">Risiko</th>
-                  <th width="25%">Kemungkinan</th>
-                  <th width="25%">Dampak</th>
-                  <th width="25%"></th>
                 </tr>
                 <tr>
                   <td><textarea id="nama_sop" name="nama_sop" class="form-control" style="height:100px"></textarea></td>
-                  <td><textarea id="nama_risk" name="nama_risk" class="form-control" style="height:100px"></textarea></td>
-                  <td><select id="frekuensi" name="frekuensi" class="form-control frekuensi"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
-                  <td><select id="dampak" name="dampak" class="form-control dampak"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
                 </tr>
-                <tr>
-                  <th>Penyebab</th>
-                  <th>Kategori</th>
-                  <th>Pengendalian</th>
-                  <th>Sisa Risiko</th>
-                </tr>
-                <tr>
-                  <td><textarea id="deskripsi_cause" name="deskripsi_cause" class="form-control" style="height:100px"></textarea></td>
-                  <td><select id="kategori_cause" name="kategori_cause" class="form-control"><option value="">--Pilih Kategori--</option><option value="Man">Man</option><option value="Money">Money</option><option value="Method">Method</option><option value="Machine">Machine</option><option value="Material">Material</option></select></td>
-                  <td><textarea id="deskripsi_pengendalian" name="deskripsi_pengendalian" class="form-control" style="height:100px"></textarea></td>
-                  <td><textarea id="sisa_risk" name="sisa_risk" class="form-control" style="height:100px"></textarea></td>
-                </tr>
+                
                 <tr>
                   <td colspan="4">
                     <div class="pull-right">
@@ -219,11 +201,6 @@
             <th>Indikator Kinerja</th>
             <th>Kegiatan</th>
             <th>Proses Bisnis</th>
-            <th>Risiko</th>
-            <th>Kemungkinan</th>
-            <th>Dampak</th>
-						<th>Tingkat Risiko</th>
-            <th>Sisa Risiko</th>
             <th>Aksi</th>
           </tr>
 
@@ -267,14 +244,9 @@
              ?>
 
              <td><?= $sop->nama_sop ?></td>
-             <td><?= $sop->nama_risk ?></td>
-             <td><?= $sop->frekuensi ?></td>
-             <td><?= $sop->dampak ?></td>
-						 <td><?= $sop->hitung ?></td>
-             <td><?= $sop->sisa_risk ?></td>
 
              <td>
-              <a id="pilihSOP" data-id_sop="<?= $sop->id_sop ?>" data-nama_sop="<?= $sop->nama_sop ?>" data-nama_risk="<?= $sop->nama_risk ?>" data-sisa_risk="<?= $sop->sisa_risk ?>" data-frekuensi="<?= $sop->frekuensi ?>" data-dampak="<?= $sop->dampak ?>" data-deskripsi_cause="<?= $sop->deskripsi_cause ?>" data-kategori_cause="<?= $sop->kategori_cause ?>" data-deskripsi_pengendalian="<?= $sop->deskripsi_pengendalian ?>" class="btn btn-success btn-sm">Edit SOP</a>
+              <a id="pilihSOP" data-id_sop="<?= $sop->id_sop ?>" data-nama_sop="<?= $sop->nama_sop ?>" class="btn btn-success btn-sm">Edit SOP</a>
              </td>
           </tr>
       <?php  } ?>

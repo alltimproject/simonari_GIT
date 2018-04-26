@@ -24,11 +24,12 @@ $(function(){
     $('#alertRTP').hide();
   } else
   {
-    $('#daftarRisk').removeClass('w3-teal').addClass('activenav');
+    $('#idenRisk').removeClass('w3-teal').addClass('activenav');
     $('.contentRTP').hide();
     $('.contentRealisasi').hide();
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').hide();
+    $('.contentRISK').hide();
     $('#alertReal').hide();
     $('#alertRTP').hide();
   }
@@ -37,11 +38,13 @@ $(function(){
     $('.contentRISK').slideDown();
     $('.contentRTP').slideUp();
     $('.contentRealisasi').slideUp();
-    $('.contentTambahRTP').hide();
-    $('.AddRealisasi').hide();
+    $('.contentTambahRTP').slideUp();
+    $('.identifikasiRisk').slideUp();
+    $('.AddRealisasi').slideUp();
     $('#daftarRisk').removeClass('w3-teal').addClass('activenav');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
     $('#realisasiRisk').removeClass('activenav').addClass('w3-teal');
+    $('#idenRisk').removeClass('activenav').addClass('w3-teal');
 
     // $('.editPK').hide();
     // $('.editSKP').hide();
@@ -51,11 +54,13 @@ $(function(){
     $('.contentRISK').slideUp();
     $('.contentRealisasi').slideUp();
     $('.contentRTP').slideDown();
-    $('.contentTambahRTP').hide();
-    $('.AddRealisasi').hide();
+    $('.contentTambahRTP').slideUp();
+    $('.AddRealisasi').slideUp();
+    $('.identifikasiRisk').slideUp();
     $('#rencanaRisk').removeClass('w3-teal').addClass('activenav');
     $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
     $('#realisasiRisk').removeClass('activenav').addClass('w3-teal');
+    $('#idenRisk').removeClass('activenav').addClass('w3-teal');
 
     // $('.editPK').hide();
     // $('.editSKP').hide();
@@ -65,16 +70,37 @@ $(function(){
     $('.contentRISK').slideUp();
     $('.contentRealisasi').slideDown();
     $('.contentRTP').slideUp();
-    $('.contentTambahRTP').hide();
+    $('.contentTambahRTP').slideUp();
+    $('.identifikasiRisk').slideUp();
     $('.AddRealisasi').hide();
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
     $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
+    $('#idenRisk').removeClass('activenav').addClass('w3-teal');
 
     // $('.editPK').hide();
     // $('.editSKP').hide();
     // $('.editSOP').hide();
   });
+    
+  $('#idenRisk').click(function(){
+    $('.contentRISK').slideUp();
+    $('.contentRealisasi').slideUp();
+    $('.contentRTP').slideUp();
+    $('.contentTambahRTP').slideUp();
+    $('.identifikasiRisk').slideDown();
+    $('.AddRealisasi').slideUp();
+    $('#idenRisk').removeClass('w3-teal').addClass('activenav');
+    $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
+    $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
+    $('#realisasiRisk').removeClass('activenav').addClass('w3-teal');
+
+    // $('.editPK').hide();
+    // $('.editSKP').hide();
+    // $('.editSOP').hide();
+  });
+    
+    
 
 });
 

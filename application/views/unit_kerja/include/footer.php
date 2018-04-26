@@ -180,8 +180,10 @@ $(document).ready(function(){
         }
 
         $('#tb_lapDR').html(html);
-
-      }
+      },
+        error: function(){
+            $('#tb_lapDR').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
+        }
     });
   });
 
@@ -246,7 +248,7 @@ $(document).ready(function(){
 
         },
         error: function(){
-          alert("Tidak ada data");
+          $('#tb_lapDR').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
         }
       });
     });
@@ -267,7 +269,10 @@ $(document).ready(function(){
       success: function(data){
         $('#tb_lapRcn').html(data);
         //alert('Berhasil');
-      }
+      },
+        error: function(){
+          $('#tb_lapRcn').html('<tr><td colspan="13"> Tidak Ada Data </td></tr>');
+        }
     });
   });
 
@@ -285,7 +290,7 @@ $(document).ready(function(){
           //alert('Berhasil');
         },
         error: function(){
-          alert("Tidak ada data");
+          $('#tb_lapRcn').html('<tr><td colspan="13"> Tidak Ada Data </td></tr>');
         }
       });
     });
@@ -306,7 +311,10 @@ $(document).ready(function(){
       success: function(data){
         $('#tb_lapReal').html(data);
         //alert('Berhasil');
-      }
+      },
+        error: function(){
+         $('#tb_lapReal').html('<tr><td colspan="12"> Tidak Ada Data </td></tr>');
+        }
     });
   });
 
@@ -324,7 +332,7 @@ $(document).ready(function(){
           //alert('Berhasil');
         },
         error: function(){
-          alert("Tidak ada data");
+         $('#tb_lapReal').html('<tr><td colspan="12"> Tidak Ada Data </td></tr>');
         }
       });
     });

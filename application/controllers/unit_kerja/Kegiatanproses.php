@@ -187,22 +187,12 @@ class KegiatanProses extends CI_Controller{
     $id_skp = $this->input->post('id_skp');
     $post = $this->input->post();
     $sop = array();
-    $cause = array();
-    $pengendalian = array();
     $total = count($post['nama_sop']);
 
     foreach($post['nama_sop'] as $key => $value) {
       $sop[] = array(
         'id_skp' => $id_skp,
-        'nama_sop' => $post['nama_sop'][$key],
-        'nama_risk' => $post['nama_risk'][$key],
-        'frekuensi' => $post['frekuensi'][$key],
-        'dampak' => $post['dampak'][$key],
-        'hitung' => $post['dampak'][$key] * $post['frekuensi'][$key],
-        'sisa_risk' => $post['sisa_risk'][$key],
-        'deskripsi_cause' => $post['deskripsi_cause'][$key],
-        'kategori_cause' => $post['kategori_cause'][$key],
-        'deskripsi_pengendalian' => $post['deskripsi_p_exist'][$key]
+        'nama_sop' => $post['nama_sop'][$key]
       );
     }
 
@@ -302,25 +292,9 @@ class KegiatanProses extends CI_Controller{
   {
     $id_sop = $this->input->post('id_sop');
     $nama_sop = $this->input->post('nama_sop');
-    $nama_risk = $this->input->post('nama_risk');
-    $frekuensi = $this->input->post('frekuensi');
-    $dampak = $this->input->post('dampak');
-    $deskripsi_cause = $this->input->post('deskripsi_cause');
-    $kategori_cause = $this->input->post('kategori_cause');
-    $deskripsi_pengendalian = $this->input->post('deskripsi_pengendalian');
-    $sisa_risk = $this->input->post('sisa_risk');
-    $hitung = $frekuensi * $dampak;
 
     $data = array(
-      'nama_sop' => $nama_sop,
-      'nama_risk' => $nama_risk,
-      'frekuensi' => $frekuensi,
-      'dampak' => $dampak,
-      'hitung' => $hitung,
-      'deskripsi_cause' => $deskripsi_cause,
-      'kategori_cause' => $kategori_cause,
-      'deskripsi_pengendalian' => $deskripsi_pengendalian,
-      'sisa_risk'=> $sisa_risk
+      'nama_sop' => $nama_sop
     );
 
     $where = array(

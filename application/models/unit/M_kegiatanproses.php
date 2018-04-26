@@ -54,6 +54,7 @@
 
 
        $this->db->where($where);
+			 $this->db->order_by('tbl_sop_risk.hitung ASC');
        return $this->db->get();
 		}
 

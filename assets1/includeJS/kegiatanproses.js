@@ -38,13 +38,6 @@ $(document).on('click', '#pilihSOP', function(e) {
     scrollTop: $('.editSOP').offset().top
   });
   document.getElementById("nama_sop").value = $(this).attr('data-nama_sop');
-  document.getElementById("nama_risk").value = $(this).attr('data-nama_risk');
-  document.getElementById("sisa_risk").value = $(this).attr('data-sisa_risk');
-  document.getElementById("frekuensi").value = $(this).attr('data-frekuensi');
-  document.getElementById("dampak").value = $(this).attr('data-dampak');
-  document.getElementById("deskripsi_cause").value = $(this).attr('data-deskripsi_cause');
-  document.getElementById("kategori_cause").value = $(this).attr('data-kategori_cause');
-  document.getElementById("deskripsi_pengendalian").value = $(this).attr('data-deskripsi_pengendalian');
   document.getElementById("id_sop").value = $(this).attr('data-id_sop');
 });
 
@@ -154,7 +147,7 @@ $(function(){
 $(function(){
   $('#alertSOP').hide();
   $('.editsop').submit(function(){
-    if($('#nama_sop').val() == '' || $('#nama_risk').val() == '' || $('#frekuensi').val() == '' || $('#dampak').val() == '' || $('#deskripsi_cause').val() == '' || $('#kategori_cause').val() == '' || $('#deskripsi_pengendalian').val() == '' || $('#sisa_risk').val() == '')
+    if($('#nama_sop').val() == '')
     {
         $('#alertSOP').fadeIn('slow').delay(3000).fadeOut('fast').text('Field Tidak Boleh Kosong');
         return false;

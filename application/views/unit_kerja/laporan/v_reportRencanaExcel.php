@@ -6,7 +6,7 @@ header("Expires: 0");
 //disini script laporan anda
 ?>
 
-<h1>DAFTAR RISIKO</h1>
+<h1>DAFTAR RENCANA PENANGANAN RISIKO</h1>
 <h2>Nama Unit : <?php echo $this->session->userdata('nama_unit') ?></h2>
   <table border="1">
          <tr stye="background-color: blue">

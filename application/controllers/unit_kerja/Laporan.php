@@ -13,7 +13,7 @@ class Laporan extends CI_Controller{
     $this->load->model('unit/m_dashboard');
     $this->load->model('unit/m_laporan');
 
-    
+    error_reporting(0);
     //Codeigniter : Write Less Do More
 
 
@@ -268,7 +268,7 @@ class Laporan extends CI_Controller{
          $tbRcn .= '<td>'.$key->frekuensi.'</td>';
          $tbRcn .= '<td>'.$key->dampak.'</td>';
          $tbRcn .= '<td>'.$key->hitung.'</td>';
-         $tbRcn .= '<td>'.$key->deskripsi_penanganan.'</td>';
+         $tbRcn .= '<td>'.$key->deskripsi_pengendalian.'</td>';
          $tbRcn .= '<td>'.$key->deskripsi_rtp.'</td>';
          $tbRcn .= '<td>'.$key->plan_mulai.'</td>';
          $tbRcn .= '<td>'.$key->plan_selesai.'</td>';

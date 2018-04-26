@@ -39,8 +39,8 @@
 						  	<tr>
 						    	<td><textarea name="nama_sop[]" class="form-control" style="height:100px" required></textarea></td>
 								<td><textarea name="nama_risk[]" class="form-control" style="height:100px" required></textarea></td>
-						    	<td><select name="frekuensi[]" class="form-control frekuensi" required><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
-						    	<td><select name="dampak[]" class="form-control dampak" required><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+						    	<td><select name="frekuensi[]" class="form-control frekuensi" required><option value=""></option><option value="1">1 - Sangat Jarang</option><option value="2">2 - Jarang</option><option value="3">3 - Kadang-Kadang</option><option value="4">4 - Sering</option><option value="5">5 - Sangat Sering</option></select></td>
+						    	<td><select name="dampak[]" class="form-control dampak" required><option value=""></option><option value="1">1 - Sangat Rendah</option><option value="2">2 - Rendah</option><option value="3">3 - Sedang</option><option value="4">4 - Tinggi</option><option value="5">5 - Sangat Tinggi</option></select></td>
 								<td><textarea name="deskripsi_cause[]" class="form-control" style="height:100px" required></textarea></td>
 								<td><select name="kategori_cause[]" class="form-control" required><option value="">--Pilih Kategori--</option><option value="Man">Man</option><option value="Money">Money</option><option value="Method">Method</option><option value="Machine">Machine</option><option value="Material">Material</option></select></td>
 								<td><textarea name="deskripsi_p_exist[]" class="form-control" style="height:100px" required></textarea></td>

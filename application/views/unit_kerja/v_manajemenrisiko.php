@@ -13,6 +13,7 @@
       <form action="<?= base_url('unit_kerja/manajemenrisk/saveRTP') ?>" class="formRTP" method="post">
         <div class="row">
           <div class="col-md-6">
+            <input type="hidden" name="id_unit" value="<?= $this->session->userdata('id_unit') ?>">
             <div class="form-group">
               <label>SOP</label>
               <textarea class="form-control" readonly="" id="nama_sop"></textarea>
@@ -156,11 +157,6 @@
           <tr class="bg-blue">
             <th>No</th>
             <th>Risiko</th>
-            <th>Penyebab</th>
-            <th>Kemungkinan</th>
-            <th>Dampak</th>
-            <th>Tingkat Risiko</th>
-            <th>Pengendalian Yang Sudah Ada</th>
             <th>Rencana Penanganan</th>
             <th>Mulai</th>
             <th>Selesai</th>
@@ -174,11 +170,6 @@
             <tr>
               <td><?= $noreal++ ?></td>
               <td><?= $real->nama_risk ?></td>
-              <td><?= $real->deskripsi_cause ?></td>
-              <td><?= $real->frekuensi ?></td>
-              <td><?= $real->dampak ?></td>
-              <td><?= $real->hitung ?></td>
-              <td><?= $real->deskripsi_pengendalian ?></td>
               <td><?= $real->deskripsi_rtp ?></td>
               <td><?= $real->plan_mulai ?></td>
               <td><?= $real->plan_selesai ?></td>
@@ -319,6 +310,11 @@
       </div>
 
     </form>
+    </div>
+
+
+    <div class="contentUploadzip">
+      <h1>Hallo</h1>
     </div>
 
 

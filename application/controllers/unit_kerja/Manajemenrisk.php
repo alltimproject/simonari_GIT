@@ -29,10 +29,10 @@ class ManajemenRisk extends CI_Controller{
 				'tbl_pegawai.id_unit' => $session
 			);
 
-      //ambil foto
-      $session_nip = array(
-        'nip' => $this->session->userdata('nip')
-      );
+    //ambil foto
+    $session_nip = array(
+      'nip' => $this->session->userdata('nip')
+    );
 
     $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
     $data['title'] = "Manajemen Risk | Simonari";
@@ -133,6 +133,31 @@ class ManajemenRisk extends CI_Controller{
       $this->session->set_flashdata('halaman', 'okreal');
       redirect('unit_kerja/manajemenrisk');
     }
+  }
+
+  function uploadzip()
+  {
+    //ambil foto
+    $session = $this->session->userdata('id_unit');
+    //----------
+    $session_nip = array(
+      'nip' => $this->session->userdata('nip')
+    );
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $session
+    );
+
+    $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
+
+    $data['dataclose'] = $this->m_manajemenrisiko->UploadzipUnit($where)->result();
+    $data['title'] = 'Upload File | Simonari';
+    $this->load->view('unit_kerja/include/header', $data);
+    $this->load->vieW('unit_kerja/include/sidebar_risk');
+    $this->load->view('unit_kerja/v_uploadzip', $data);
+
+
+
+    $this->load->view('unit_kerja/include/footer');
   }
 
 

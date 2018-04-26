@@ -12,6 +12,7 @@ $(function(){
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
     $('#alertReal').hide();
     $('#alertRTP').hide();
+    $('.contentUploadzip').show();
   } else if(halaman == 'okrtp')
   {
     $('.contentRISK').hide();
@@ -75,6 +76,20 @@ $(function(){
     // $('.editSKP').hide();
     // $('.editSOP').hide();
   });
+
+  $('#uploadZip').click(function(){
+    $('.contentUploadzip').slideDown();
+    $('.contentRISK').slideUp();
+    $('.contentRealisasi').slideUp();
+    $('.contentRTP').slideUp();
+    $('.contentTambahRTP').hide();
+    $('.AddRealisasi').hide();
+    $('#uploadZip').removeClass('w3-teal').addClass('activenav');
+    $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
+    $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
+
+  });
+
 });
 
 $(function(){

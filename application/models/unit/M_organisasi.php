@@ -54,7 +54,7 @@
 		function upload()
 		{
 			$config['upload_path']   = './upload/';
-			$config['allowed_types'] = 'jpg|png|jpeg';
+			$config['allowed_types'] = 'jpg|png|jpeg|zip|rar';
 			$config['max_size']      = '3048';
 			$config['remove_space']  = TRUE;
 

@@ -8,6 +8,8 @@ class Laporan extends CI_Controller{
     parent::__construct();
     $this->load->model('admin/m_unit');
     $this->load->model('admin/m_laporan');
+
+    error_reporting(0);
   }
 
   function index()
@@ -21,22 +23,37 @@ class Laporan extends CI_Controller{
   function daftarrisiko()
   {
     $data['select'] = $this->m_unit->getAllunit()->result();
+    $data['selectT'] = $this->m_laporan->showTahun()->result();
     $this->load->view('admin/laporan/v_lap_daftarrisiko', $data);
   }
 
   function getDR()
   {
     $id_unit = $this->input->post('id_unit');
+    $tahun_pk = $this->input->post('tahun_pk');
 
     $where = array(
       'tbl_unit_kerja.id_unit' => $id_unit
     );
 
-    if($id_unit == '')
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    $where3 = array(
+      'tbl_unit_kerja.id_unit' => $id_unit,
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    if($id_unit == '' && $tahun_pk == '')
     {
       $dr = $this->m_laporan->showDR()->result();
-    } else {
+    } elseif($id_unit != '' && $tahun_pk == '') {
       $dr = $this->m_laporan->showDR($where)->result();
+    } elseif($id_unit == '' && $tahun_pk != '') {
+      $dr = $this->m_laporan->showDR($where2)->result();
+    } else {
+      $dr = $this->m_laporan->showDR($where3)->result();
     }
 
     if(count($dr) > 0)
@@ -49,25 +66,85 @@ class Laporan extends CI_Controller{
     }
   }
 
+  function exportdaftarrisiko()
+  {
+    $id_unit = $this->input->post('id_unit');
+    $tahun_pk = $this->input->post('tahun_pk');
+
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $id_unit
+    );
+
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    $where3 = array(
+      'tbl_unit_kerja.id_unit' => $id_unit,
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    if($id_unit == '' && $tahun_pk == '')
+    {
+      $data['dataSOP'] = $this->m_laporan->showDR()->result();
+    } elseif($id_unit != '' && $tahun_pk == '') {
+      $data['dataSOP'] = $this->m_laporan->showDR($where)->result();
+    } elseif($id_unit == '' && $tahun_pk != '') {
+      $data['dataSOP'] = $this->m_laporan->showDR($where2)->result();
+    } else {
+      $data['dataSOP'] = $this->m_laporan->showDR($where3)->result();
+    }
+
+    if(null !== $this->input->post('DRexcel'))
+    {
+      $this->load->view('unit_kerja/laporan/v_daftarResikoExcel', $data);
+    } elseif (null !== $this->input->post('DRpdf'))
+    {
+      $html = $this->load->view('unit_kerja/laporan/v_daftarResikoPDF', $data, true);
+
+      $this->load->library('pdf');
+      $pdf = $this->pdf->load();
+      $pdf->useSubstitutions = false;
+      $pdf->WriteHTML(utf8_encode($html));
+      $pdf->WriteHTML($html,1);
+      $pdf->Output("Daftar_Risiko.pdf" ,'I');
+    }
+  }
+
   function daftarrencana()
   {
     $data['select'] = $this->m_unit->getAllunit()->result();
+    $data['selectT'] = $this->m_laporan->showTahun()->result();
     $this->load->view('admin/laporan/v_lap_rencana', $data);
   }
 
   function getRencana()
   {
     $id_unit = $this->input->post('id_unit');
+    $tahun_pk = $this->input->post('tahun_pk');
 
     $where = array(
       'tbl_unit_kerja.id_unit' => $id_unit
     );
 
-    if($id_unit == '')
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    $where3 = array(
+      'tbl_unit_kerja.id_unit' => $id_unit,
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    if($id_unit == '' && $tahun_pk == '')
     {
       $rcn = $this->m_laporan->showRencana()->result();
-    } else {
+    } elseif($id_unit != '' && $tahun_pk == '') {
       $rcn = $this->m_laporan->showRencana($where)->result();
+    } elseif($id_unit == '' && $tahun_pk != '') {
+      $rcn = $this->m_laporan->showRencana($where2)->result();
+    } else {
+      $rcn = $this->m_laporan->showRencana($where3)->result();
     }
 
     if(count($rcn) > 0)
@@ -95,25 +172,88 @@ class Laporan extends CI_Controller{
     }
   }
 
+  function exportrencana()
+  {
+    $id_unit = $this->input->post('id_unit');
+    $tahun_pk = $this->input->post('tahun_pk');
+
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $id_unit
+    );
+
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    $where3 = array(
+      'tbl_unit_kerja.id_unit' => $id_unit,
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    if($id_unit == '' && $tahun_pk == '')
+    {
+      $data['rencana'] = $this->m_laporan->showRencana()->result();
+    } elseif($id_unit != '' && $tahun_pk == '') {
+      $data['rencana'] = $this->m_laporan->showRencana($where)->result();
+    } elseif($id_unit == '' && $tahun_pk != '') {
+      $data['rencana'] = $this->m_laporan->showRencana($where2)->result();
+    } else {
+      $data['rencana'] = $this->m_laporan->showRencana($where3)->result();
+    }
+
+    if(null !== $this->input->post('RCNexcel'))
+    {
+
+      $this->load->view('admin/laporan/v_reportRencanaExcel', $data);
+    } elseif (null !== $this->input->post('RCNpdf'))
+    {
+      ob_start();
+      $html = $this->load->view('admin/laporan/v_reportRencanaPDF', $data, true);
+      ob_end_clean();
+
+      $this->load->library('pdf');
+      $pdf = $this->pdf->load();
+      $pdf->useSubstitutions = false;
+      $pdf->WriteHTML(utf8_encode($html));
+      $pdf->WriteHTML($html,1);
+      $pdf->Output("Rencana_Penanganan.pdf" ,'I');
+    }
+  }
+
   function daftarrealisasi()
   {
     $data['select'] = $this->m_unit->getAllunit()->result();
+    $data['selectT'] = $this->m_laporan->showTahun()->result();
     $this->load->view('admin/laporan/v_lap_realisasi', $data);
   }
 
   function getReal()
   {
     $id_unit = $this->input->post('id_unit');
+    $tahun_pk = $this->input->post('tahun_pk');
 
     $where = array(
       'tbl_unit_kerja.id_unit' => $id_unit
     );
 
-    if($id_unit == '')
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    $where3 = array(
+      'tbl_unit_kerja.id_unit' => $id_unit,
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    if($id_unit == '' && $tahun_pk == '')
     {
       $real = $this->m_laporan->showReal()->result();
-    } else {
+    } elseif($id_unit != '' && $tahun_pk == '') {
       $real = $this->m_laporan->showReal($where)->result();
+    } elseif($id_unit == '' && $tahun_pk != '') {
+      $real = $this->m_laporan->showReal($where2)->result();
+    } else {
+      $real = $this->m_laporan->showReal($where3)->result();
     }
 
     if(count($real) > 0)
@@ -141,6 +281,52 @@ class Laporan extends CI_Controller{
       }
 
       echo json_encode($tbReal);
+    }
+  }
+
+  function exportrealisasi()
+  {
+    $id_unit = $this->input->post('id_unit');
+    $tahun_pk = $this->input->post('tahun_pk');
+
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $id_unit
+    );
+
+    $where2 = array(
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    $where3 = array(
+      'tbl_unit_kerja.id_unit' => $id_unit,
+      'tbl_pk.tahun_pk' => $tahun_pk
+    );
+
+    if($id_unit == '' && $tahun_pk == '')
+    {
+      $data['data'] = $this->m_laporan->showReal()->result();
+    } elseif($id_unit != '' && $tahun_pk == '') {
+      $data['data'] = $this->m_laporan->showReal($where)->result();
+    } elseif($id_unit == '' && $tahun_pk != '') {
+      $data['data'] = $this->m_laporan->showReal($where2)->result();
+    } else {
+      $data['data'] = $this->m_laporan->showReal($where3)->result();
+    }
+
+    if(null !== $this->input->post('REALexcel'))
+    {
+
+      $this->load->view('unit_kerja/laporan/v_reportRealisasiExcel', $data);
+    } elseif (null !== $this->input->post('REALpdf'))
+    {
+      $html = $this->load->view('unit_kerja/laporan/v_reportRealisasiPDF', $data, true);
+
+      $this->load->library('pdf');
+      $pdf = $this->pdf->load();
+      $pdf->useSubstitutions = false;
+      $pdf->WriteHTML(utf8_encode($html));
+      $pdf->WriteHTML($html,1);
+      $pdf->Output("Rencana_Penanganan.pdf" ,'I');
     }
   }
 

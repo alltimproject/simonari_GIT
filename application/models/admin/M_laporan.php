@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_laporan extends CI_Model{
 
+  function showTahun()
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_pk');
+    $this->db->group_by('tahun_pk');
+
+    return $this->db->get();
+  }
+
   function showDR($where = NULL)
   {
     $this->db->select('*');

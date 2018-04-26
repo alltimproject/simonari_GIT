@@ -51,6 +51,7 @@
 		{
 			return $this->db->insert($table, $data);
 		}
+
 		function delete($where, $table)
 		{
 			$this->db->where($where);

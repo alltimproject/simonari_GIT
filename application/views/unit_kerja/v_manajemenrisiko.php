@@ -7,7 +7,7 @@
 
 <div class="rightcolumn">
   <div class="card">
-
+<h1> Test </h1>
 
   <!-- Content Identifikasi Risiko -->
    <div class="editRisiko">

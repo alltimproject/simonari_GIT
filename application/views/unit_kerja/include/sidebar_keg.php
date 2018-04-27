@@ -12,6 +12,7 @@
     </div>
     <div class="card">
     <div class="box box-primary">
+       
         <div class="box-body box-profile">
             <?php foreach($showprofile as $key) : ?>
             <img class="profile-user-img img-responsive img-circle" src="<?= base_url('upload/'.$key->foto) ?>" alt="User profile picture">

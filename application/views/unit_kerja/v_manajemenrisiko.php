@@ -7,7 +7,90 @@
 
 <div class="rightcolumn">
   <div class="card">
+<<<<<<< HEAD
 
+=======
+  
+  
+  <!-- Content Identifikasi Risiko -->
+    <div class="identifikasiRisk">
+        <legend>Identifikasi Risiko</legend>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+          <tr class="bg-blue">
+            <th>No</th>
+            <th>Indikator Kinerja</th>
+            <th>Kegiatan</th>
+            <th>Proses Bisnis</th>
+            <th>Risiko</th>
+            <th>Kemungkinan</th>
+            <th>Dampak</th>
+						<th>Tingkat Risiko</th>
+            <th>Sisa Risiko</th>
+            <th>Aksi</th>
+          </tr>
+
+      <?php $nosop = 1; $jum1 = 1; $jum2 = 1; ?>
+      <?php foreach ($dataSOP as $sop) { ?>
+          <tr>
+            <?php
+
+              if($jum2 <= 1)
+              {
+                $jmlpk = $sop->rowpk;
+                if ($jmlpk == 0) {
+                  $jmlpk = 1;
+                }
+            ?>
+              <td rowspan="<?= $jmlpk ?>"><?= $nosop ?></td>
+              <td rowspan="<?= $jmlpk ?>"><?= $sop->nama_ik ?></td>
+            <?php
+                $jum2 = $sop->rowpk;
+                $nosop++;
+              } else {
+                $jum2 = $jum2 - 1;
+              }
+             ?>
+
+            <?php
+
+              if($jum1 <= 1)
+              {
+                $jmlsop = $sop->rowskp;
+                if ($jmlsop == 0) {
+                  $jmlsop = 1;
+                }
+            ?>
+              <td rowspan="<?= $jmlsop ?>"><?= $sop->nama_skp ?></td>
+            <?php
+                $jum1 = $sop->rowskp;
+              } else {
+                $jum1 = $jum1 - 1;
+              }
+             ?>
+
+             <td><?= $sop->nama_sop ?></td>
+             <td><?= $sop->nama_risk ?></td>
+             <td><?= $sop->frekuensi ?></td>
+             <td><?= $sop->dampak ?></td>
+             <td><?= $sop->hitung ?></td>
+             <td><?= $sop->sisa_risk ?></td>
+             <td>
+                 <?php if($sop->nama_risk == ''){ ?>
+                     <a id="pilihSOP" data-id_sop="<?= $sop->id_sop ?>" data-nama_sop="<?= $sop->nama_sop ?>" class="btn btn-info btn-sm">Tambah Risiko</a>
+                 <?php } else { ?>
+                     <a id="pilihSOP" data-id_sop="<?= $sop->id_sop ?>" data-nama_sop="<?= $sop->nama_sop ?>" data-nama_risk="<?= $sop->nama_risk ?>" data-sisa_risk="<?= $sop->sisa_risk ?>" data-frekuensi="<?= $sop->frekuensi ?>" data-dampak="<?= $sop->dampak ?>" data-deskripsi_cause="<?= $sop->deskripsi_cause ?>" data-kategori_cause="<?= $sop->kategori_cause ?>" data-deskripsi_pengendalian="<?= $sop->deskripsi_pengendalian ?>" class="btn btn-success btn-sm">Edit Risiko</a>
+                 <?php } ?>
+              
+             </td>
+          </tr>
+      <?php  } ?>
+        </table>
+        </div>
+    </div>
+  <!-- End Content Identifikasi Risiko -->
+   
+>>>>>>> 75744ab3fdf73745caced47cddfba4fe7996caa5
    <!-- Content Daftar Risiko -->
 
    <div class="contentRISK">

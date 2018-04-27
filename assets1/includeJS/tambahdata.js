@@ -43,15 +43,9 @@ $(document).ready(function(){
   $('#add-sop').click(function(){
     count = count + 1;
     var html_code = "<tr id='baris"+count+"'>";
+    html_code += "<td style='background-color: grey; color: white;'></td>";
     html_code += "<td><textarea name='nama_sop[]' class='form-control' style='height:100px' required></textarea></td>";
-    html_code += "<td><textarea name='nama_risk[]' class='form-control' style='height:100px' required></textarea></td>";
-    html_code += '<td><select name="frekuensi[]" class="form-control frekuensi" required><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>';
-    html_code += '<td><select name="dampak[]" class="form-control dampak" required><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>';
-    html_code += "<td><textarea name='deskripsi_cause[]' class='form-control' style='height:100px' required></textarea></td>";
-    html_code += '<td><select name="kategori_cause[]" class="form-control" required><option value="">--Pilih Kategori--</option><option value="Man">Man</option><option value="Money">Money</option><option value="Method">Method</option><option value="Machine">Machine</option><option value="Material">Material</option></select></td>';
-    html_code += "<td><textarea name='deskripsi_p_exist[]' class='form-control' style='height:100px' required></textarea></td>";
-    html_code += "<td><textarea name='sisa_risk[]' class='form-control' style='height:100px' required></textarea></td>";
-    html_code += "<td><button id='"+count+"' type='button' name='remove' class='btn btn-danger btn-md remove'> - </button></td>";
+    html_code += "<td><center><button id='"+count+"' type='button' name='remove' class='btn btn-danger btn-md remove'> - </button></center></td>";
     html_code += "</tr>";
     $('#tb-sop').append(html_code);
   });

@@ -6,7 +6,7 @@ header("Expires: 0");
 //disini script laporan anda
 ?>
 
-	<h1>DAFTAR RISIKO</h1>
+	<h1>DAFTAR REALISASI PENANGANAN RISIKO</h1>
 	<h2>Nama Unit : <?php echo $this->session->userdata('nama_unit') ?></h2>
 	 <table border="1">
             <tr>
@@ -33,21 +33,21 @@ header("Expires: 0");
             <?php $no = 1; ?>
             <?php foreach ($data as $key): ?>
               <tr>
-                <th><?= $no++ ?></th>
-                <th><?= $key->nama_risk ?></th>
-                <th><?= $key->deskripsi_rtp ?></th>
-                <th><?= $key->plan_mulai ?></th>
-                <th><?= $key->plan_selesai ?></th>
-                <th><?= $key->indikator_output ?></th>
-                <th><?= $key->pic ?></th>
-                <th><?= $key->anggaran ?></th>
-                <th><?= $key->deskripsi_rtp ?></th>
-                <th><?= $key->real_mulai ?></th>
-                <th><?= $key->real_selesai ?></th>
-                <th><?= $key->indikator_output ?></th>
-                <th><?= $key->pic ?></th>
-                <th><?= $key->anggaran ?></th>
-                <th><?= $key->hambatan ?></th>
+                <td><?= $no++ ?></td>
+                <td><?= $key->nama_risk ?></td>
+                <td><?= $key->deskripsi_rtp ?></td>
+                <td><?= $key->plan_mulai ?></td>
+                <td><?= $key->plan_selesai ?></td>
+                <td><?= $key->indikator_output ?></td>
+                <td><?= $key->pic ?></td>
+                <td><?= $key->anggaran ?></td>
+                <td><?= $key->deskripsi_rtp ?></td>
+                <td><?= $key->real_mulai ?></td>
+                <td><?= $key->real_selesai ?></td>
+                <td><?= $key->indikator_output ?></td>
+                <td><?= $key->pic ?></td>
+                <td><?= $key->anggaran ?></td>
+                <td><?= $key->hambatan ?></td>
               </tr>
             <?php endforeach; ?>
 

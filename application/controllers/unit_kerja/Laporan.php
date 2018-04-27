@@ -99,7 +99,7 @@ class Laporan extends CI_Controller{
     if(null !== $this->input->post('RCNexcel'))
     {
 
-      $this->load->view('unit_kerja/laporan/v_reportrencanaExcel', $data);
+      $this->load->view('unit_kerja/laporan/v_reportRencanaExcel', $data);
     } elseif (null !== $this->input->post('RCNpdf'))
     {
       ob_start();

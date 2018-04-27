@@ -27,6 +27,7 @@ $(function(){
     $('#idenRisk').removeClass('w3-teal').addClass('activenav');
     $('.contentRTP').hide();
     $('.contentRealisasi').hide();
+    $('.editRisiko').hide(); 
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').hide();
     $('.contentRISK').hide();
@@ -40,7 +41,7 @@ $(function(){
     $('.contentRealisasi').slideUp();
     $('.contentTambahRTP').slideUp();
     $('.identifikasiRisk').slideUp();
-      $('.editRisiko').hide(); 
+    $('.editRisiko').hide(); 
     $('.AddRealisasi').slideUp();
     $('#daftarRisk').removeClass('w3-teal').addClass('activenav');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
@@ -55,7 +56,7 @@ $(function(){
     $('.contentRISK').slideUp();
     $('.contentRealisasi').slideUp();
     $('.contentRTP').slideDown();
-      $('.editRisiko').hide(); 
+    $('.editRisiko').hide(); 
     $('.contentTambahRTP').slideUp();
     $('.AddRealisasi').slideUp();
     $('.identifikasiRisk').slideUp();
@@ -72,7 +73,7 @@ $(function(){
     $('.contentRISK').slideUp();
     $('.contentRealisasi').slideDown();
     $('.contentRTP').slideUp();
-      $('.editRisiko').hide(); 
+    $('.editRisiko').hide(); 
     $('.contentTambahRTP').slideUp();
     $('.identifikasiRisk').slideUp();
     $('.AddRealisasi').hide();
@@ -88,7 +89,7 @@ $(function(){
     
   $('#idenRisk').click(function(){
     $('.contentRISK').slideUp();
-      $('.editRisiko').hide(); 
+    $('.editRisiko').hide(); 
     $('.contentRealisasi').slideUp();
     $('.contentRTP').slideUp();
     $('.contentTambahRTP').slideUp();

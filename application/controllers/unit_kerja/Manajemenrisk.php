@@ -9,6 +9,7 @@ class ManajemenRisk extends CI_Controller{
     $this->load->model('m_login');
     $this->load->model('m_core');
     $this->load->model('unit/m_manajemenrisiko');
+    $this->load->model('unit/m_kegiatanproses');
     $this->load->model('unit/m_organisasi');
 
     if($this->session->userdata('login') != "ok")
@@ -151,6 +152,52 @@ class ManajemenRisk extends CI_Controller{
       $this->session->set_flashdata('notif', 'Tidak Berhasil Menambahkan Data Realisasi');
       $this->session->set_flashdata('class', 'danger');
       $this->session->set_flashdata('halaman', 'okreal');
+      redirect('unit_kerja/manajemenrisk');
+    }
+  }
+
+  function updateRisiko()
+  {
+    $id_sop = $this->input->post('id_sop');
+    $nama_risk = $this->input->post('nama_risk');
+    $frekuensi = $this->input->post('frekuensi');
+    $dampak = $this->input->post('dampak');
+    $deskripsi_cause = $this->input->post('deskripsi_cause');
+    $kategori_cause = $this->input->post('kategori_cause');
+    $deskripsi_pengendalian = $this->input->post('deskripsi_pengendalian');
+    $sisa_risk = $this->input->post('sisa_risk');
+    $hitung = $frekuensi * $dampak;
+
+    $data = array(
+      'nama_risk' => $nama_risk,
+      'frekuensi' => $frekuensi,
+      'dampak' => $dampak,
+      'hitung' => $hitung,
+      'deskripsi_cause' => $deskripsi_cause,
+      'kategori_cause' => $kategori_cause,
+      'deskripsi_pengendalian' => $deskripsi_pengendalian,
+      'sisa_risk'=> $sisa_risk
+    );
+
+    $where = array(
+      'id_sop' => $id_sop
+    );
+
+    $table = 'tbl_sop_risk';
+
+    $cek = $this->m_kegiatanproses->updateData($data, $where, $table);
+
+    if($cek)
+    {
+      $this->session->set_flashdata('notif', 'Berhasil Mengedit Identifikasi Risiko');
+      $this->session->set_flashdata('class', 'success');
+      $this->session->set_flashdata('halaman', 'okrisk');
+      redirect('unit_kerja/manajemenrisk');
+    } else
+    {
+      $this->session->set_flashdata('notif', 'Tidak Berhasil Mengedit Indetifikasi Risiko');
+      $this->session->set_flashdata('class', 'danger');
+      $this->session->set_flashdata('halaman', 'okrisk');
       redirect('unit_kerja/manajemenrisk');
     }
   }

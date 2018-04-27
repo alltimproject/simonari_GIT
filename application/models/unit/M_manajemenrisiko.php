@@ -28,8 +28,8 @@
 
        $this->db->select('*');
        // $this->db->select('(select count(nama_skp) from tbl_skp where tbl_skp.id_pk = tbl_pk.id_pk) as rowpk');
-       $this->db->select('(select count(nama_skp) from tbl_skp LEFT JOIN tbl_sop_risk ON tbl_sop_risk.id_skp = tbl_skp.id_skp where tbl_skp.id_pk = tbl_pk.id_pk) as rowpk');
-       $this->db->select('(select count(nama_sop) from tbl_sop_risk where tbl_sop_risk.id_skp = tbl_skp.id_skp) as rowskp');
+       $this->db->select('(select count(nama_skp) from tbl_skp LEFT JOIN tbl_sop_risk ON tbl_sop_risk.id_skp = tbl_skp.id_skp where tbl_skp.id_pk = tbl_pk.id_pk and tbl_sop_risk.nama_sop != "") as rowpk');
+       $this->db->select('(select count(nama_sop) from tbl_sop_risk where tbl_sop_risk.id_skp = tbl_skp.id_skp and tbl_sop_risk.nama_sop != "") as rowskp');
 
 			 $this->db->from('tbl_pk');
        $this->db->join('tbl_skp', 'tbl_skp.id_pk = tbl_pk.id_pk', 'left');
@@ -40,7 +40,7 @@
 
        $this->db->where($where);
 			 $this->db->where($where2);
-			 // $this->db->order_by('tbl_sop_risk.hitung ASC');
+			 $this->db->order_by('tbl_pk.id_pk DESC');
        return $this->db->get();
 		}
 

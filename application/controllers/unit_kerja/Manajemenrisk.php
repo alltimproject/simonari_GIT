@@ -75,7 +75,25 @@ class ManajemenRisk extends CI_Controller{
 
     if($action == "tambah")
     {
-      $cek = $this->m_core->insertData('tbl_monitor_rtp', $data);
+      $config['upload_path']   = APPPATH. '../uploadzip/';
+      $config['allowed_types'] = 'zip|rar';
+      $config['max_size']      = 100;
+
+      $this->load->library('upload', $config);
+        if(!$this->upload->do_upload('zip_file') ){
+          $error = array('error '=> $this->upload->display_errors() );
+          $this->load->view('v_manajemenrisiko', $error);
+        }else{
+          $upload_data = $this->upload->data();
+          $data['zip_file'] = $upload_data['file_name'];
+          $this->m_core->insertdatartp($data);
+        }
+
+
+
+
+
+      //$cek = $this->m_core->insertData('tbl_monitor_rtp', $data);
     } elseif($action == "edit")
     {
       $cek2 = $this->m_core->updateData($data, $where, 'tbl_monitor_rtp');
@@ -99,6 +117,7 @@ class ManajemenRisk extends CI_Controller{
     }
 
   }
+
 
   function updateRTP()
   {
@@ -134,31 +153,6 @@ class ManajemenRisk extends CI_Controller{
       $this->session->set_flashdata('halaman', 'okreal');
       redirect('unit_kerja/manajemenrisk');
     }
-  }
-
-  function uploadzip()
-  {
-    //ambil foto
-    $session = $this->session->userdata('id_unit');
-    //----------
-    $session_nip = array(
-      'nip' => $this->session->userdata('nip')
-    );
-    $where = array(
-      'tbl_unit_kerja.id_unit' => $session
-    );
-
-    $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
-
-    $data['dataclose'] = $this->m_manajemenrisiko->UploadzipUnit($where)->result();
-    $data['title'] = 'Upload File | Simonari';
-    $this->load->view('unit_kerja/include/header', $data);
-    $this->load->vieW('unit_kerja/include/sidebar_risk');
-    $this->load->view('unit_kerja/v_uploadzip', $data);
-
-
-
-    $this->load->view('unit_kerja/include/footer');
   }
 
 

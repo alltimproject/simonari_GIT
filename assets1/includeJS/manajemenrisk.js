@@ -121,7 +121,7 @@ $(function(){
     $('#realisasiRisk').removeClass('activenav').addClass('w3-teal');
     $('.judulForm').text('Tambah RTP');
     $('#submitRTP').removeClass().addClass('btn btn-info btn-md').text('Simpan');
-
+    //$('#uploadzip').hide();
     $('html, body').animate({
       scrollTop: $('.contentTambahRTP').offset().top
     });
@@ -191,16 +191,17 @@ $(function(){
   $(document).on('click', '#buatRealisasi', function(e) {
     $('.contentRISK').hide();
     $('.contentRealisasi').hide();
+    //$('.zipuplad').hide();
     $('.contentRTP').hide();
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').slideDown();
     $('.judulForm2').text('Buat Realisasi');
     $('#submitRealisasi').removeClass().addClass('btn btn-info btn-md').text('Simpan');
-      
+
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
     $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
-    
+
 
     $('html, body').animate({
       scrollTop: $('.AddRealisasi').offset().top
@@ -220,12 +221,13 @@ $(function(){
     $('#real_selesai').val('');
     $('#hambatan').val('');
     $('#keterangan').val('');
-    
+
   });
-  
+
  $(document).on('click', '#editRealisasi', function(e) {
     $('.contentRISK').hide();
     $('.contentRTP').hide();
+    //$('.zipuplad').show();
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').slideDown();
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
@@ -248,11 +250,12 @@ $(function(){
     document.getElementById("real_plan_selesai").value = $(this).attr('real-plan_selesai');
     document.getElementById("real_indikator_output").value = $(this).attr('real-output');
     document.getElementById("real_pic").value = $(this).attr('real-pic');
-     
+
     document.getElementById("real_mulai").value = $(this).attr('real-mulai');
     document.getElementById("real_selesai").value = $(this).attr('real-selesai');
     document.getElementById("hambatan").value = $(this).attr('real-hambatan');
     document.getElementById("keterangan").value = $(this).attr('real-keterangan');
+    //document.getElementById("zip").value = $(this).attr('real-berkas');
   });
 
   $('#cancelReal').click(function(){

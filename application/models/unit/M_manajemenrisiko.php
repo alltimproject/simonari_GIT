@@ -53,21 +53,9 @@
        		return $this->db->get();
 		}
 
-		function UploadzipUnit($where)
+		function showpegawai($session_nip)
 		{
-			$this->db->select('*');
-
-			$where2 = "tbl_monitor_rtp.status = 'Close'";
-
-			$this->db->from('tbl_monitor_rtp');
-			$this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_sop = tbl_monitor_rtp.id_sop', 'right');
-					$this->db->join('tbl_skp', 'tbl_skp.id_skp = tbl_sop_risk.id_skp', 'right');
-					$this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'right');
-					$this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'right');
-
-					$this->db->where($where);
-					$this->db->where($where2);
-					return $this->db->get();
+			return $this->db->get_where('tbl_pegawai', $session_nip);
 		}
 	}
 

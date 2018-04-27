@@ -7,11 +7,8 @@
 
 <div class="rightcolumn">
   <div class="card">
-<<<<<<< HEAD
 
-=======
-  
-  
+
   <!-- Content Identifikasi Risiko -->
     <div class="identifikasiRisk">
         <legend>Identifikasi Risiko</legend>
@@ -81,7 +78,7 @@
                  <?php } else { ?>
                      <a id="pilihSOP" data-id_sop="<?= $sop->id_sop ?>" data-nama_sop="<?= $sop->nama_sop ?>" data-nama_risk="<?= $sop->nama_risk ?>" data-sisa_risk="<?= $sop->sisa_risk ?>" data-frekuensi="<?= $sop->frekuensi ?>" data-dampak="<?= $sop->dampak ?>" data-deskripsi_cause="<?= $sop->deskripsi_cause ?>" data-kategori_cause="<?= $sop->kategori_cause ?>" data-deskripsi_pengendalian="<?= $sop->deskripsi_pengendalian ?>" class="btn btn-success btn-sm">Edit Risiko</a>
                  <?php } ?>
-              
+
              </td>
           </tr>
       <?php  } ?>
@@ -89,8 +86,7 @@
         </div>
     </div>
   <!-- End Content Identifikasi Risiko -->
-   
->>>>>>> 75744ab3fdf73745caced47cddfba4fe7996caa5
+
    <!-- Content Daftar Risiko -->
 
    <div class="contentRISK">

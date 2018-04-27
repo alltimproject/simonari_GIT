@@ -157,7 +157,11 @@
              <td><?= $skp->target_waktu ?></td>
              <td><?= $skp->target_biaya ?></td>
              <td>
-              <a id="pilihSKP" data-id_skp="<?= $skp->id_skp ?>" data-nama_skp="<?= $skp->nama_skp ?>" data-target_volume="<?= $skp->target_volume ?>" data-target_waktu="<?= $skp->target_waktu ?>" data-target_mutu="<?= $skp->target_mutu ?>" data-target_biaya="<?= $skp->target_biaya ?>" class="btn btn-success btn-sm">Edit SKP</a>
+             <?php if(!empty($skp->nama_skp)) { ?>
+                  <a id="pilihSKP" data-id_skp="<?= $skp->id_skp ?>" data-nama_skp="<?= $skp->nama_skp ?>" data-target_volume="<?= $skp->target_volume ?>" data-target_waktu="<?= $skp->target_waktu ?>" data-target_mutu="<?= $skp->target_mutu ?>" data-target_biaya="<?= $skp->target_biaya ?>" class="btn btn-success btn-sm">
+                      Edit SKP
+                  </a>
+            <?php } ?>
              </td>
 
           </tr>
@@ -246,7 +250,11 @@
              <td><?= $sop->nama_sop ?></td>
 
              <td>
-              <a id="pilihSOP" data-id_sop="<?= $sop->id_sop ?>" data-nama_sop="<?= $sop->nama_sop ?>" class="btn btn-success btn-sm">Edit SOP</a>
+             <?php if(!empty($sop->nama_sop)) { ?>
+                  <a id="pilihSOP" data-id_sop="<?= $sop->id_sop ?>" data-nama_sop="<?= $sop->nama_sop ?>" class="btn btn-success btn-sm">
+                      Edit SOP
+                  </a>
+             <?php } ?>
              </td>
           </tr>
       <?php  } ?>

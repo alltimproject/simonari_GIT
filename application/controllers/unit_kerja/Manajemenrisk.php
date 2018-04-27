@@ -9,7 +9,6 @@ class ManajemenRisk extends CI_Controller{
     $this->load->model('m_login');
     $this->load->model('m_core');
     $this->load->model('unit/m_manajemenrisiko');
-    $this->load->model('unit/m_kegiatanproses');
     $this->load->model('unit/m_organisasi');
 
     if($this->session->userdata('login') != "ok")
@@ -38,7 +37,7 @@ class ManajemenRisk extends CI_Controller{
     $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
     $data['title'] = "Manajemen Risk | Simonari";
     $data['data'] = $this->m_manajemenrisiko->showRisk($where)->result();
-    $data['dataSOP'] = $this->m_kegiatanproses->showSOP($where)->result();
+    $data['dataSOP'] = $this->m_manajemenrisiko->showSOP($where)->result();
     $data['realisasi'] = $this->m_manajemenrisiko->showRealisasi($where)->result();
     $data['rencana'] = $this->m_manajemenrisiko->showRencana($where)->result();
     $data['pegawai'] = $this->m_organisasi->showPegUnit($where2)->result();

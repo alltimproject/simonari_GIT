@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="leftcolumn w3-animate-top">
+  <div class="leftcolumn">
 
   </div>
   <div class="contentKegiatan">

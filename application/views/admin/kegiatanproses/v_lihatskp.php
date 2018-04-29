@@ -78,3 +78,5 @@
      <?php  } ?>
        </table>
      </div>
+		 
+		 <script type="text/javascript" src="<?= base_url().'assets1/includeJS/admin/sidebarkegProses.js' ?>"></script>

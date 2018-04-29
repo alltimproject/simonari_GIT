@@ -223,12 +223,11 @@ right: -1em;
 <ul>
   <div class="topnav">
     <li><a href="<?= base_url('admin/dashboard') ?>"><b>DASHBOARD</b></a></li>
-    <li><a href="<?= base_url('admin/organisasi') ?>"><b>ORGANISASI</b></a></li>
+    <li><a href="<?= base_url('admin/organisasi?organisasi') ?>"><b>ORGANISASI</b></a></li>
     <li><a href="<?= base_url('admin/Kegiatanprosesbisnis') ?> "><b>KEGIATAN DAN PROSES BISNIS</b></a></li>
     <li><a href="<?= base_url('admin/Manajementrisk') ?>"><b>MANAJEMEN RISIKO</b></a></li>
     <li><a href="<?= base_url('admin/laporan') ?>"><b>LAPORAN</b></a></li>
     <a onclick="return confirm('Anda Yakin Ingin Keluar ?')" href="<?= base_url('admin/login/logout') ?>" style="float:right">Hallo, <?= $this->session->userdata('username') ?> Logout</a>
-
 
   </div>
 </ul>

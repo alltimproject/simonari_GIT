@@ -8,6 +8,8 @@ class Manajementrisk extends CI_Controller{
     parent::__construct();
     $this->load->model('admin/m_manajement');
     $this->load->model('unit/m_organisasi');
+    $this->load->model('unit/m_dashboard');
+    $this->load->model('admin/m_prosesbisnis');
     $this->load->model('core/m_core');
     //Codeigniter : Write Less Do More
   }
@@ -18,7 +20,7 @@ class Manajementrisk extends CI_Controller{
     $this->load->view('admin/include/header', $data);
 
     $data['show'] = $this->m_manajement->getUnit()->result();
-    $this->load->view('admin/v_manajemen', $data);
+    $this->load->view('admin/manajemenrisk/v_manajemen', $data);
 
     $this->load->view('admin/include/footer');
   }
@@ -39,9 +41,10 @@ class Manajementrisk extends CI_Controller{
     );
       $this->session->set_userdata($session);
 
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
     $data['data'] = $this->m_manajement->showRisk($where)->result();
     $data['showunitID'] = $this->m_manajement->getUnitid($where)->result();
-    $this->load->view('admin/v_lihatdetailmonitoring', $data);
+    $this->load->view('admin/manajemenrisk/v_lihatdetailmonitoring', $data);
 
     $this->load->view('admin/include/footer');
   }
@@ -58,12 +61,12 @@ class Manajementrisk extends CI_Controller{
     $where = array(
       'tbl_unit_kerja.id_unit' => $id
     );
-
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
     $data['realisasi']    = $this->m_manajement->showRealisasi($where)->result();
     $data['showunitID']   = $this->m_manajement->getUnitid($where)->result();
     $data['rencana']      = $this->m_manajement->showRencana($where)->result();
     $data['pegawai']      = $this->m_organisasi->showPegUnit($where)->result();
-    $this->load->view('admin/v_lihatrencana', $data);
+    $this->load->view('admin/manajemenrisk/v_lihatrencana', $data);
 
     $this->load->view('admin/include/footer');
   }
@@ -127,11 +130,12 @@ class Manajementrisk extends CI_Controller{
       'tbl_unit_kerja.id_unit' => $id
     );
 
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
     $data['realisasi'] = $this->m_manajement->showRealisasi($where)->result();
     $data['showunitID'] = $this->m_manajement->getUnitid($where)->result();
     $data['pegawai'] = $this->m_organisasi->showPegUnit($where)->result();
 
-    $this->load->view('admin/v_realisasi', $data);
+    $this->load->view('admin/manajemenrisk/v_realisasi', $data);
 
     $this->load->view('admin/include/footer');
   }
@@ -164,6 +168,24 @@ class Manajementrisk extends CI_Controller{
       $this->session->set_flashdata('notif', 'Gagal Mengedit Data');
       redirect('admin/manajementrisk/lihatrencana/'.$this->session->userdata('session_unit'));
     }
+  }
+
+  function lihatstatuspenanganan($id)
+  {
+    $data['title'] = "Status Penanganan | Simonari";
+    $this->load->view('admin/include/header', $data);
+
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $id
+    );
+
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
+    $data['showunitID'] = $this->m_manajement->getUnitid($where)->result();
+    $data['realisasi']  = $this->m_manajement->showRealisasiClose($where)->result();
+    $data['jumlahClose'] = $this->m_dashboard->rowClose($where)->num_rows();
+    $this->load->view('admin/manajemenrisk/v_statuspenanganan', $data);
+
+    $this->load->view('admin/include/footer');
   }
 
 }

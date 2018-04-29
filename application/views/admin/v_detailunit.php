@@ -24,35 +24,36 @@ foreach($detailunit as $keyeditunit){?>
              </div>
              <div class="box-body">
                    <div class="row">
-                     <form action="<?= base_url('admin/organisasi/updateunit') ?>" method="post" enctype="multipart/form-data" >
-                       <input type="hidden" name="id_unit" value="<?= $keyeditunit->id_unit ?>">
-                     <div class="col-xs-3">
-                       <label>Nama Unit</label>
-                       <input type="text" class="form-control" name="nm_unit" value="<?= $keyeditunit->nama_unit ?>">
-                     </div>
-                     <div class="col-xs-5">
-                       <label>Organisasi</label>
-                       <select class="form-control" name="organisasi">
-                         <?php
-                         foreach ($showorganisasi as $keyorg ) {
-                           if($keyorg->id_unor == $keyeditunit->id_unor){
-                             echo "<option value='$keyorg->id_unor' selected> $keyorg->nama_unor </option>";
-                           }else{
-                             echo "<option value='$keyorg->id_unor'> $keyorg->nama_unor</option>";
-                           }
-                         }
-                          ?>
-                       </select>
-                     </div>
-                   </div>
+                      <form action="<?= base_url('admin/organisasi/updateunit') ?>" method="post" enctype="multipart/form-data" >
+                         <input type="hidden" name="id_unit" value="<?= $keyeditunit->id_unit ?>">
+                           <div class="col-xs-3">
+                             <label>Nama Unit</label>
+                             <input type="text" class="form-control" name="nm_unit" value="<?= $keyeditunit->nama_unit ?>">
+                           </div>
+                           <div class="col-xs-5">
+                             <label>Organisasi</label>
+                             <select class="form-control" name="organisasi">
+                               <?php
+                               foreach ($showorganisasi as $keyorg ) {
+                                 if($keyorg->id_unor == $keyeditunit->id_unor){
+                                   echo "<option value='$keyorg->id_unor' selected> $keyorg->nama_unor </option>";
+                                 }else{
+                                   echo "<option value='$keyorg->id_unor'> $keyorg->nama_unor</option>";
+                                 }
+                               }
+                                ?>
+                             </select>
+                           </div>
+                    </div>
+
+
                    <div class="row">
                      <div class="col-xs-6">
-                       <label>Sasaran</label>
-                        <textarea name="sasaran" rows="8" cols="80"><?= $keyeditunit->sasaran ?></textarea>
-                     </div>
-                     <div class="col-xs-4">
+                       <label>Sasaran</label><br>
+                        <textarea name="sasaran" rows="8" cols="150"><?= $keyeditunit->sasaran ?></textarea>
                        <label>IKU</label>
-                        <textarea name="iku" rows="8" cols="80"><?= $keyeditunit->iku ?></textarea>
+
+                        <textarea name="iku" rows="8" cols="150"><?= $keyeditunit->iku ?></textarea>
                      </div>
                   </div>
                    <br>

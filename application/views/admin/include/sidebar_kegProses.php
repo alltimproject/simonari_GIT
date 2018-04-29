@@ -1,4 +1,4 @@
-<div class="leftcolumn w3-animate-top">
+<div class="leftcolumn">
   <div class="card">
     <div class="w3-panel" style="width:100%">
       <a href="<?= base_url('admin/kegiatanprosesbisnis/lihatpk/'. $this->session->userdata('session_unit'))  ?>"  class="w3-button w3-block w3-teal">

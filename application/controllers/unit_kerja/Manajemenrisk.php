@@ -76,25 +76,8 @@ class ManajemenRisk extends CI_Controller{
 
     if($action == "tambah")
     {
-      $config['upload_path']   = APPPATH. '../uploadzip/';
-      $config['allowed_types'] = 'zip|rar';
-      $config['max_size']      = 100;
 
-      $this->load->library('upload', $config);
-        if(!$this->upload->do_upload('zip_file') ){
-          $error = array('error '=> $this->upload->display_errors() );
-          $this->load->view('v_manajemenrisiko', $error);
-        }else{
-          $upload_data = $this->upload->data();
-          $data['zip_file'] = $upload_data['file_name'];
-          $this->m_core->insertdatartp($data);
-        }
-
-
-
-
-
-      //$cek = $this->m_core->insertData('tbl_monitor_rtp', $data);
+      $cek = $this->m_core->insertData('tbl_monitor_rtp', $data);
     } elseif($action == "edit")
     {
       $cek2 = $this->m_core->updateData($data, $where, 'tbl_monitor_rtp');

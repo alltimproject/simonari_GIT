@@ -41,6 +41,7 @@ body {
 	width:90px;
 	font-size:15px;
 	display:none;
+  
 }
 
 #notifications {

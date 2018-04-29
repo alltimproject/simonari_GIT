@@ -188,4 +188,63 @@ class Manajementrisk extends CI_Controller{
     $this->load->view('admin/include/footer');
   }
 
+  function lihatidentifikasi($id)
+  {
+    $data['title'] = 'Identifikasi Risiko | Simonari';
+    $this->load->view('admin/include/header', $data);
+
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $id
+    );
+
+    $data['dataSOP'] = $this->m_manajement->showSOP($where)->result();
+    $data['showunitID'] = $this->m_manajement->getUnitid($where)->result();
+    $data['showPegawaiunit'] = $this->m_prosesbisnis->getPegUnit($where)->result();
+    $this->load->view('admin/manajemenrisk/v_identifikasirisiko', $data);
+
+    $this->load->view('admin/include/footer');
+  }
+
+  function updateRisiko()
+  {
+    $id_sop            = $this->input->post('id_sop');
+    $nama_risk         = $this->input->post('nama_risk');
+    $frekuensi         = $this->input->post('frekuensi');
+    $dampak            = $this->input->post('dampak');
+    $deskripsi_cause   = $this->input->post('deskripsi_cause');
+    $kategori_cause    = $this->input->post('kategori_cause');
+    $deskrisp_pengendalian = $this->input->post('deskripsi_pengendalian');
+    $sisa_risk         = $this->input->post('sisa_risk');
+    $hitung            = $this->input->post('hitung');
+
+    $data = array(
+      'nama_risk'         => $nama_risk,
+      'frekuensi'         => $frekuensi,
+      'dampak'            => $dampak,
+      'hitung'            => $hitung,
+      'deskripsi_cause'   => $deskripsi_cause,
+      'kategori_cause'    => $kategori_cause,
+      'deskripsi_pengendalian' => $deskrisp_pengendalian,
+      'sisa_risk'         => $sisa_risk,
+      'hitung'            => $hitung
+    );
+
+    $where = array(
+      'id_sop' => $id_sop
+    );
+
+    $table = 'tbl_sop_risk';
+
+    $cek = $this->m_prosesbisnis->updateData($data, $where, $table);
+    if($cek){
+      $this->session->set_flashdata('notif', 'Berhasil Merubah Identifikasi Risiko');
+      redirect('admin/manajementrisk/lihatidentifikasi/'.$this->session->userdata('session_unit') );
+    }else{
+      $this->session->set_flashdata('notif', 'Gagal Merubah Identifikasi Risiko');
+      redirect('admin/manajementrisk/lihatidentifikasi/'.$this->sessison->userdata('session_unit') );
+    }
+  }
+
+
+
 }

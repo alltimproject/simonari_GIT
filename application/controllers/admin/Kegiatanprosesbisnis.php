@@ -59,6 +59,37 @@ class Kegiatanprosesbisnis extends CI_Controller{
 
     $this->load->view('admin/include/footer');
   }
+  function updatePK()
+  {
+    $sess_unit = $this->session->userdata('session_unit');
+    $id_pk    = $this->input->post('id_pk');
+    $nama_ik  = $this->input->post('nama_ik');
+    $anggaran = $this->input->post('anggaran');
+    $tahun_pk = $this->input->post('tahun_pk');
+    $target   = $this->input->post('target');
+
+    $data = array(
+      'nama_ik'   => $nama_ik,
+      'anggaran'  => $anggaran,
+      'tahun_pk'  => $tahun_pk,
+      'target'    => $target,
+      'id_unit'   => $sess_unit
+    );
+
+    $where = array(
+      'id_pk' => $id_pk
+    );
+    $table = 'tbl_pk';
+    $cek = $this->m_prosesbisnis->updateData($data, $where, $table);
+    if($cek){
+      $this->session->set_flashdata('notif', 'Berhasil Merubah Data');
+      redirect('admin/kegiatanprosesbisnis/lihatpk/'.$sess_unit);
+    }else{
+      $this->session->set_flashdata('notif', 'Gagal Merubah Data');
+      redirect('admin/kegiatanprosesbisnis/lihatpk/'.$sess_unit);
+    }
+  }
+
   function addSKP()
   {
     $data['title'] = 'Tambah SKP | Simonari';
@@ -144,6 +175,41 @@ class Kegiatanprosesbisnis extends CI_Controller{
     }
   }
 
+  function updateSKP()
+  {
+    $session = $this->session->userdata('session_unit');
+
+    $id_skp        = $this->input->post('id_skp');
+    $nama_skp      = $this->input->post('nama_skp');
+    $target_mutu   = $this->input->post('target_mutu');
+    $target_waktu  = $this->input->post('target_waktu');
+    $target_biaya  = $this->input->post('target_biaya');
+    $target_volume = $this->input->post('target_volume');
+
+
+    $data = array(
+      'nama_skp'      => $nama_skp,
+      'target_mutu'   => $target_mutu,
+      'target_waktu'  => $target_waktu,
+      'target_biaya'  => $target_biaya,
+      'target_volume' => $target_volume
+    );
+
+    $where = array(
+      'id_skp' => $id_skp
+    );
+
+    $table = 'tbl_skp';
+    $cek   = $this->m_prosesbisnis->updateData($data, $where, $table);
+    if($cek){
+      $this->session->set_flashdata('notif', 'Berhasil Merubah Data');
+      redirect('admin/kegiatanprosesbisnis/lihatskp/'.$session);
+    }else{
+      $this->session->set_flashdata('notif', 'Gagal Merubah Data');
+      redirect('admin/kegiatanprosesbisnis/lihatskp/'.$session);
+    }
+  }
+
   function lihatskp($id)
   {
     $data['title'] = 'Detail SKP | Simonari';
@@ -196,7 +262,7 @@ class Kegiatanprosesbisnis extends CI_Controller{
 
     $data['jumlahSOPunit'] = $this->m_prosesbisnis->hitungJumlahSOPunit($id);
     $data['showunitID'] = $this->m_prosesbisnis->getUnit($where)->result();
-    $data['showSOP'] = $this->m_prosesbisnis->getSOP($where)->result();
+    $data['dataSOP'] = $this->m_prosesbisnis->getSOP($where)->result();
     $this->load->view('admin/kegiatanproses/v_lihatsop', $data);
 
     $this->load->view('admin/include/footer');
@@ -208,22 +274,12 @@ class Kegiatanprosesbisnis extends CI_Controller{
     $id_skp = $this->input->post('id_skp');
     $post = $this->input->post();
     $sop = array();
-    $cause = array();
-    $pengendalian = array();
     $total = count($post['nama_sop']);
 
     foreach($post['nama_sop'] as $key => $value) {
       $sop[] = array(
         'id_skp' => $id_skp,
-        'nama_sop' => $post['nama_sop'][$key],
-        'nama_risk' => $post['nama_risk'][$key],
-        'frekuensi' => $post['frekuensi'][$key],
-        'dampak' => $post['dampak'][$key],
-        'hitung' => $post['dampak'][$key] * $post['frekuensi'][$key],
-        'sisa_risk' => $post['sisa_risk'][$key],
-        'deskripsi_cause' => $post['deskripsi_cause'][$key],
-        'kategori_cause' => $post['kategori_cause'][$key],
-        'deskripsi_pengendalian' => $post['deskripsi_p_exist'][$key]
+        'nama_sop' => $post['nama_sop'][$key]
       );
     }
 
@@ -233,9 +289,36 @@ class Kegiatanprosesbisnis extends CI_Controller{
       $this->session->set_flashdata('notif', 'Berhasil Menambahkan Data SOP');
       redirect('admin/kegiatanprosesbisnis/lihatsop/'.$this->session->userdata('session_unit'));
     } else {
-      redirect('gagal');
+      $this->session->set_flashdata('notif', 'Gagal Menambahkan Data SOP');
+      redirect('admin/kegiatanprosesbisnis/lihatsop/'.$this->session->userdata('session_unit'));
     }
   }
+
+  function updateSOP()
+  {
+    $session  = $this->session->userdata('session_unit');
+    $id_sop   = $this->input->post('id_sop');
+    $nama_sop = $this->input->post('nama_sop');
+
+    $data = array(
+      'nama_sop' => $nama_sop
+    );
+
+    $where = array(
+      'id_sop' => $id_sop
+    );
+
+    $table = 'tbl_sop_risk';
+    $cek   = $this->m_prosesbisnis->updateData($data, $where, $table);
+    if($cek){
+      $this->session->set_flashdata('notif', 'Berhasil Merubah Data');
+      redirect('admin/kegiatanprosesbisnis/lihatsop/'.$session);
+    }else{
+      $this->session->set_flashdata('notif', 'Gagal Merubah Data');
+      redirect('admin/kegiatanprosesbisnis/lihatsop/'.$session);
+    }
+  }
+
 
   function hapuspk($id)
   {

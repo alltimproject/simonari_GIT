@@ -12,6 +12,14 @@ class M_prosesbisnis extends CI_Model{
 
     return $this->db->get();
   }
+
+  function updateData($data, $where, $table)
+  {
+    $this->db->where($where);
+    return $this->db->update($table, $data);
+  }
+
+
   function getSKP($where)
   {
     $this->db->select('*');
@@ -28,14 +36,20 @@ class M_prosesbisnis extends CI_Model{
   function getSOP($where)
   {
     $this->db->select('*');
-    $this->db->select('(select count(nama_sop) from tbl_sop_risk where tbl_sop_risk.id_skp = tbl_skp.id_skp) as rowskp ');
-    $this->db->from('tbl_skp');
-    $this->db->join('tbl_sop_risk','tbl_sop_risk.id_skp = tbl_skp.id_skp','left');
-    $this->db->join('tbl_pk','tbl_pk.id_pk = tbl_skp.id_pk', 'left');
-    $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
+       // $this->db->select('(select count(nama_skp) from tbl_skp where tbl_skp.id_pk = tbl_pk.id_pk) as rowpk');
+       $this->db->select('(select count(nama_skp) from tbl_skp LEFT JOIN tbl_sop_risk ON tbl_sop_risk.id_skp = tbl_skp.id_skp where tbl_skp.id_pk = tbl_pk.id_pk) as rowpk');
+       $this->db->select('(select count(nama_sop) from tbl_sop_risk where tbl_sop_risk.id_skp = tbl_skp.id_skp) as rowskp');
 
-    $this->db->where($where);
-    return $this->db->get();
+			 $this->db->from('tbl_pk');
+       $this->db->join('tbl_skp', 'tbl_skp.id_pk = tbl_pk.id_pk', 'left');
+       $this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_skp = tbl_skp.id_skp', 'left');
+       // $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
+       $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
+
+
+       $this->db->where($where);
+			 // $this->db->order_by('tbl_sop_risk.hitung ASC');
+       return $this->db->get();
   }
   function selectPK($where)
   {

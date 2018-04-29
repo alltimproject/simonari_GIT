@@ -82,7 +82,6 @@ class M_manajement extends CI_Model{
         $this->db->where($where2);
         return $this->db->get();
   }
-
   function hitungStatusOpen_unit()
   {
     $this->db->select('*');
@@ -100,5 +99,27 @@ class M_manajement extends CI_Model{
     return $this->db->get();
 
   }
+
+  function showSOP($where)
+		{
+
+			$where2 = "tbl_sop_risk.nama_sop != ''";
+
+       $this->db->select('*');
+       // $this->db->select('(select count(nama_skp) from tbl_skp where tbl_skp.id_pk = tbl_pk.id_pk) as rowpk');
+       $this->db->select('(select count(nama_skp) from tbl_skp LEFT JOIN tbl_sop_risk ON tbl_sop_risk.id_skp = tbl_skp.id_skp where tbl_skp.id_pk = tbl_pk.id_pk and tbl_sop_risk.nama_sop != "") as rowpk');
+       $this->db->select('(select count(nama_sop) from tbl_sop_risk where tbl_sop_risk.id_skp = tbl_skp.id_skp and tbl_sop_risk.nama_sop != "") as rowskp');
+
+			 $this->db->from('tbl_pk');
+       $this->db->join('tbl_skp', 'tbl_skp.id_pk = tbl_pk.id_pk', 'left');
+       $this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_skp = tbl_skp.id_skp', 'left');
+       // $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
+       $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
+
+
+       $this->db->where($where);
+			 $this->db->where($where2);
+       return $this->db->get();
+		}
 
 }

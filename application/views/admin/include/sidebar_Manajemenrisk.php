@@ -1,6 +1,9 @@
 <div class="leftcolumn">
   <div class="card">
     <div class="w3-panel" style="width:100%">
+      <a href="<?= base_url('admin/manajementrisk/lihatidentifikasi/'.$this->session->userdata('session_unit')) ?>"  class="w3-button w3-block w3-teal">Identifikasi Risiko</a>
+    </div>
+    <div class="w3-panel" style="width:100%">
       <a href="<?= base_url('admin/manajementrisk/lihatdetail/'.$this->session->userdata('session_unit')) ?>"  class="w3-button w3-block w3-teal">Daftar Risiko</a>
     </div>
     <div class="w3-panel" style="width:100%">

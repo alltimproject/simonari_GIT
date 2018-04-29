@@ -83,6 +83,38 @@
 		{
 			return $this->db->get_where('tbl_pegawai', $session_nip);
 		}
+
+		function upload()
+		{
+			$config['upload_path']   = './uploadzip/';
+			$config['allowed_types'] = 'jpg|png|jpeg|zip|rar';
+			$config['max_size']      = '3048';
+			$config['remove_space']  = TRUE;
+
+			$this->load->library('upload', $config);
+
+			if($this->upload->do_upload('zip_file') ){
+			$return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+			return $return;
+			}else{
+      			$return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+		  		return $return;
+			}
+		}
+
+		function saveupload($upload)
+		{
+			$data = array(
+				'berkas' => $upload['file']['file_name']
+			);
+			$where = array(
+				'id_sop' => $this->input->post('id_sop')
+			);
+			$this->db->where($where);
+			$this->db->update('tbl_monitor_rtp', $data);
+		}
+
+
 	}
 
  ?>

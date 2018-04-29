@@ -404,10 +404,6 @@
             <label>Keterangan</label>
             <textarea class="form-control" name="keterangan" id="keterangan"></textarea>
           </div>
-          <div class="zipupload form-group">
-            <label>Upload Evidence</label>
-            <input type="file" class="w3-input" name="zip" id="zip_upload">
-          </div>
         </div>
         <div class="pull-right">
           <button type="submit" name="submit" class="btn btn-md btn-info" id="submitRealisasi">Simpan</button>
@@ -461,6 +457,41 @@
 
                 <?php } else { ?>
                   <a class="btn btn-success btn-sm" id="editRealisasi" real-id_sop="<?= $real->id_sop ?>" real-nama_sop="<?= $real->nama_sop ?>" real-nama_risk="<?= $real->nama_risk ?>" real-cause="<?= $real->deskripsi_cause ?>" real-pengendalian="<?= $real->deskripsi_pengendalian ?>" real-rencana="<?= $real->deskripsi_rtp ?>" real-plan_mulai="<?= $real->plan_mulai ?>" real-plan_selesai="<?= $real->plan_selesai ?>" real-output="<?= $real->indikator_output ?>" real-pic="<?= $real->pic ?> " real-mulai="<?= $real->real_mulai ?>" real-selesai="<?= $real->real_selesai ?>" real-hambatan="<?= $real->hambatan ?>" real-keterangan="<?= $real->keterangan ?>" real-berkas="<?= $real->berkas ?>"> Edit Realisasi </a>
+
+                  <?php
+                                  if($real->berkas == ""){?>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#uploadzip">Upload Evidence</button>
+                                                      <!-- Modal -->
+                                    <div class="modal fade" id="uploadzip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Upload Zip</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                          <form action="<?= base_url('unit_kerja/manajemenrisk/uploadzip') ?>" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" name="id_sop" value="<?= $real->id_sop ?>">
+                                            <div class="form-group">
+                                              <label> Pilih File ZIP </label>
+                                              <input type="file" name="zip_file" class="form-control">
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" name="submit" class="btn btn-primary">Save changes</button>
+                                          </div>
+                                            </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <?php } else{ ?>
+                                      <h4>File Uploaded <a href="<?= base_url('uploadzip/'.$real->berkas)?>">Lihat</a> </h4>
+
+                  <?php } //end if  ?>
+
 
                 <?php } ?>
 

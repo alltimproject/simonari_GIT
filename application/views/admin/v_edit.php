@@ -6,13 +6,28 @@ foreach($showpeg as $keyedit){?>
   <div class="leftcolumn w3-animate-top">
     <div class="card">
       <div class="w3-panel" style="width:100%">
-        <a href="#"  class="w3-button w3-block w3-teal">Ubah Password</a>
+        <a  href="<?= base_url('admin/organisasi?pegawai') ?>"  class="w3-button w3-block w3-teal">Kembali Ke Menu</a>
+      </div>
+      <div class="w3-panel" style="width:100%">
+        <button type="button" href="#"  class="w3-button w3-block w3-teal" data-toggle="modal" data-target="#ubahpassword">Ubah Password</button>
       </div>
       <div class="w3-panel" style="width:100%">
         <a href="<?= base_url('admin/organisasi/hapuspeg/'.$keyedit->nip)?>" onclick="return confirm('Apakah Anda Yakin Ingin Mengahpus ? ')"  class="w3-button w3-block w3-red">Hapus Pegawai</a>
       </div>
     </div>
+
+    <div class="card w3-center">
+        <img src="<?= base_url('upload/'.$keyedit->foto)  ?>" alt="" width="50%">
+        <div class="w3-panel" style="width:100%">
+          <button type="button" href="#"  class="w3-button w3-block w3-teal" data-toggle="modal" data-target="#ubahfoto">Ubah Foto</button>
+        </div>
+    </div>
+
   </div>
+
+
+
+
   <div class="rightcolumn">
     <div class="card">
       <div class="w3-green">
@@ -78,15 +93,6 @@ foreach($showpeg as $keyedit){?>
                           ?>
                        </select>
                      </div>
-
-
-
-                     <div class="col-xs-3">
-                       <label>Upload Foto</label>
-                       <input type="file" class="form-control" name="nm_pegawai" value="" placeholder="Nama Pegawai"><br>
-                       <img src="<?= base_url('upload/'.$keyedit->foto)  ?>" alt="" width="50%">
-                     </div>
-
                    </div>
                    <br>
                       <input type="submit" name="editpeg" class="btn btn-info btn-sm" value="Update">
@@ -105,23 +111,23 @@ foreach($showpeg as $keyedit){?>
          <div class="modal fade" id="myModal" role="dialog">
            <div class="modal-dialog">
     <!-- Modal content-->
-        <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal fade" id="ubahpassword" role="dialog">
           <div class="modal-dialog">
              <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Upload Foto</h4>
+                  <h4 class="modal-title">Ubah Password</h4>
                 </div>
              <div class="modal-body">
-               <form action="<?= base_url().'admin/organisasi/uploadfoto' ?>" method="post" enctype="multipart/form-data">
+               <form action="<?= base_url().'admin/organisasi/ubahpassword' ?>" method="post" enctype="multipart/form-data">
                  <input type="hidden" name="nip" value="<?= $keyedit->nip ?>">
                  <div class="form-group">
-                   <label>Foto</label>
-                   <input type="file" name="foto" class="form-control">
+                   <label>Password Baru</label>
+                   <input type="text" name="password" class="form-control" required>
                  </div>
                </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-default">Simpan</button>
+                <button type="submit" name="submit" class="btn btn-default">Simpan</button>
               </div>
              </form>
              </div>
@@ -129,4 +135,30 @@ foreach($showpeg as $keyedit){?>
           </div>
          </div>
          <!-- en modal -->
+         <!-- Modal Ubah Foto -->
+         <div class="modal fade" id="ubahfoto" role="dialog">
+           <div class="modal-dialog">
+              <div class="modal-content">
+                 <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   <h4 class="modal-title">Ubah Foto</h4>
+                 </div>
+              <div class="modal-body">
+                <form action="<?= base_url().'admin/organisasi/uploadfoto' ?>" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="nip" value="<?= $keyedit->nip ?>">
+                  <div class="form-group">
+                    <label>Pilih Foto</label>
+                    <input type="file" name="foto" class="form-control" required>
+                  </div>
+                </div>
+               <div class="modal-footer">
+                 <button type="submit" name="submit" class="btn btn-default">Simpan</button>
+               </div>
+              </form>
+              </div>
+             </div>
+           </div>
+          </div>
+
+        <!-- End Modal Ubah Foto -->
            <?php } ?>

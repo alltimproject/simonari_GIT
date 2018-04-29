@@ -236,6 +236,47 @@ class Organisasi extends CI_Controller{
     redirect('admin/organisasi/detailorganisasi/'.$id_unor);
   }
 
+  function ubahpassword()
+  {
+    $nip      = $this->input->post('nip');
+    $password = $this->input->post('password');
+
+    $where = array(
+      'nip' => $nip
+    );
+
+    $data  = array(
+      'password' => md5($password)
+    );
+
+    $cek = $this->m_core->update($where, $data, 'tbl_pegawai');
+    if($cek){
+      $this->session->set_flashdata('notif', 'Gagal Merubah Password');
+      redirect('admin/organisasi/editpeg/'.$nip);
+    }else{
+      $this->session->set_flashdata('notif', 'Berhasil Merubah Password');
+      redirect('admin/organisasi/editpeg/'.$nip);
+    }
+
+  }
+
+  function uploadfoto()
+  {
+    $nip = $this->input->post('nip');
+    $upload = $this->m_organisasi->uploadfoto();
+    if($upload['result'] == "success" ){
+      $cek = $this->m_organisasi->saveupload($upload);
+      if($cek)
+      {
+        $this->session->set_flashdata('notif', 'Gagal Merubah Foto');
+        redirect('admin/organisasi/editpeg/'.$nip);
+      }else{
+        $this->session->set_flashdata('notif', 'Berhasil Merubah Foto');
+        redirect('admin/organisasi/editpeg/'.$nip);
+      }
+    }
+  }
+
 
 
 

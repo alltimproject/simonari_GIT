@@ -100,7 +100,7 @@
       </div>
       <div class="box-body">
         <div class="table-responsive">
-        <table id="pernyataanRisk" class="table table-responsive table-striped table-hover table-bordered">
+        <table  id="pernyataanRisk" class="table-header table table-responsive table-striped table-hover table-bordered">
           <thead>
             <tr class="bg-blue">
               <th>No</th>
@@ -117,7 +117,7 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="table-conntent">
             <?php foreach ($data as $key): ?>
               <tr>
                 <td><?= $no++ ?></td>

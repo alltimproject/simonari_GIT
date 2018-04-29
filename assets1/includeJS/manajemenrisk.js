@@ -25,7 +25,7 @@ $(function(){
   } else if(halaman == 'okrisk')
   {
     $('.contentRISK').slideUp();
-    $('.editRisiko').hide(); 
+    $('.editRisiko').hide();
     $('.contentRealisasi').slideUp();
     $('.contentRTP').slideUp();
     $('.contentTambahRTP').slideUp();
@@ -37,7 +37,7 @@ $(function(){
     $('#idenRisk').removeClass('w3-teal').addClass('activenav');
     $('.contentRTP').hide();
     $('.contentRealisasi').hide();
-    $('.editRisiko').hide(); 
+    $('.editRisiko').hide();
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').hide();
     $('.contentRISK').hide();
@@ -51,7 +51,7 @@ $(function(){
     $('.contentRealisasi').slideUp();
     $('.contentTambahRTP').slideUp();
     $('.identifikasiRisk').slideUp();
-    $('.editRisiko').hide(); 
+    $('.editRisiko').hide();
     $('.AddRealisasi').slideUp();
     $('#daftarRisk').removeClass('w3-teal').addClass('activenav');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
@@ -66,7 +66,7 @@ $(function(){
     $('.contentRISK').slideUp();
     $('.contentRealisasi').slideUp();
     $('.contentRTP').slideDown();
-    $('.editRisiko').hide(); 
+    $('.editRisiko').hide();
     $('.contentTambahRTP').slideUp();
     $('.AddRealisasi').slideUp();
     $('.identifikasiRisk').slideUp();
@@ -83,7 +83,7 @@ $(function(){
     $('.contentRISK').slideUp();
     $('.contentRealisasi').slideDown();
     $('.contentRTP').slideUp();
-    $('.editRisiko').hide(); 
+    $('.editRisiko').hide();
     $('.contentTambahRTP').slideUp();
     $('.identifikasiRisk').slideUp();
     $('.AddRealisasi').hide();
@@ -96,10 +96,10 @@ $(function(){
     // $('.editSKP').hide();
     // $('.editSOP').hide();
   });
-    
+
   $('#idenRisk').click(function(){
     $('.contentRISK').slideUp();
-    $('.editRisiko').hide(); 
+    $('.editRisiko').hide();
     $('.contentRealisasi').slideUp();
     $('.contentRTP').slideUp();
     $('.contentTambahRTP').slideUp();
@@ -114,8 +114,8 @@ $(function(){
     // $('.editSKP').hide();
     // $('.editSOP').hide();
   });
-    
-    
+
+
 
 });
 
@@ -131,7 +131,7 @@ $(function(){
     $('#realisasiRisk').removeClass('activenav').addClass('w3-teal');
     $('.judulForm').text('Tambah RTP');
     $('#submitRTP').removeClass().addClass('btn btn-info btn-md').text('Simpan');
-    //$('#uploadzip').hide();
+
     $('html, body').animate({
       scrollTop: $('.contentTambahRTP').offset().top
     });
@@ -201,7 +201,7 @@ $(function(){
   $(document).on('click', '#buatRealisasi', function(e) {
     $('.contentRISK').hide();
     $('.contentRealisasi').hide();
-    //$('.zipuplad').hide();
+
     $('.contentRTP').hide();
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').slideDown();
@@ -237,7 +237,6 @@ $(function(){
  $(document).on('click', '#editRealisasi', function(e) {
     $('.contentRISK').hide();
     $('.contentRTP').hide();
-    //$('.zipuplad').show();
     $('.contentTambahRTP').hide();
     $('.AddRealisasi').slideDown();
     $('#realisasiRisk').removeClass('w3-teal').addClass('activenav');
@@ -287,7 +286,7 @@ $(function(){
 $(function(){
 $(document).on('click', '#editRisiko', function(e) {
     $('.contentRISK').slideUp();
-    $('.editRisiko').slideDown(); 
+    $('.editRisiko').slideDown();
     $('.contentRealisasi').slideUp();
     $('.contentRTP').slideUp();
     $('.contentTambahRTP').slideUp();
@@ -298,14 +297,14 @@ $(document).on('click', '#editRisiko', function(e) {
     $('#daftarRisk').removeClass('activenav').addClass('w3-teal');
     $('#rencanaRisk').removeClass('activenav').addClass('w3-teal');
     $('#realisasiRisk').removeClass('activenav').addClass('w3-teal');
-    
+
     $('#submitRisiko').removeClass('btn-info').addClass('btn-success').text('Edit');
     $('#judulRisiko').text('Edit Identifikasi Risiko');
-    
+
   $('html, body').animate({
     scrollTop: $('.editRisiko').offset().top
   });
-    
+
       document.getElementById("iden-nama_sop").value = $(this).attr('iden-nama_sop');
       document.getElementById("iden-nama_risk").value = $(this).attr('iden-nama_risk');
       document.getElementById("iden-frekuensi").value = $(this).attr('iden-frekuensi');
@@ -316,10 +315,10 @@ $(document).on('click', '#editRisiko', function(e) {
       document.getElementById("iden-sisa_risk").value = $(this).attr('iden-sisa_risk');
       document.getElementById("iden-id_sop").value = $(this).attr('iden-id_sop');
 });
-    
+
     $(document).on('click', '#tambahRisiko', function(e) {
         $('.contentRISK').slideUp();
-        $('.editRisiko').slideDown(); 
+        $('.editRisiko').slideDown();
         $('.contentRealisasi').slideUp();
         $('.contentRTP').slideUp();
         $('.contentTambahRTP').slideUp();
@@ -331,12 +330,12 @@ $(document).on('click', '#editRisiko', function(e) {
         $('#rencanaRisk').removeClass('activenav').addClass('w3-teal'); $('#realisasiRisk').removeClass('activenav').addClass('w3-teal');
         $('#submitRisiko').removeClass('btn-success').addClass('btn-info').text('Simpan');
         $('#judulRisiko').text('Tambah Identifikasi Risiko');
-    
+
 
           $('html, body').animate({
             scrollTop: $('.editRisiko').offset().top
           });
-        
+
           document.getElementById("iden-nama_sop").value = $(this).attr('iden-nama_sop');
           $("#iden-nama_risk").val('');
           $("#iden-frekuensi").val('');
@@ -346,19 +345,19 @@ $(document).on('click', '#editRisiko', function(e) {
           $("#iden-deskripsi_pengendalian").val('');
           $("#iden-sisa_risk").val('');
           document.getElementById("iden-id_sop").value = $(this).attr('iden-id_sop');
-        
+
     });
-    
+
     $('.formRisiko').submit(function(){
         if($("#iden-nama_risk").val() == '' || $("#iden-frekuensi").val() == '' || $("#iden-dampak").val() == '' || $("#iden-deskripsi_cause").val() == '' || $("#iden-kategori_cause").val() == '' || $("#iden-deskripsi_pengendalian").val() == '' || $("#iden-sisa_risk").val() == '')
-        { 
+        {
            $('#alertRisiko').fadeIn('slow').delay(3000).fadeOut('fast').text('Field tidak boleh Kosong');
            return false;
         } else {
            return true;
         }
     });
-    
+
     $('#cancelRisiko').click(function(){
         $('.editRisiko').slideUp();
         $('.identifikasiRisk').slideDown();

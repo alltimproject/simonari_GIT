@@ -1,7 +1,10 @@
 </div>
 </div>
 <div class="footer">
-  <h5 class="w3-text-white" >Copyright © 2018 simonari. All rights reserved. </h5>
+  <img src="<?= base_url('images/logo.svg')  ?>" width="50px" alt="setwapres"><br>
+  <h6>SIMONARI</h6>
+  <h5>Sistem Informasi Monitoring Manajemen Risiko</h5>
+  <h5 class="w3-text-white" >Copyright © 2018 Tim Satgas SPIP Sekretariat Wakil Presiden. All rights reserved. </h5>
 </div>
 
 <script src="<?= base_url().'assets1/js/bootstrap.min.js' ?>"></script>

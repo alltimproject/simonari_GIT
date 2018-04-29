@@ -404,9 +404,9 @@
             <label>Keterangan</label>
             <textarea class="form-control" name="keterangan" id="keterangan"></textarea>
           </div>
-          <div class="zipuplad form-group">
+          <div class="zipupload form-group">
             <label>Upload Evidence</label>
-            <input type="file" class="w3-input" name="zip" id="zip">
+            <input type="file" class="w3-input" name="zip" id="zip_upload">
           </div>
         </div>
         <div class="pull-right">

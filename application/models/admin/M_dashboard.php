@@ -153,6 +153,8 @@ class M_dashboard extends CI_Model{
 
     $this->db->select('*');
     $this->db->from('tbl_sop_risk');
+    $this->db->join('tbl_monitor_rtp','tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop', 'left');
+
     $this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
     $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
     $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -171,6 +173,8 @@ class M_dashboard extends CI_Model{
 
     $this->db->select('*');
     $this->db->from('tbl_sop_risk');
+    $this->db->join('tbl_monitor_rtp','tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop', 'left');
+
     $this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
     $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
     $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -189,6 +193,8 @@ class M_dashboard extends CI_Model{
 
     $this->db->select('*');
     $this->db->from('tbl_sop_risk');
+    $this->db->join('tbl_monitor_rtp','tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop', 'left');
+
     $this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
     $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
     $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -207,6 +213,8 @@ class M_dashboard extends CI_Model{
 
     $this->db->select('*');
     $this->db->from('tbl_sop_risk');
+    $this->db->join('tbl_monitor_rtp','tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop', 'left');
+
     $this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
     $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
     $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
@@ -224,6 +232,8 @@ class M_dashboard extends CI_Model{
 
     $this->db->select('*');
     $this->db->from('tbl_sop_risk');
+    $this->db->join('tbl_monitor_rtp','tbl_monitor_rtp.id_sop = tbl_sop_risk.id_sop', 'left');
+  
     $this->db->join('tbl_skp','tbl_skp.id_skp = tbl_sop_risk.id_skp', 'left');
     $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
     $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');

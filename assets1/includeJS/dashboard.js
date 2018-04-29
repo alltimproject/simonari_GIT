@@ -1,11 +1,13 @@
 $(function(){
   $('#pernyataanRisk').DataTable({
+    'fixedHeader' : true,
     'paging'      : true,
     'lengthChange': true,
     'searching'   : true,
     'ordering'    : true,
     'info'        : true,
     'autoWidth'   : false
+
   });
   $('#modalWelcome').modal('show');
 });

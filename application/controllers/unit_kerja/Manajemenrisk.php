@@ -149,9 +149,13 @@ class ManajemenRisk extends CI_Controller{
       if($cek)
       {
         $this->session->set_flashdata('notif', "Gagal Upload File");
+        $this->session->set_flashdata('class', 'danger');
+        $this->session->set_flashdata('halaman', 'okreal');
         redirect('unit_kerja/manajemenrisk');
       }else{
         $this->session->set_flashdata('notif', 'Berhasil Upload File');
+        $this->session->set_flashdata('class', 'success');
+        $this->session->set_flashdata('halaman', 'okreal');
         redirect('unit_kerja/manajemenrisk');
       }
     }

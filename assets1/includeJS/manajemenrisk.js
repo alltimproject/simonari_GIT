@@ -4,6 +4,8 @@ $(function(){
 
   if(halaman == 'okreal')
   {
+    $('.editRisiko').hide();
+    $('.identifikasiRisk').hide();
     $('.contentRISK').hide();
     $('.contentRTP').hide();
     $('.contentRealisasi').slideDown();
@@ -14,6 +16,8 @@ $(function(){
     $('#alertRTP').hide();
   } else if(halaman == 'okrtp')
   {
+    $('.editRisiko').hide();
+    $('.identifikasiRisk').hide();
     $('.contentRISK').hide();
     $('.contentRTP').slideDown();
     $('.contentRealisasi').hide();

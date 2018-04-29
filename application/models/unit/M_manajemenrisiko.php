@@ -40,7 +40,6 @@
 
        $this->db->where($where);
 			 $this->db->where($where2);
-			 $this->db->order_by('tbl_pk.id_pk DESC');
        return $this->db->get();
 		}
 

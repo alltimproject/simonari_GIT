@@ -460,7 +460,7 @@
 
                   <?php
                                   if($real->berkas == ""){?>
-                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#uploadzip">Upload Evidence</button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#uploadzip">Upload <span class="fa fa-upload"></span> </button>
                                                       <!-- Modal -->
                                     <div class="modal fade" id="uploadzip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">
@@ -476,7 +476,7 @@
                                             <input type="hidden" name="id_sop" value="<?= $real->id_sop ?>">
                                             <div class="form-group">
                                               <label> Pilih File ZIP </label>
-                                              <input type="file" name="zip_file" class="form-control">
+                                              <input type="file" name="zip_file" class="form-control" required>
                                             </div>
                                           </div>
                                           <div class="modal-footer">
@@ -488,7 +488,7 @@
                                       </div>
                                     </div>
                                     <?php } else{ ?>
-                                      <h4>File Uploaded <a href="<?= base_url('uploadzip/'.$real->berkas)?>">Lihat</a> </h4>
+                                      <h4>File Uploaded <a class="btn btn-info btn-xs" href="<?= base_url('uploadzip/'.$real->berkas)?>">Download<span class="fa fa-download"></span></a></h4>
 
                   <?php } //end if  ?>
 

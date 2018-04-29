@@ -85,10 +85,12 @@
 
 		function upload()
 		{
+			$nama_file = 'file__'.$this->session->userdata('nama_unit');
 			$config['upload_path']   = './uploadzip/';
 			$config['allowed_types'] = 'jpg|png|jpeg|zip|rar';
 			$config['max_size']      = '3048';
 			$config['remove_space']  = TRUE;
+			$config['file_name'] = $nama_file;
 
 			$this->load->library('upload', $config);
 

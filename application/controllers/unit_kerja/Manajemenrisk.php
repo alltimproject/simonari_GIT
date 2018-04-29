@@ -148,10 +148,10 @@ class ManajemenRisk extends CI_Controller{
 
       if($cek)
       {
-        $this->session->set_flashdata('notif', "Berhasil Upload File ZIP");
+        $this->session->set_flashdata('notif', "Gagal Upload File");
         redirect('unit_kerja/manajemenrisk');
       }else{
-        $this->session->set_flashdata('notif', 'Gagal Upload File');
+        $this->session->set_flashdata('notif', 'Berhasil Upload File');
         redirect('unit_kerja/manajemenrisk');
       }
     }

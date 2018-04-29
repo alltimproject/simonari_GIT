@@ -11,6 +11,7 @@ class Laporan extends CI_Controller{
     $this->load->model('unit/m_kegiatanproses');
     $this->load->model('unit/m_manajemenrisiko');
     $this->load->model('unit/m_dashboard');
+    $this->load->model('unit/m_organisasi');
     $this->load->model('unit/m_laporan');
 
     error_reporting(0);
@@ -29,13 +30,17 @@ class Laporan extends CI_Controller{
     $this->load->view('unit_kerja/include/header', $data);
 
     $sess_unit = $this->session->userdata('id_unit');
+    $session_nip = array(
+      'nip' => $this->session->userdata('nip')
+    );
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
+    $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
     $data['select'] = $this->m_laporan->selectTahunPK($where)->result();
 
-    $this->load->view('unit_kerja/include/v_laporan');
+    $this->load->view('unit_kerja/include/v_laporan', $data);
     $this->load->view('unit_kerja/laporan/v_laporanall', $data);
     $this->load->view('unit_kerja/include/footer');
   }

@@ -24,8 +24,8 @@
                 <tr>
                   <td><textarea id="iden-nama_sop" name="nama_sop" class="form-control" style="height:100px" readonly=""></textarea></td>
                   <td><textarea id="iden-nama_risk" name="nama_risk" class="form-control" style="height:100px"></textarea></td>
-                  <td><select id="iden-frekuensi" name="frekuensi" class="form-control frekuensi"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
-                  <td><select id="iden-dampak" name="dampak" class="form-control dampak"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></td>
+                  <td><select id="iden-frekuensi" name="frekuensi" class="form-control frekuensi"><option value=""></option><option value="1">1 - Sangat Jarang</option><option value="2">2 - Jarang</option><option value="3">3 - Kadang-kadang</option><option value="4">4 - Sering</option><option value="5">5 - Sangat Sering</option></select></td>
+                  <td><select id="iden-dampak" name="dampak" class="form-control dampak"><option value=""></option><option value="1">1 - Sangat Rendah</option><option value="2">2 - Rendah</option><option value="3">3 - Sedang</option><option value="4">4 - Tinggi</option><option value="5">5 - Sangat Tinggi</option></select></td>
                 </tr>
                 <tr>
                   <th>Penyebab</th>

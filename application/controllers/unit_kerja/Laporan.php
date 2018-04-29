@@ -58,6 +58,7 @@ class Laporan extends CI_Controller{
       'tbl_pk.tahun_pk' => $tahun_pk
     );
 
+    ob_start();
     if(empty($tahun_pk))
     {
       $data['dataSOP'] = $this->m_kegiatanproses->showSOP($where)->result();
@@ -70,7 +71,9 @@ class Laporan extends CI_Controller{
       $this->load->view('unit_kerja/laporan/v_daftarResikoExcel', $data);
     } elseif (null !== $this->input->post('DRpdf'))
     {
-      $html = $this->load->view('unit_kerja/laporan/v_daftarResikoPDF', $data, true);
+        $html = $this->load->view('unit_kerja/laporan/v_daftarResikoPDF', $data, true);
+      ob_end_clean();
+
 
       $this->load->library('pdf');
       $pdf = $this->pdf->load();

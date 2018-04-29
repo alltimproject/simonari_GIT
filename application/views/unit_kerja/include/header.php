@@ -31,15 +31,15 @@ body {
 {
 	cursor: pointer;
 	position:fixed;
-	left:75%;
+	left:90%;
 	bottom:50px;
-	border:3px solid #585858;
-	background-color:white;
-	color:#585858;
-	border-radius:100%;
-	height:90px;
-	width:90px;
-	font-size:15px;
+/*	border:3px solid #585858;*/
+/*	background-color:white;*/
+/*	color:#585858;*/
+/*	border-radius:100%;*/
+/*	height:90px;*/
+/*	width:90px;*/
+/*	font-size:15px;*/
 	display:none;
   
 }

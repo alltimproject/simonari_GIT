@@ -1,4 +1,6 @@
-<input type="button" value="Scroll Top" id="tombolScrollTop" onclick="scrolltotop()">
+<i class="fa fa-4x fa-arrow-circle-up" onclick="scrolltotop()" id="tombolScrollTop"></i>
+
+
 <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">

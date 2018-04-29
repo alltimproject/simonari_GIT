@@ -1,37 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Daftar Resiko</title>
-   <link rel="stylesheet" href="<?= base_url().'assets1/css/bootstrap.min.css' ?>">
-    <style type="text/css">
-    body {font-size: 10px;}
-    td {padding-left: 3px;}
-    </style>
-</head>
-<body>
 
-<div align="center">
-    <img class="img img-responsive" src="<?= base_url().'images/setwapres.png' ?>" height="60" width="60">
-  </div>
+
+
+    <div align="center">
+        <img src="<?= base_url().'images/setwapres.png' ?>" height="60" width="60">
+    </div>
   <h5 align="center">SISTEM INFORMASI MONITORING MANAJEMEN RISIKO</h5>
   <h5 align="center">SEKRETARIAT WAKIL PRESIDEN</h5>
   <hr style="margin-top: 2px;">
 
-  <h4>DAFTAR RISIKO</h4>
+  <h5>DAFTAR RISIKO</h5>
   <h5>Nama Unit : <?php echo $this->session->userdata('nama_unit') ?></h5>
 
-	<table class="table table-bordered table-responsive" autosize="1" style="overflow: wrap">
+	<table style="width: 80%;border: solid 1px #5544DD; border-collapse: collapse" align="center">
           <tr style="background-color: rgb(162, 216, 250);">
-            <th align="center" width="30">No</th>
-            <th align="center" width="120">Indikator Kinerja</th>
-            <th align="center" width="120">Kegiatan</th>
-            <th align="center" width="130">Proses Bisnis</th>
-            <th align="center" width="130">Risiko</th>
-            <th align="center" width="130">Penyebab</th>
-            <th align="center" width="120">Pengendalian Yang Sudah Ada</th>
-            <th align="center" width="120">Sisa Risiko</th>
-            <th align="center" width="50">Kemungkinan Kejadian</th>
-            <th align="center" width="50">Dampak</th>
+            <th align="center">No</th>
+            <th align="center">Indikator Kinerja</th>
+            <th align="center">Kegiatan</th>
+            <th align="center">Proses Bisnis</th>
+            <th align="center">Risiko</th>
+            <th align="center">Penyebab</th>
+            <th align="center">Pengendalian Yang Sudah Ada</th>
+            <th align="center">Sisa Risiko</th>
+            <th align="center">Kemungkinan Kejadian</th>
+            <th align="center">Dampak</th>
 
           </tr>
 
@@ -87,6 +78,3 @@
       <?php  } ?>
         </table>
 
-    </div>
-</body>
-</html>

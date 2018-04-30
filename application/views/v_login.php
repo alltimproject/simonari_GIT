@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link rel="stylesheet" href="<?= base_url().'assets1/css/w3.css' ?>">
+  <link rel="icon" type="image/png" href="<?= base_url('images/setwapres.png') ?>">
 
   <style>
   #notifications {
@@ -31,9 +32,9 @@
   </style>
 </head>
 
-<body class="hold-transition login-page" style="background-size: cover; background-image: url('<?= base_url('images/risk3.jpg') ?>')">
-    
-        <div class="login-box" style="float: right; margin-right: 35px;">
+<body class="hold-transition login-page" style="background-size: cover; background-image: url('<?= base_url('images/coverlogin123.jpg') ?>')">
+
+        <div class="login-box" style="float: right; margin-right: 65px;">
           <div class="login-box-body" style="background-color: rgba(255,255,255,0.8)">
                <div class="login-logo">
                 <center>
@@ -74,8 +75,8 @@
             </div>
           </div>
         </div>
-            
-      
+
+
 
 
     <?php if($this->session->flashdata('notif') ){ ?>

@@ -41,7 +41,7 @@ body {
 /*	width:90px;*/
 /*	font-size:15px;*/
 	display:none;
-  
+
 }
 
 #notifications {
@@ -170,7 +170,7 @@ body {
 
 </head>
 <body>
-  <div class="header w3-white" style="background-image: url('<?= base_url('images/istana2.png') ?>'); background-size: 100% 100%;">
+  <div class="header w3-white" style="background-image: url('<?= base_url('images/cc.jpg') ?>'); background-size: 100% 100%;">
     <img src="<?= base_url().'images/logo.svg' ?> " width="80px" alt="">
     <h3><b>SISTEM INFORMASI MONITORING MANAJEMEN RISIKO</b></h3>
     <h3><strong>SEKRETARIAT WAKIL PRESIDEN</strong></h3>

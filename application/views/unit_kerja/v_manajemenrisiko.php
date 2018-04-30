@@ -1,7 +1,7 @@
 <?php
 
   $jum1 = 1;
-  $nosop = 1;
+  $nosop2 = 1;
 
  ?>
 
@@ -159,11 +159,11 @@
                    $jmlsop = 1;
                  }
              ?>
-               <td rowspan="<?= $jmlsop ?>"><?= $nosop ?></td>
+               <td rowspan="<?= $jmlsop ?>"><?= $nosop2 ?></td>
                <td rowspan="<?= $jmlsop ?>"><?= $risk->nama_skp ?></td>
              <?php
                  $jum1 = $risk->rowskp;
-                 $nosop++;
+                 $nosop2++;
                } else {
                  $jum1 = $jum1 - 1;
                }

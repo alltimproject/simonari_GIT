@@ -18,7 +18,7 @@
 
 <body class="hold-transition login-page" style="background-size: cover; background-image: url('<?= base_url('images/asdsad.jpg') ?>')">
 
-    
+
     <div class="login-box" style="float: right; margin-right: 35px;">
           <div class="login-box-body" style="background-color: rgba(255,255,255,0.8)">
                <div class="login-logo">

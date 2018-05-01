@@ -9,7 +9,7 @@ $(function(){
   });
 });
 
-$(document).ready(function(){
+$(function(){
   $('#alertOrg').hide();
   $('#updateB').hide();
   $('#cancelB').hide();

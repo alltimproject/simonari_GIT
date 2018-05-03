@@ -18,69 +18,75 @@ class Organisasi extends CI_Controller{
 
   function index()
   {
-    $session = $this->session->userdata('id_unit');
-
-			$where = array(
-				'tbl_pegawai.id_unit' => $session
-			);
-
-      $where1 = array(
-        'id_unit' => $session
-      );
-
+      $session = $this->session->userdata('id_unit');
       $table = "tbl_unit_kerja";
-
-      //ambil foto
       $session_nip = array(
         'nip' => $this->session->userdata('nip')
       );
 
+    $data['title'] = "Organisasi | Simonari";
     $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
 
-
-		$data['data'] = $this->m_organisasi->showPegUnit($where)->result();
-    $data['keterangan'] = $this->m_core->showWhere($table, $where1)->result();
-    $data['title'] = "Organisasi | Simonari";
-
     $this->load->view('unit_kerja/include/header', $data);
-    $this->load->view('unit_kerja/include/sidebar_org', $data);
-    $this->load->view('unit_kerja/v_organisasi');
+    $this->load->view('unit_kerja/organisasi/content_organisasi', $data);
     $this->load->view('unit_kerja/include/footer');
   }
 
-  function editUnit()
+  function unit()
   {
-    $id_unit = $this->input->post('id_unit');
-    $id_unor = $this->input->post('id_unor');
-    $nama_unit = $this->input->post('nama_unit');
-    $sasaran = $this->input->post('sasaran');
-    $iku = $this->input->post('iku');
-
-    $data = array(
-      'id_unit' => $id_unit,
-      'id_unor' => $id_unor,
-      'nama_unit' => $nama_unit,
-      'sasaran' => $sasaran,
-      'iku' => $iku
-    );
-
+    $session = $this->session->userdata('id_unit');
+    $table = "tbl_unit_kerja";
     $where = array(
-      'id_unit' => $id_unit
+      'id_unit' => $session
     );
 
-    $cek = $this->m_core->updateData($data, $where, 'tbl_unit_kerja');
+    $data['keterangan'] = $this->m_core->showWhere($table, $where)->result();
+    $this->load->view('unit_kerja/organisasi/v_unit', $data);
 
-    if($cek)
-    {
-      $this->session->set_flashdata('notif', 'Berhasil Mengedit Data Unit Kerja');
-      $this->session->set_flashdata('class', 'success');
-      redirect('unit_kerja/organisasi');
-    } else {
-      $this->session->set_flashdata('notif', 'Berhasil Mengedit Data Unit Kerja');
-      $this->session->set_flashdata('class', 'danger');
-      redirect('unit_kerja/organisasi');
-    }
   }
+
+  function pegawai()
+  {
+    $session = $this->session->userdata('id_unit');
+    $table = "tbl_unit_kerja";
+    $where = array(
+      'tbl_pegawai.id_unit' => $session
+    );
+
+    $data['data'] = $this->m_organisasi->showPegUnit($where)->result();
+    $this->load->view('unit_kerja/organisasi/v_pegawai', $data);
+
+  }
+
+  function proses($aksi)
+  {
+    if($aksi == "edit")
+    {
+      $id_unit = $this->input->post('id_unit');
+      $sasaran = $this->input->post('sasaran');
+      $iku = $this->input->post('iku');
+
+      $data = array(
+        'id_unit' => $id_unit,
+        'sasaran' => $sasaran,
+        'iku' => $iku
+      );
+
+      $where = array(
+        'id_unit' => $id_unit
+      );
+
+      $cek = $this->m_core->updateData($data, $where, 'tbl_unit_kerja');
+      if($cek)
+      {
+        echo "berhasil";
+      } else {
+        echo "gagal";
+      }
+    }
+
+  }
+
   function ubahpassword()
   {
     $nip       = $this->session->userdata('nip');
@@ -116,7 +122,6 @@ class Organisasi extends CI_Controller{
     }
 
   }
-
 
   function uploadfoto()
   {

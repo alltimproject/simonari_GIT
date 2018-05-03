@@ -29,20 +29,46 @@ class Laporan extends CI_Controller{
     $data['title'] = 'Laporan | Simonari';
     $this->load->view('unit_kerja/include/header', $data);
 
-    $sess_unit = $this->session->userdata('id_unit');
     $session_nip = array(
       'nip' => $this->session->userdata('nip')
     );
+    $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
+    $this->load->view('unit_kerja/laporan/content_laporan', $data);
+
+    $this->load->view('unit_kerja/include/footer');
+  }
+
+  function lap_daftar_risiko()
+  {
+    $sess_unit = $this->session->userdata('id_unit');
     $where = array(
       'tbl_unit_kerja.id_unit' => $sess_unit
     );
 
-    $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
     $data['select'] = $this->m_laporan->selectTahunPK($where)->result();
+    $this->load->view('unit_kerja/laporan/v_lap_daftar_risiko', $data);
+  }
 
-    $this->load->view('unit_kerja/include/v_laporan', $data);
-    $this->load->view('unit_kerja/laporan/v_laporanall', $data);
-    $this->load->view('unit_kerja/include/footer');
+  function lap_rencana_penanganan()
+  {
+    $sess_unit = $this->session->userdata('id_unit');
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $sess_unit
+    );
+
+    $data['select'] = $this->m_laporan->selectTahunPK($where)->result();
+    $this->load->view('unit_kerja/laporan/v_lap_rencana', $data);
+  }
+
+  function lap_realisasi_penanganan()
+  {
+    $sess_unit = $this->session->userdata('id_unit');
+    $where = array(
+      'tbl_unit_kerja.id_unit' => $sess_unit
+    );
+
+    $data['select'] = $this->m_laporan->selectTahunPK($where)->result();
+    $this->load->view('unit_kerja/laporan/v_lap_realisasi', $data);
   }
 
   function exportdaftarrisiko()

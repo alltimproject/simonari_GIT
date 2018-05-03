@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <link rel="stylesheet" href="<?= base_url().'assets1/css/w3.css' ?>">
+  <link rel="stylesheet" href="<?= base_url().'assets1/toastr/build/toastr.css' ?>">
   <link rel="icon" type="image/png" href="<?= base_url('images/setwapres.png') ?>">
 
   <script src="<?= base_url().'assets1/js/jquery.min.js' ?>"></script>
@@ -91,8 +92,8 @@ body {
 }
 
 .activenav{
-  background-color:#ddd;
-  color: black;
+  background-color: #ddd;
+/*  color: saddlebrown;*/
 }
 
 .activecore{
@@ -179,8 +180,8 @@ body {
   <div class="topnav">
     <a href="<?= base_url('unit_kerja/dashboard') ?>" class="navigasi">DASHBOARD</a>
     <a href="<?= base_url('unit_kerja/organisasi') ?>" class="navigasi">ORGANISASI</a>
-    <a href="<?= base_url('unit_kerja/kegiatanproses') ?> " class="navigasi">KEGIATAN DAN PROSES BISNIS</a>
-    <a href="<?= base_url('unit_kerja/manajemenrisk') ?>" class="navigasi">MANAJEMEN RISIKO</a>
+    <a href="<?= base_url('unit_kerja/kegiatan_proses') ?> " class="navigasi">KEGIATAN DAN PROSES BISNIS</a>
+    <a href="<?= base_url('unit_kerja/manajemen_risiko') ?>" class="navigasi">MANAJEMEN RISIKO</a>
     <a href="<?= base_url('unit_kerja/laporan') ?>" class="navigasi">LAPORAN</a>
       <a href="<?= base_url('unit_kerja/tentang') ?>" class="navigasi"><small class="label pull-right bg-red"> Baru </small> TENTANG SI-MONARI</a>
     <a onclick="return confirm('Apakah Anda Yakin Ingin Keluar')" href="<?= base_url('login/logOut') ?>" style="float:right">LOGOUT</a>

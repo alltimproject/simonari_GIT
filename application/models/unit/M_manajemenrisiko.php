@@ -112,9 +112,8 @@
 				'id_sop' => $this->input->post('id_sop')
 			);
 			$this->db->where($where);
-			$this->db->update('tbl_monitor_rtp', $data);
+			return $this->db->update('tbl_monitor_rtp', $data);
 		}
-
 
 	}
 

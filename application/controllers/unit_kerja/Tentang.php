@@ -19,9 +19,18 @@ class Tentang extends CI_Controller{
     $data['showprofile'] = $this->m_organisasi->showpegawai($session_nip)->result();
 
     $this->load->view('unit_kerja/include/header', $data);
-    $this->load->view('unit_kerja/include/sidebar_tentang', $data);
-    $this->load->view('unit_kerja/v_tentang');
+    $this->load->view('unit_kerja/tentang/content_tentang', $data);
     $this->load->view('unit_kerja/include/footer');
+  }
+
+  function tutorial()
+  {
+    $this->load->view('unit_kerja/tentang/v_tutorial');
+  }
+
+  function pedoman()
+  {
+    $this->load->view('unit_kerja/tentang/v_pedoman');
   }
 
 }

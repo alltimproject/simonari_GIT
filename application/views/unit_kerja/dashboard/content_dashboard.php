@@ -1,7 +1,7 @@
 <?php $no = 1; ?>
 
   <br/><br/>
-  
+
 <div class="w3-animate-bottom">
   <div class="row">
     <div class="col-md-4">
@@ -119,7 +119,7 @@
             <?php foreach ($data as $key): ?>
               <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $key->nama_sop  ?></td>
+                <td><?= $key->nama_risk  ?></td>
                 <td><?= $key->deskripsi_cause ?></td>
                 <td><?= $key->kategori_cause ?></td>
                 <td><?= $key->frekuensi ?></td>
@@ -268,7 +268,7 @@ var katRisk = [
   </script>
 
 <script type="text/javascript">
-    
+
 $(function(){
   $('#pernyataanRisk').DataTable({
     'fixedHeader' : true,
@@ -295,5 +295,5 @@ $(function(){
           return false;
         });
       });
-    });   
+    });
 </script>

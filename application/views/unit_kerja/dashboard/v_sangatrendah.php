@@ -1,5 +1,5 @@
         <div class="box">
-           
+
             <div class="box-header with-border">
               <h3 class="box-title">
                  <div class="info-box bg-blue">
@@ -14,7 +14,7 @@
                 <button type="button" class="btn btn-box-tool" id="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
-            
+
             <div class="box-body">
               <table id="pernyataanRisk" class="table table-responsive table-striped table-hover table-bordered">
                  <thead>
@@ -39,7 +39,7 @@
                        foreach($data as $key ){ ?>
                          <tr>
                              <td> <?= $no++ ?> </td>
-                             <td> <?= $key->nama_sop ?> </td>
+                             <td> <?= $key->nama_risk ?> </td>
                              <td> <?= $key->deskripsi_cause ?> </td>
                              <td> <?= $key->kategori_cause ?> </td>
                              <td> <?= $key->frekuensi ?> </td>
@@ -55,11 +55,11 @@
                   </tbody>
               </table>
             </div>
-            
+
           </div>
-          
+
 <script>
     $('#remove').click(function(){
-       $('#content').slideUp(); 
+       $('#content').slideUp();
     });
 </script>

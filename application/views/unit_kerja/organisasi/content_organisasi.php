@@ -8,7 +8,7 @@
         <a href="<?= base_url('unit_kerja/organisasi/pegawai') ?>" class="w3-button w3-block w3-teal sidebar">Pegawai</a>
       </div>
     </div>
-    
+
     <div class="card">
     <div class="box box-primary">
         <div class="box-body box-profile">
@@ -50,32 +50,40 @@
           </div>
     </div>
   </div>
-  
+
   <div class="rightcolumn">
     <div class="card w3-animate-right">
+        <div class="loader"></div>
         <div id="content"></div>
     </div>
-  </div> 
-  
+  </div>
+
 <script type="text/javascript">
     $(document).ready(function(){
       $('#content').hide('fast', function(){
         $('#default').removeClass('w3-teal').addClass('activenav');
-        $('#content').load('<?= base_url('unit_kerja/organisasi/unit') ?>', function(){
-          $('#content').show('slow');
+        $('.loader').fadeIn(function(){
+          $('#content').load('<?= base_url('unit_kerja/organisasi/unit') ?>', function(){
+            $('#content').show('slow');
+            $('.loader').fadeOut();
+          });
         });
       });
       $('.sidebar').each(function(){
         $(this).click(function(){
           var link = $(this).attr('href');
-        
+
           $('.sidebar').removeClass('activenav').addClass('w3-teal');
           $(this).removeClass('w3-teal').addClass('activenav');
-            
+
           $('#content').hide('fast', function(){
-            $('#content').load(link, function(){
-              $('#content').show('slow');
+            $('.loader').fadeIn(function(){
+              $('#content').load(link, function(){
+                $('#content').show('slow');
+                $('.loader').fadeOut();
+              });
             });
+
           });
           return false;
         });

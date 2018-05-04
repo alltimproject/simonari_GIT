@@ -50,7 +50,7 @@
       </div>
 
     </div>
-    
+
 <script type="text/javascript">
 $(document).ready(function(){
   $('#tbRencana').each(function(){
@@ -82,6 +82,7 @@ $(document).ready(function(){
         data: {'tahun_pk': tahun_pk},
         dataType: 'JSON',
         success: function(data){
+
           $('#tb_lapRcn').html(data);
           //alert('Berhasil');
         },

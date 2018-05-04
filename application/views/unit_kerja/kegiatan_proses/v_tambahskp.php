@@ -67,21 +67,23 @@
             var button_id = $(this).attr("id");
             $('#baris'+button_id+'').remove();
           });
-        
+
           $('#cancelButton').click(function(){
           var konfirm = confirm('Apakah anda yakin ingin membatalkan?');
-          
+
           if(konfirm)
               {
                 $('#content').hide(function(){
-                    $('#content').load('<?= base_url('unit_kerja/kegiatan_proses/skp') ?>', function(){
-                        $('#content').show('slow');
-                    });
+									$('.loader').fadeIn(function(){
+										$('#content').load('<?= base_url('unit_kerja/kegiatan_proses/skp') ?>', function(){
+												$('#content').show('slow');
+												$('.loader').fadeOut();
+										});
+									});
                 });
-                  
-              }  
+              }
             });
-        
+
           $('.form-tambah').submit(function(){
             var link = '<?= base_url('unit_kerja/kegiatan_proses/proses_skp/tambah') ?>';
             $.ajax({

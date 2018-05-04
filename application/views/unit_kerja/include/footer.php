@@ -171,7 +171,11 @@ function scrolltotop()
 </script>
 
 <script type="text/javascript">
-  $('.hideform').fadeIn();
+  $('.loader').ajaxStart(function(){
+    $(this).fadeIn();
+  }).ajaxStop(function(){
+    $(this).fadeOut();
+  });
 </script>
 
 </body>

@@ -1,5 +1,5 @@
 
-	<div class="box box-info" onbeforeunload="coba();">
+	<div class="box box-info">
 		<div class="box-header">
 			<div class="box-title"><h3>Tambah Perjanjian Kinerja</h3></div>
 		</div>
@@ -52,21 +52,24 @@
             var button_id = $(this).attr("id");
             $('#baris'+button_id+'').remove();
           });
-        
+
           $('#cancelButton').click(function(){
           var konfirm = confirm('Apakah anda yakin ingin membatalkan?');
-          
+
           if(konfirm)
               {
                 $('#content').hide(function(){
-                    $('#content').load('<?= base_url('unit_kerja/kegiatan_proses/pk') ?>', function(){
+									$('.loader').fadeIn(function(){
+										$('#content').load('<?= base_url('unit_kerja/kegiatan_proses/pk') ?>', function(){
                         $('#content').show('slow');
+												$('.loader').fadeOut();
                     });
+									});
                 });
-                  
-              }  
+
+              }
             });
-        
+
           $('.form-tambah').submit(function(){
             var link = '<?= base_url('unit_kerja/kegiatan_proses/proses_pk/tambah') ?>';
             $.ajax({
@@ -92,6 +95,12 @@
             });
             return false;
         });
+
+				$('.loader').ajaxStart(function(){
+					$(this).fadeIn();
+				}).ajaxStop(function(){
+					$(this).fadeOut();
+				});
     });
 
 </script>

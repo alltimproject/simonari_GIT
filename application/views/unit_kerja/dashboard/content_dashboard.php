@@ -87,6 +87,7 @@
   </div>
 
 <!-- -->
+    <div class="loader"></div>
     <div id="content" class="w3-animate-botton"></div>
 <!-- -->
 
@@ -284,12 +285,16 @@ $(function(){
 });
 
  $(document).ready(function(){
+      $('.loader').hide();
       $('.btn-load').each(function(){
         $(this).click(function(){
           var link = $(this).attr('href');
           $('#content').hide('fast', function(){
-            $('#content').load(link, function(){
-              $('#content').show('slow');
+            $('.loader').fadeIn(function(){
+              $('#content').load(link, function(){
+                $('#content').show('slow');
+                $('.loader').fadeOut();
+              });
             });
           });
           return false;

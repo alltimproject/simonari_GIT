@@ -72,7 +72,7 @@ $(function(){
     }
   });
 });
-    
+
 $(function(){
     var count = 1;
       $('#add-sop').click(function(){
@@ -84,26 +84,29 @@ $(function(){
         html_code += "</tr>";
         $('#tb-sop').append(html_code);
       });
-    
+
       $(document).on('click', '.remove', function(){
         var button_id = $(this).attr("id");
         $('#baris'+button_id+'').remove();
       });
-    
+
       $('#cancelButton').click(function(){
           var konfirm = confirm('Apakah anda yakin ingin membatalkan?');
-          
+
           if(konfirm)
               {
                 $('#content').hide(function(){
-                    $('#content').load('<?= base_url('unit_kerja/kegiatan_proses/sop') ?>', function(){
-                        $('#content').show('slow');
-                    });
+									$('.loader').fadeIn(function(){
+										$('#content').load('<?= base_url('unit_kerja/kegiatan_proses/sop') ?>', function(){
+												$('#content').show('slow');
+												$('.loader').fadeOut();
+										});
+									});
                 });
-                  
-              }  
+
+              }
       });
-    
+
     $('.form-tambah').submit(function(){
         var link = '<?= base_url('unit_kerja/kegiatan_proses/proses_sop/tambah') ?>';
         $.ajax({
@@ -120,7 +123,7 @@ $(function(){
                     toastr.error('Tidak Berhasil Menambahkan Standar Operasional Prosedur');
                     $('.form-tambah')[0].reset();
                 }
-                
+
             },
             error: function(){
                 toastr.error('Tidak Berhasil Menambahkan Standar Operasional Prosedur');

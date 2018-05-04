@@ -1,6 +1,6 @@
-    
+
         <legend><h3>Identifikasi Risiko</h3></legend>
-        
+
          <div class="form">
           <h4 class="pull-right judul-form"></h4>
           <form class="form-data">
@@ -41,7 +41,7 @@
             </table>
           </form>
         </div>
-        
+
         <div class="data">
             <div class="table-responsive">
                 <table class="table table-bordered">
@@ -116,14 +116,14 @@
             </table>
             </div>
         </div>
-        
+
 <script type="text/javascript">
     $(function(){
         $('.form').hide();
-        
+
         $(document).on('click', '.pilih', function(e){
             $('.form').slideDown();
-            
+
             if($(this).attr('id') == "tambah")
                 {
                     $('.data').hide();
@@ -135,12 +135,12 @@
                     $('.judul-form').text('Edit Identifikasi Risiko');
                     $('#submit').removeClass().addClass('btn btn-md btn-success').text('Edit');
                 }
-            
-            
+
+
             $('html, body').animate({
                 scrollTop: $('.form').offset().top
             });
-            
+
             $('#id_sop').val($(this).attr('data-id_sop'));
             $('#nama_sop').val($(this).attr('data-nama_sop'));
             $('#nama_risk').val($(this).attr('data-nama_risk'));
@@ -149,14 +149,14 @@
             $('#deskripsi_cause').val($(this).attr('data-deskripsi_cause'));
             $('#kategori_cause').val($(this).attr('data-kategori_cause'));
             $('#deskripsi_pengendalian').val($(this).attr('data-deskripsi_pengendalian'));
-            $('#sisa_risk').val($(this).attr('data-sisa_risk'));     
+            $('#sisa_risk').val($(this).attr('data-sisa_risk'));
         });
-        
+
         $('#cancelButton').click(function(){
             $('.form').slideUp();
             $('.data').show();
         });
-        
+
         $('.form-data').submit(function(){
             var link = '<?= base_url('unit_kerja/manajemen_risiko/proses_identifikasi/update') ?>';
            if($("#nama_risk").val() == '' || $("#frekuensi").val() == '' || $("#dampak").val() == '' || $("#deskripsi_cause").val() == '' || $("#kategori_cause").val() == '' || $("#deskripsi_pengendalian").val() == '' || $("#sisa_risk").val() == '')
@@ -174,24 +174,41 @@
                         if(data == "berhasil")
                         {
                             toastr.success('Berhasil Menambah Identifikasi Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/identifikasi_risiko') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/identifikasi_risiko') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         } else {
                             toastr.error('Berhasil Menambah Identifikasi Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/identifikasi_risiko') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/identifikasi_risiko') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         }
                     },
                     error: function(){
                         toastr.error('Berhasil Menambah Identifikasi Risiko');
-                        $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/identifikasi_risiko') ?>');
+                        $('#content').hide('fast', function(){
+                          $('.loader').fadeIn(function(){
+                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/identifikasi_risiko') ?>', function(){
+                              $('#content').show('slow');
+                              $('.loader').fadeOut();
+                            });
+                          });
+                        });
                     }
-               
                 });
               }
-            
             return false;
         });
     });
 
 </script>
-        
-       

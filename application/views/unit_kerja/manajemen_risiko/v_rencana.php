@@ -5,8 +5,8 @@
      <div class="row">
          <h4 class="pull-right judul-form"></h4>
      </div>
-      
-      
+
+
         <div class="row">
          <form class="form-data">
           <div class="col-md-6">
@@ -115,14 +115,14 @@
          </table>
       </div>
     </div>
-    
+
 <script type="text/javascript">
     $(function(){
         $('.form').hide();
-        
+
         $(document).on('click', '.pilih', function(e){
             $('.form').slideDown();
-            
+
             if($(this).attr('id') == "tambah")
                 {
                     $('.data').hide();
@@ -134,19 +134,19 @@
                     $('.judul-form').text('Edit Rencana Penanganan Risiko');
                     $('#submit').removeClass().addClass('btn btn-md btn-success').text('Edit');
                 }
-            
-            
+
+
             $('html, body').animate({
                 scrollTop: $('.form').offset().top
             });
-            
+
             $('#id_sop').val($(this).attr('data-id_sop'));
             $('#nama_sop').val($(this).attr('data-nama_sop'));
             $('#nama_risk').val($(this).attr('data-nama_risk'));
             $('#deskripsi_cause').val($(this).attr('data-cause'));
             $('#deskripsi_pengendalian').val($(this).attr('data-pengendalian'));
             $('#action').val($(this).attr('data-action'));
-            
+
             $('#deskripsi_rtp').val($(this).attr('data-rencana'));
             $('#plan_mulai').val($(this).attr('data-plan_mulai'));
             $('#plan_selesai').val($(this).attr('data-plan_selesai'));
@@ -160,27 +160,27 @@
                 {
                     $('#status').val($(this).attr('data-status'));
                 }
-            
-            
+
+
         });
-        
+
         $('#cancelButton').click(function(){
             $('.form').slideUp();
             $('.data').show();
         });
-        
+
         $('.form-data').submit(function(){
             var action = $('#action').val();
-            
+
             if(action == "tambah")
                 {
-                   var link = '<?= base_url('unit_kerja/manajemen_risiko/proses_rencana/tambah') ?>'; 
+                   var link = '<?= base_url('unit_kerja/manajemen_risiko/proses_rencana/tambah') ?>';
                 }
             else
                 {
-                    var link = '<?= base_url('unit_kerja/manajemen_risiko/proses_rencana/edit') ?>'; 
+                    var link = '<?= base_url('unit_kerja/manajemen_risiko/proses_rencana/edit') ?>';
                 }
-            
+
            if($('#deskripsi_rtp').val() == '' || $('#plan_mulai').val() == '' || $('#plan_selesai').val() == '' || $('#indikator_output').val() == '' || $('#pic').val() == '')
               {
                 toastr.error('Field tidak boleh kosong');
@@ -196,27 +196,54 @@
                         if(data == "berhasil tambah")
                         {
                             toastr.info('Berhasil Menambah Rencana Penanganan Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         }
                         else if(data == "berhasil edit")
                         {
                             toastr.success('Berhasil Mengedit Rencana Penanganan Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         }
-                        else 
+                        else
                         {
                             toastr.error('Tidak Berhasil Menambah / Mengedit Rencana Penanganan Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         }
                     },
                     error: function(){
                         toastr.error('Berhasil Menambah Rencana Penanganan Risiko');
-                        $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>');
+                        $('#content').hide('fast', function(){
+                          $('.loader').fadeIn(function(){
+                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/rencana_penanganan') ?>', function(){
+                              $('#content').show('slow');
+                              $('.loader').fadeOut();
+                            });
+                          });
+                        });
                     }
-               
                 });
               }
-            
+
             return false;
         });
     });

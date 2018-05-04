@@ -82,7 +82,7 @@
         </div>
        </form>
       </div>
- 
+
     </div>
 
 
@@ -124,33 +124,33 @@
                 <?php if($real->status == "Close") {
                             if($real->berkas == "") { ?>
                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#uploadzip" id="upload" data-id_upload="<?= $real->id_sop ?>">Upload <span class="fa fa-upload"></span> </button>
-                                
+
                 <?php       } else { ?>
                                 <a class="btn btn-danger btn-sm" href="<?= base_url('uploadzip/'.$real->berkas)?>">Download<span class="fa fa-download"></span></a>
                 <?php       }
                     } else {
                         echo "";
-                    } ?>   
+                    } ?>
               </td>
 
               <td>
                 <?php if($real->status == "Open"){ ?>
-                 
+
                   <a class="btn btn-info btn-sm pilih" id="tambah" data-id_sop="<?= $real->id_sop ?>" data-nama_sop="<?= $real->nama_sop ?>" data-nama_risk="<?= $real->nama_risk ?>" data-cause="<?= $real->deskripsi_cause ?>" data-pengendalian="<?= $real->deskripsi_pengendalian ?>" data-rencana="<?= $real->deskripsi_rtp ?>" data-plan_mulai="<?= $real->plan_mulai ?>" data-plan_selesai="<?= $real->plan_selesai ?>" data-output="<?= $real->indikator_output ?>" data-pic="<?= $real->pic ?>" data-real_mulai="<?= $real->real_mulai ?>" data-real_selesai="<?= $real->real_selesai ?>" data-hambatan="<?= $real->hambatan ?>" data-keterangan="<?= $real->keterangan ?>" data-berkas="<?= $real->berkas ?>" data-action="tambah"> Buat Realisasi </a>
-                  
+
                 <?php } else { ?>
-                 
+
                   <a class="btn btn-success btn-sm pilih" id="edit" data-id_sop="<?= $real->id_sop ?>" data-nama_sop="<?= $real->nama_sop ?>" data-nama_risk="<?= $real->nama_risk ?>" data-cause="<?= $real->deskripsi_cause ?>" data-pengendalian="<?= $real->deskripsi_pengendalian ?>" data-rencana="<?= $real->deskripsi_rtp ?>" data-plan_mulai="<?= $real->plan_mulai ?>" data-plan_selesai="<?= $real->plan_selesai ?>" data-output="<?= $real->indikator_output ?>" data-pic="<?= $real->pic ?>" data-real_mulai="<?= $real->real_mulai ?>" data-real_selesai="<?= $real->real_selesai ?>" data-hambatan="<?= $real->hambatan ?>" data-keterangan="<?= $real->keterangan ?>" data-berkas="<?= $real->berkas ?>" data-action="edit"> Edit Realisasi </a>
-                  
+
                 <?php } ?>
              </td>
-            
+
           </tr>
       <?php  endforeach ?>
         </table>
       </div>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade" id="uploadzip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -158,7 +158,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Upload Zip
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </h5>   
+                    </h5>
                 </div>
 
                 <form class="form-upload" enctype="multipart/form-data">
@@ -177,16 +177,16 @@
             </div>
         </div>
     </div>
-    
-     
-                                    
+
+
+
 <script type="text/javascript">
     $(function(){
         $('.form').hide();
-        
+
         $(document).on('click', '.pilih', function(e){
             $('.form').slideDown();
-            
+
             if($(this).attr('id') == "tambah")
                 {
                     $('.data').hide();
@@ -198,43 +198,43 @@
                     $('.judul-form').text('Edit Rencana Penanganan Risiko');
                     $('#submit').removeClass().addClass('btn btn-md btn-success').text('Edit');
                 }
-            
-            
+
+
             $('html, body').animate({
                 scrollTop: $('.form').offset().top
             });
-            
+
             $('#id_sop').val($(this).attr('data-id_sop'));
             $('#nama_sop').val($(this).attr('data-nama_sop'));
             $('#nama_risk').val($(this).attr('data-nama_risk'));
             $('#deskripsi_cause').val($(this).attr('data-cause'));
             $('#deskripsi_pengendalian').val($(this).attr('data-pengendalian'));
             $('#action').val($(this).attr('data-action'));
-            
+
             $('#deskripsi_rtp').val($(this).attr('data-rencana'));
             $('#plan_mulai').val($(this).attr('data-plan_mulai'));
             $('#plan_selesai').val($(this).attr('data-plan_selesai'));
             $('#indikator_output').val($(this).attr('data-output'));
             $('#pic').val($(this).attr('data-pic'));
             $('#status').val($(this).attr('data-status'));
-            
+
             $('#real_mulai').val($(this).attr('data-real_mulai'));
             $('#real_selesai').val($(this).attr('data-real_selesai'));
             $('#hambatan').val($(this).attr('data-hambatan'));
             $('#keterangan').val($(this).attr('data-keterangan'));
             $('#action').val($(this).attr('data-action'));
-            
-            
+
+
         });
-        
+
         $('#cancelButton').click(function(){
             $('.form').slideUp();
             $('.data').show();
         });
-        
+
         $('.form-data').submit(function(){
             var link = '<?= base_url('unit_kerja/manajemen_risiko/proses_realisasi/update') ?>';
-            
+
            if($('#real_mulai').val() == '' || $('#real_selesai').val() == '' || $('#hambatan').val() == '')
               {
                 toastr.error('Field tidak boleh kosong');
@@ -250,40 +250,68 @@
                         if(data == "berhasil tambah")
                         {
                             toastr.info('Berhasil Menambah Realisasi Penanganan Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         }
                         else if(data == "berhasil edit")
                         {
                             toastr.success('Berhasil Mengedit Realisasi Penanganan Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         }
-                        else 
+                        else
                         {
                             toastr.error('Tidak Berhasil Menambah / Mengedit Realisasi Penanganan Risiko');
-                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>');
+                            $('#content').hide('fast', function(){
+                              $('.loader').fadeIn(function(){
+                                $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>', function(){
+                                  $('#content').show('slow');
+                                  $('.loader').fadeOut();
+                                });
+                              });
+                            });
                         }
                     },
                     error: function(){
                         toastr.error('Berhasil Menambah Realisasi Penanganan Risiko');
-                        $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>');
+                        $('#content').hide('fast', function(){
+                          $('.loader').fadeIn(function(){
+                            $('#content').load('<?= base_url('unit_kerja/manajemen_risiko/realisasi_penanganan') ?>', function(){
+                              $('#content').show('slow');
+                              $('.loader').fadeOut();
+                            });
+                          });
+                        });
                     }
-               
+
                 });
               }
-            
+
             return false;
         });
     });
-    
+
     $(function(){
        $(document).on('click', '#upload', function(e){
            $('#upload_id').val($(this).attr('data-id_upload'));
            $('#alertUpload').hide();
        });
-        
+
        $('.form-upload').submit(function(){
            var link = '<?= base_url('unit_kerja/manajemen_risiko/proses_realisasi/upload') ?>';
-           
+
            $.ajax({
                url: link,
                type: "POST",
@@ -325,5 +353,3 @@
     });
 
 </script>
-    
-   
